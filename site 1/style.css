@@ -1,0 +1,1479 @@
+/* ============================================================
+   СТИЛИ САЙТА ТУРАГЕНТСТВА «ДАЛЬНИЙ БЕРЕГ»
+   Подключается в index.html строкой <link rel="stylesheet" href="style.css">
+   ============================================================ */
+
+/* 1. ПЕРЕМЕННЫЕ: цвета, шрифт, скругления.
+   Хотите другой основной цвет? Поменяйте --green, и он сменится везде. */
+:root {
+  --green: #1B6B3A;        /* основной зелёный: кнопки, акценты */
+  --green-dark: #155A30;   /* зелёный при наведении */
+  --forest: #0F2B26;       /* тёмный фон подвала и блока подписки */
+  --mint: #F1F6F2;         /* светло-зелёный фон полос */
+  --text: #1A2B26;         /* основной текст */
+  --muted: #5B6B66;        /* второстепенный текст */
+  --border: #E3E8E5;       /* тонкие рамки */
+  --star: #F5B50A;         /* цвет звёзд */
+
+  --radius: 14px;          /* скругление карточек */
+  --shadow: 0 6px 24px rgba(15, 43, 38, 0.08);  /* мягкая тень */
+
+  --font: 'Manrope', system-ui, sans-serif;
+}
+
+/* 2. БАЗА */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #FFFFFF;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--green);
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 2px;
+}
+
+/* Иконки: все рисуются линиями, цвет берут у текста вокруг (currentColor) */
+.icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Контейнер: ограничивает ширину и центрирует содержимое */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* 3. КНОПКИ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 24px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn--green {
+  background: var(--green);
+  color: #FFFFFF;
+}
+
+.btn--green:hover {
+  background: var(--green-dark);
+  color: #FFFFFF;
+}
+
+.btn--white {
+  background: #FFFFFF;
+  color: var(--text);
+  border-color: var(--border);
+  box-shadow: var(--shadow);
+}
+
+/* 4. ВЕРХНЯЯ ПОЛОСА С КОНТАКТАМИ */
+.topbar {
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.topbar .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px 24px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.topbar__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 28px;
+}
+
+/* 5. ШАПКА */
+.header .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 32px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo .icon {
+  width: 38px;
+  height: 38px;
+  color: var(--green);
+}
+
+.logo__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.logo__name {
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.logo__tag {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 30px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.nav a {
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+}
+
+/* Подчёркивание у текущего раздела меню */
+.nav a.is-active {
+  color: var(--green);
+  border-bottom-color: var(--green);
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* 6. ПЕРВЫЙ ЭКРАН */
+.hero {
+  position: relative;
+  background: linear-gradient(90deg, #FFFFFF 0%, #FFFFFF 38%, #EAF4F1 100%);
+  overflow: hidden;
+}
+
+.hero .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+  padding-top: 56px;
+  padding-bottom: 120px;   /* запас снизу: сюда «заезжает» блок поиска */
+}
+
+.hero__text {
+  flex: 1 1 420px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.hero h1 {
+  font-size: clamp(34px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+/* Вторая строка заголовка зелёная */
+.hero h1 span {
+  display: block;
+  color: var(--green);
+}
+
+.hero__lead {
+  max-width: 440px;
+  font-size: 18px;
+  color: var(--muted);
+}
+
+.hero__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Ряд кружков с «аватарами» и подписью доверия */
+.trust {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.avatars {
+  display: flex;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  margin-left: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  background: #C9DDD0;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
+/* Большая картинка справа (пока градиент вместо фото) */
+.hero__image {
+  flex: 1 1 460px;
+  min-width: 0;
+  position: relative;
+  min-height: 360px;
+  border-radius: 24px;
+  /* Небо, море и песок нарисованы тремя градиентами слоями */
+  background:
+    linear-gradient(180deg, transparent 0%, transparent 62%, #F1DFB5 62%, #F1DFB5 100%),
+    linear-gradient(180deg, #8ECFEA 0%, #4FA9D0 62%, #4FA9D0 100%);
+  overflow: hidden;
+}
+
+.hero__image::before {
+  /* Солнце */
+  content: "";
+  position: absolute;
+  top: 36px;
+  right: 56px;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #FFF3C4;
+}
+
+.hero__image-label {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* Плавающая карточка поверх картинки */
+.hero__card {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: #FFFFFF;
+  box-shadow: var(--shadow);
+}
+
+.hero__card-icon {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--green);
+  color: #FFFFFF;
+}
+
+.hero__card-title {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+.hero__card-price {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+/* 7. БЛОК ПОИСКА (наезжает на первый экран) */
+.search-wrap {
+  position: relative;
+  z-index: 2;
+  margin-top: -64px;     /* отрицательный отступ поднимает блок вверх, на hero */
+}
+
+.search {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: #FFFFFF;
+  box-shadow: var(--shadow);
+}
+
+.search__field {
+  flex: 1 1 160px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.search__field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.search__field input,
+.search__field select {
+  width: 100%;
+  height: 48px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #FFFFFF;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.search .btn {
+  flex: 1 1 180px;
+  min-height: 48px;
+}
+
+/* 8. ОБЩИЕ СТИЛИ РАЗДЕЛОВ */
+.section {
+  padding: 56px 0 0;
+}
+
+.section__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 24px;
+  margin-bottom: 24px;
+}
+
+.section__title {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.section__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.section__link .icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* 9. НАПРАВЛЕНИЯ */
+.directions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
+}
+
+.direction {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #FFFFFF;
+}
+
+.direction:hover {
+  box-shadow: var(--shadow);
+}
+
+.direction .icon {
+  width: 34px;
+  height: 34px;
+  color: var(--green);
+}
+
+.direction__name {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.direction__count {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* 10. КАРТОЧКИ ТУРОВ */
+.tours {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.tour {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #FFFFFF;
+  overflow: hidden;       /* картинка не вылезает за скруглённые углы */
+}
+
+.tour__photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* У каждой карточки свой градиент-заглушка. Позже замените на настоящее фото */
+.tour__photo--sea    { background: linear-gradient(180deg, #8ECFEA 0%, #4FA9D0 55%, #F1DFB5 55%); }
+.tour__photo--desert { background: linear-gradient(180deg, #F6D9A8 0%, #EBA95F 60%, #C9803C 60%); }
+.tour__photo--city   { background: linear-gradient(180deg, #F3B7A0 0%, #8FA5C8 70%, #3E4F72 70%); }
+.tour__photo--mount  { background: linear-gradient(180deg, #BFE0EE 0%, #86B7A0 60%, #3F7D5A 60%); }
+
+.tour__photo-label {
+  margin: 0 0 10px 12px;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #FFFFFF;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: #FFFFFF;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.heart .icon {
+  width: 18px;
+  height: 18px;
+}
+
+.tour__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px 16px;
+}
+
+.tour__title {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.tour__place {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.tour__price {
+  margin-top: 4px;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--green);
+}
+
+.tour__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* 11. ПОЛОСА «ПОЧЕМУ МЫ» */
+.why {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  padding: 28px;
+  border-radius: var(--radius);
+  background: var(--mint);
+}
+
+.why__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.why__item .icon {
+  width: 40px;
+  height: 40px;
+  color: var(--green);
+}
+
+.why__title {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.why__text {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* 12. ОТЗЫВЫ */
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #FFFFFF;
+}
+
+.review__quote {
+  font-size: 40px;
+  line-height: 0.6;
+  font-weight: 800;
+  color: var(--green);
+}
+
+.review__text {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.review__footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.review__footer .avatar {
+  margin-left: 0;
+  width: 44px;
+  height: 44px;
+}
+
+.review__name {
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.review__city {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.stars {
+  margin-left: auto;
+  color: var(--star);
+  letter-spacing: 2px;
+  font-size: 15px;
+}
+
+/* 13. ПОДПИСКА */
+.subscribe {
+  margin-top: 56px;
+  background: var(--forest);
+  color: #FFFFFF;
+}
+
+.subscribe .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px 40px;
+  padding-top: 36px;
+  padding-bottom: 36px;
+}
+
+.subscribe__text {
+  flex: 1 1 300px;
+  min-width: 0;
+}
+
+.subscribe__title {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.subscribe__lead {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #B9CCC5;
+}
+
+.subscribe__form {
+  flex: 1 1 340px;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.subscribe__form input {
+  flex: 1 1 200px;
+  min-width: 0;
+  height: 48px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+/* 14. ПОДВАЛ */
+.footer {
+  background: var(--forest);
+  color: #C9D8D2;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 32px;
+  padding-top: 40px;
+  padding-bottom: 32px;
+}
+
+.footer .logo__name {
+  color: #FFFFFF;
+}
+
+.footer .logo__tag {
+  color: #B9CCC5;
+}
+
+.footer .logo .icon {
+  color: #5DBB82;
+}
+
+.footer__about {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #B9CCC5;
+}
+
+.footer__title {
+  margin-bottom: 14px;
+  font-size: 15px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.footer__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.footer a:hover {
+  color: #FFFFFF;
+}
+
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer__bottom .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  font-size: 13px;
+  color: #93AAA2;
+}
+
+/* ============================================================
+   СТИЛИ ВНУТРЕННИХ СТРАНИЦ
+   (tours.html, tour-antalya.html, about.html, contacts.html)
+   ============================================================ */
+
+/* 15. ЗАГОЛОВОК ВНУТРЕННЕЙ СТРАНИЦЫ */
+.page-head {
+  padding: 32px 0 8px;
+  background: linear-gradient(90deg, #FFFFFF 0%, #EAF4F1 100%);
+  border-bottom: 1px solid var(--border);
+}
+
+.page-head .container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 28px;
+}
+
+.page-head h1 {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.page-head__lead {
+  max-width: 640px;
+  font-size: 17px;
+  color: var(--muted);
+}
+
+/* Хлебные крошки: Главная / Туры / Анталья */
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.breadcrumbs a:hover {
+  color: var(--green);
+}
+
+/* Отступ перед подвалом на внутренних страницах */
+.page-end {
+  height: 72px;
+}
+
+/* 16. СТРАНИЦА «ТУРЫ»: фильтры и ссылка в карточке */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.chip {
+  min-height: 40px;
+  padding: 0 18px;
+  border: 1px solid var(--border);
+  border-radius: 999px;      /* полностью скруглённая «таблетка» */
+  background: #FFFFFF;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.chip:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.chip.is-active {
+  background: var(--green);
+  border-color: var(--green);
+  color: #FFFFFF;
+}
+
+.tour {
+  transition: box-shadow .2s, transform .2s;
+}
+
+.tour:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+}
+
+.tour__title a:hover {
+  color: var(--green);
+}
+
+.tour__more {
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+/* 17. ОБЩИЕ ПОЛЯ ФОРМ (страницы «Контакты» и «Тур») */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #FFFFFF;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.field input,
+.field select {
+  height: 48px;
+}
+
+.field textarea {
+  min-height: 110px;
+  padding: 12px;
+  resize: vertical;
+}
+
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 2px;
+}
+
+/* 18. СТРАНИЦА «О НАС» */
+.about {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  align-items: center;
+}
+
+.about__text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 17px;
+  color: var(--muted);
+}
+
+.about__photo {
+  min-height: 300px;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #C9DDD0 0%, #8ECFEA 100%);
+}
+
+.about__photo span {
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* «Как мы работаем»: 4 шага */
+.process {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.process__item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #FFFFFF;
+}
+
+.process__num {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--green);
+  color: #FFFFFF;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.process__title {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.process__text {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* 19. СТРАНИЦА «КОНТАКТЫ» */
+.contacts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  align-items: start;
+}
+
+.contacts__info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #FFFFFF;
+}
+
+.contact-card .icon {
+  width: 32px;
+  height: 32px;
+  color: var(--green);
+}
+
+.contact-card__title {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.contact-card__value {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.contacts__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #FFFFFF;
+  box-shadow: var(--shadow);
+}
+
+.contacts__form h2 {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+/* 20. СТРАНИЦА ТУРА */
+.detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;   /* слева контент, справа карточка */
+  gap: 32px;
+  align-items: start;
+}
+
+.detail__main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  min-width: 0;
+}
+
+.detail__photo .tour__photo {
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.block h2 {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.block p {
+  color: var(--muted);
+}
+
+/* Список «Что входит в стоимость» */
+.checklist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px 24px;
+}
+
+.checklist li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+}
+
+.checklist .icon {
+  color: var(--green);
+}
+
+/* Программа по дням */
+.days {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.day {
+  display: flex;
+  gap: 18px;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #FFFFFF;
+}
+
+.day__label {
+  flex-shrink: 0;
+  min-width: 82px;
+  height: fit-content;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--mint);
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.day__title {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.day__text {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* Карточка бронирования справа: прилипает при прокрутке */
+.detail__aside {
+  position: sticky;
+  top: 24px;
+}
+
+.booking {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #FFFFFF;
+  box-shadow: var(--shadow);
+}
+
+.booking__price {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--green);
+}
+
+.booking__note {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* 21. ПЛАНШЕТЫ И ТЕЛЕФОНЫ */
+@media (max-width: 900px) {
+  .detail {
+    grid-template-columns: 1fr;   /* карточка бронирования уходит под контент */
+  }
+
+  .detail__aside {
+    position: static;
+  }
+}
+
+@media (max-width: 560px) {
+  .day {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contacts__form {
+    padding: 20px;
+  }
+}
+
+/* ============================================================
+   22. СТИЛИ ДЛЯ script.js (фильтры, избранное, сообщения форм)
+   ============================================================ */
+
+/* Скрытая фильтром карточка. Без этого правила атрибут hidden
+   не сработает: display:flex у .tour сильнее. */
+.tour[hidden] {
+  display: none;
+}
+
+.filters__result {
+  min-height: 1.5em;
+  margin: -8px 0 20px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.filters__result a {
+  font-weight: 700;
+  color: var(--green);
+}
+
+/* Сердечко в избранном: красное и залитое */
+.heart.is-fav {
+  color: #D6336C;
+}
+
+.heart.is-fav .icon {
+  fill: currentColor;
+}
+
+/* Сообщение под формой после отправки */
+.form-msg {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.subscribe .form-msg {
+  flex-basis: 100%;
+  color: #5DBB82;
+}
+
+/* Подпись «Примеры отзывов» рядом с заголовком */
+.section__note {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ============================================================
+   23. АНИМАЦИИ
+   Сами «шаги» анимации описаны в @keyframes, а к элементам они
+   подключаются свойством animation. Появление блоков при прокрутке
+   (класс .reveal) включает script.js.
+   ============================================================ */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+@keyframes pop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+
+/* Первый экран: текст выезжает по очереди */
+.hero__text > * {
+  animation: fadeUp .7s cubic-bezier(.2, .7, .2, 1) both;
+}
+.hero__text > :nth-child(1) { animation-delay: .05s; }
+.hero__text > :nth-child(2) { animation-delay: .15s; }
+.hero__text > :nth-child(3) { animation-delay: .25s; }
+.hero__text > :nth-child(4) { animation-delay: .35s; }
+
+.hero__image {
+  animation: fadeIn 1s .25s both;
+}
+
+/* Солнце и карточка слегка парят */
+.hero__image::before {
+  animation: floatY 7s ease-in-out infinite;
+}
+
+.hero__card {
+  animation: floatY 5s ease-in-out infinite;
+}
+
+/* Заголовок внутренних страниц */
+.page-head .container > * {
+  animation: fadeUp .6s cubic-bezier(.2, .7, .2, 1) both;
+}
+.page-head .container > :nth-child(2) { animation-delay: .08s; }
+.page-head .container > :nth-child(3) { animation-delay: .16s; }
+
+/* Появление блоков при прокрутке: script.js добавляет .reveal,
+   а когда блок виден, добавляет .is-visible */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s cubic-bezier(.2, .7, .2, 1),
+              transform .7s cubic-bezier(.2, .7, .2, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Полоска прогресса чтения вверху экрана */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 3px;
+  background: var(--green);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  pointer-events: none;
+}
+
+/* Шапка прилипает к верху только на широких экранах:
+   на телефоне она высокая и закрывала бы половину экрана */
+@media (min-width: 901px) {
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.88);
+    -webkit-backdrop-filter: saturate(1.4) blur(12px);
+    backdrop-filter: saturate(1.4) blur(12px);
+    transition: box-shadow .3s;
+  }
+
+  .header.is-scrolled {
+    box-shadow: 0 4px 20px rgba(15, 43, 38, 0.08);
+  }
+
+  /* Карточка бронирования останавливается ниже липкой шапки */
+  .detail__aside {
+    top: 104px;
+  }
+}
+
+/* Кнопки, ссылки меню, иконки: реакция на наведение */
+.btn {
+  transition: transform .2s, box-shadow .2s, background-color .2s;
+}
+
+.btn--green:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(27, 107, 58, 0.3);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.nav a {
+  transition: color .2s, border-color .2s;
+}
+
+.nav a:hover {
+  border-bottom-color: var(--green);
+}
+
+.direction {
+  transition: box-shadow .25s, transform .25s;
+}
+
+.direction:hover {
+  transform: translateY(-3px);
+}
+
+.direction .icon {
+  transition: transform .3s;
+}
+
+.direction:hover .icon {
+  transform: scale(1.15) rotate(-6deg);
+}
+
+.chip {
+  transition: background-color .2s, color .2s, border-color .2s;
+}
+
+.heart {
+  transition: transform .2s;
+}
+
+.heart:hover {
+  transform: scale(1.12);
+}
+
+.heart.is-fav .icon {
+  animation: pop .4s;
+}
+
+/* Карточка появляется заново после смены фильтра.
+   Режим backwards: после конца анимации карточка возвращается
+   к обычным стилям, и наведение продолжает работать */
+.tour.is-pop {
+  animation: fadeUp .45s cubic-bezier(.2, .7, .2, 1) backwards;
+}
+
+/* Если у человека в системе включено «уменьшить движение», анимаций нет */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============================================================
+   24. ФОТОГРАФИИ
+   <img> лежит внутри блока и растягивается на всю его площадь.
+   object-fit: cover обрезает фото по краям, но не искажает его.
+   Положение обрезки подбирается в style="object-position: ..." у каждого фото.
+   Градиент блока остаётся запасным фоном, пока фото загружается,
+   а у туров без фото он так и остаётся картинкой.
+   ============================================================ */
+.tour__img,
+.hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Солнце из градиентной заглушки не нужно, когда есть настоящее фото */
+.hero__image--photo::before {
+  display: none;
+}
