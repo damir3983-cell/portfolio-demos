@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Контакты — KROY</title>
+  <meta name="description" content="Контакты магазина KROY: телефон, почта, часы работы и адреса магазинов.">
+
+  <!-- Шрифты с Google Fonts (нужен интернет, без него подставится системный) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- СПРАЙТ: силуэты одежды рисуются один раз, дальше подставляются через <use>.
+       Цвет вещи берётся из CSS-переменной --c, поэтому одну картинку можно покрасить в любой цвет. -->
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <symbol id="g-tee" viewBox="0 0 200 200">
+      <path class="m" d="M62 28 L86 20 Q100 36 114 20 L138 28 L180 62 L160 90 L142 78 L142 176 Q142 182 136 182 L64 182 Q58 182 58 176 L58 78 L40 90 L20 62 Z"/>
+      <path class="sh" d="M114 20 L138 28 L180 62 L160 90 L142 78 L142 176 Q142 182 136 182 L120 182 L124 60 Z"/>
+      <path class="dt" d="M86 20 Q100 38 114 20"/>
+      <path class="dt" d="M58 78 Q64 100 62 120 M142 78 Q136 100 138 120"/>
+    </symbol>
+
+    <symbol id="g-hoodie" viewBox="0 0 200 200">
+      <path class="m" d="M52 56 L82 40 Q100 62 118 40 L148 56 L184 108 L162 130 L144 110 L144 180 Q144 184 140 184 L60 184 Q56 184 56 180 L56 110 L38 130 L16 108 Z"/>
+      <path class="sh" d="M118 40 L148 56 L184 108 L162 130 L144 110 L144 180 Q144 184 140 184 L122 184 L126 70 Z"/>
+      <path class="m" d="M80 40 Q100 4 120 40 Q100 66 80 40 Z"/>
+      <path class="dk" d="M86 38 Q100 16 114 38 Q100 56 86 38 Z"/>
+      <path class="dt" d="M72 132 H128 L136 164 H64 Z"/>
+      <path class="dt" d="M95 58 V92 M105 58 V92"/>
+    </symbol>
+
+    <symbol id="g-bomber" viewBox="0 0 200 200">
+      <path class="m" d="M54 52 L84 36 L100 44 L116 36 L146 52 L184 102 L166 148 L146 140 L146 176 Q146 182 140 182 L60 182 Q54 182 54 176 L54 140 L34 148 L16 102 Z"/>
+      <path class="sh" d="M116 36 L146 52 L184 102 L166 148 L146 140 L146 176 Q146 182 140 182 L120 182 L124 66 Z"/>
+      <path class="dk" d="M54 160 H146 V182 H54 Z"/>
+      <path class="dk" d="M84 36 L100 44 L116 36 L112 26 Q100 34 88 26 Z"/>
+      <path class="dt" d="M100 44 V160"/>
+      <path class="dt" d="M68 122 H86 M132 122 H114"/>
+    </symbol>
+
+    <symbol id="g-jeans" viewBox="0 0 200 200">
+      <path class="m" d="M62 18 H138 L148 72 L160 186 L120 186 L100 84 L80 186 L40 186 L52 72 Z"/>
+      <path class="sh" d="M100 84 L120 186 L160 186 L148 72 L138 18 H100 Z"/>
+      <path class="dk" d="M62 18 H138 L139 32 H61 Z"/>
+      <path class="dt" d="M100 32 V84"/>
+      <path class="dt" d="M64 36 Q76 54 92 52 M136 36 Q124 54 108 52"/>
+    </symbol>
+
+    <symbol id="g-sneaker" viewBox="0 0 200 200">
+      <path class="m" d="M22 118 Q24 92 52 88 L74 62 Q84 56 94 66 L110 90 Q142 92 170 110 Q184 118 182 134 L182 146 H22 Z"/>
+      <path class="sh" d="M110 90 Q142 92 170 110 Q184 118 182 134 L182 146 H130 Z"/>
+      <path class="sole" d="M18 144 H186 V156 Q186 166 176 166 H28 Q18 166 18 156 Z"/>
+      <path class="dt" d="M78 72 L92 88 M70 82 L84 96 M62 92 L76 106"/>
+      <path class="dt" d="M22 128 H182"/>
+    </symbol>
+
+    <symbol id="g-beanie" viewBox="0 0 200 200">
+      <circle class="m" cx="100" cy="34" r="14"/>
+      <path class="m" d="M40 114 Q40 46 100 44 Q160 46 160 114 Z"/>
+      <path class="sh" d="M100 44 Q160 46 160 114 H120 Q132 72 100 44 Z"/>
+      <path class="m" d="M36 108 H164 V142 Q164 148 158 148 H42 Q36 148 36 142 Z"/>
+      <path class="dt" d="M52 112 V144 M68 112 V144 M84 112 V144 M100 112 V144 M116 112 V144 M132 112 V144 M148 112 V144"/>
+    </symbol>
+  </svg>
+
+  <div class="page-curtain" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-row">
+      <a href="index.html" class="brand" aria-label="KROY, на главную">
+        <span class="brand__logo">K</span>
+        <span class="brand__name">KROY</span>
+      </a>
+
+      <nav class="menu" id="menu" aria-label="Основное меню">
+        <a href="index.html">Главная</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="looks.html">Образы</a>
+        <a href="delivery.html">Доставка</a>
+        <a href="contacts.html" class="is-current" aria-current="page">Контакты</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="cart-btn" id="cart-btn" aria-label="Открыть корзину">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+          <span class="cart-count" id="cart-count" aria-live="polite">0</span>
+        </button>
+        <button type="button" class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="page-head">
+      <div class="container">
+        <nav class="crumbs" aria-label="Хлебные крошки"><a href="index.html">Главная</a><span>/</span><span aria-current="page">Контакты</span></nav>
+        <span class="spark" aria-hidden="true">✦ <i>·</i> <i>·</i></span>
+        <h1>Контакты</h1>
+        <p>Ответим в чате за несколько минут. Можно позвонить, написать или зайти в магазин.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contacts">
+        <div class="cinfo">
+          <article class="citem"><span class="citem__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span><div><small>Телефон</small><b>+7 (900) 000-00-00</b></div></article>
+          <article class="citem"><span class="citem__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 7l9 7 9-7"/></svg></span><div><small>Почта</small><b>hello@kroy.example</b></div></article>
+          <article class="citem"><span class="citem__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg></span><div><small>Часы работы</small><b>Ежедневно 9:00–21:00</b></div></article>
+          <article class="citem"><span class="citem__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></span><div><small>Главный магазин</small><b>Москва, ул. Примерная, 12</b></div></article>
+        </div>
+
+        <form class="cform" id="contact-form" novalidate>
+          <h2>Написать нам</h2>
+          <div class="cform__row">
+            <label>Имя<input id="c-name" type="text" placeholder="Как к вам обращаться" required autocomplete="name"></label>
+            <label>Почта<input id="c-mail" type="email" placeholder="you@example.com" required autocomplete="email"></label>
+          </div>
+          <label>Тема
+            <select id="c-topic">
+              <option>Вопрос по заказу</option>
+              <option>Размеры и посадка</option>
+              <option>Возврат и обмен</option>
+              <option>Сотрудничество</option>
+            </select>
+          </label>
+          <label>Сообщение<textarea id="c-text" rows="5" placeholder="Расскажите, чем помочь" required></textarea></label>
+          <button type="submit" class="btn btn--primary">Отправить</button>
+          <p class="form-msg" id="c-msg" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head"><div><span class="spark" aria-hidden="true">✦ <i>·</i> <i>·</i></span><h2>Магазины</h2><p>Адреса вымышленные, сайт демонстрационный.</p></div></div>
+        <div class="shops">
+          <div class="shoplist">
+            <button type="button" class="shop is-active" data-pin="1"><b>Москва</b><span>ул. Примерная, 12 · 10:00–22:00</span></button>
+            <button type="button" class="shop" data-pin="2"><b>Санкт-Петербург</b><span>Невский пр., 100 · 10:00–22:00</span></button>
+            <button type="button" class="shop" data-pin="3"><b>Казань</b><span>ул. Баумана, 45 · 10:00–21:00</span></button>
+          </div>
+          <div class="map" id="map" aria-hidden="true">
+            <span class="pin pin--1 is-active" data-pin="1"><i></i></span>
+            <span class="pin pin--2" data-pin="2"><i></i></span>
+            <span class="pin pin--3" data-pin="3"><i></i></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <a href="index.html" class="brand"><span class="brand__logo">K</span><span class="brand__name">KROY</span></a>
+        <p class="footer__about">Одежда на каждый день: простые вещи, хорошие материалы и честные цены.</p>
+      </div>
+      <div>
+        <h3>Магазин</h3>
+        <ul><li><a href="catalog.html">Каталог</a></li><li><a href="looks.html">Готовые образы</a></li><li><a href="catalog.html?cat=sale">Скидки</a></li></ul>
+      </div>
+      <div>
+        <h3>Помощь</h3>
+        <ul><li><a href="delivery.html">Доставка и возврат</a></li><li><a href="delivery.html#razmery">Таблица размеров</a></li><li><a href="contacts.html">Контакты</a></li></ul>
+      </div>
+      <div>
+        <h3>Связь</h3>
+        <ul><li>+7 (900) 000-00-00</li><li>hello@kroy.example</li><li>Ежедневно 9:00–21:00</li></ul>
+      </div>
+    </div>
+    <div class="container footer__word" aria-hidden="true">KROY</div>
+    <div class="footer__bottom">
+      <div class="container">© 2026 KROY. Демонстрационный сайт для портфолио: магазин вымышленный, товары не продаются.</div>
+    </div>
+  </footer>
+
+  <!-- КОРЗИНА: выдвижная панель справа -->
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="drawer" id="drawer" aria-label="Корзина" aria-hidden="true" tabindex="-1">
+    <div class="drawer__head">
+      <h2>Корзина</h2>
+      <button type="button" class="round-btn" id="drawer-close" aria-label="Закрыть корзину"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <ul class="cart-list" id="cart-list"></ul>
+    <p class="cart-empty" id="cart-empty">Здесь пока пусто. Добавьте что-нибудь из каталога.</p>
+    <div class="drawer__foot">
+      <div class="total"><span>Итого</span><b id="cart-total">0 ₽</b></div>
+      <button type="button" class="btn btn--primary btn--block" id="checkout">Оформить заказ</button>
+      <p class="form-msg" id="checkout-msg" role="status"></p>
+    </div>
+  </aside>
+
+  <script src="products.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

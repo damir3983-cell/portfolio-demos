@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KROY — магазин одежды</title>
+  <meta name="description" content="Худи, футболки, джинсы, куртки и кроссовки на каждый день. Бесплатная доставка от 5 000 ₽, возврат 30 дней.">
+
+  <!-- Шрифты с Google Fonts (нужен интернет, без него подставится системный) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- СПРАЙТ: силуэты одежды рисуются один раз, дальше подставляются через <use>.
+       Цвет вещи берётся из CSS-переменной --c, поэтому одну картинку можно покрасить в любой цвет. -->
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <symbol id="g-tee" viewBox="0 0 200 200">
+      <path class="m" d="M62 28 L86 20 Q100 36 114 20 L138 28 L180 62 L160 90 L142 78 L142 176 Q142 182 136 182 L64 182 Q58 182 58 176 L58 78 L40 90 L20 62 Z"/>
+      <path class="sh" d="M114 20 L138 28 L180 62 L160 90 L142 78 L142 176 Q142 182 136 182 L120 182 L124 60 Z"/>
+      <path class="dt" d="M86 20 Q100 38 114 20"/>
+      <path class="dt" d="M58 78 Q64 100 62 120 M142 78 Q136 100 138 120"/>
+    </symbol>
+
+    <symbol id="g-hoodie" viewBox="0 0 200 200">
+      <path class="m" d="M52 56 L82 40 Q100 62 118 40 L148 56 L184 108 L162 130 L144 110 L144 180 Q144 184 140 184 L60 184 Q56 184 56 180 L56 110 L38 130 L16 108 Z"/>
+      <path class="sh" d="M118 40 L148 56 L184 108 L162 130 L144 110 L144 180 Q144 184 140 184 L122 184 L126 70 Z"/>
+      <path class="m" d="M80 40 Q100 4 120 40 Q100 66 80 40 Z"/>
+      <path class="dk" d="M86 38 Q100 16 114 38 Q100 56 86 38 Z"/>
+      <path class="dt" d="M72 132 H128 L136 164 H64 Z"/>
+      <path class="dt" d="M95 58 V92 M105 58 V92"/>
+    </symbol>
+
+    <symbol id="g-bomber" viewBox="0 0 200 200">
+      <path class="m" d="M54 52 L84 36 L100 44 L116 36 L146 52 L184 102 L166 148 L146 140 L146 176 Q146 182 140 182 L60 182 Q54 182 54 176 L54 140 L34 148 L16 102 Z"/>
+      <path class="sh" d="M116 36 L146 52 L184 102 L166 148 L146 140 L146 176 Q146 182 140 182 L120 182 L124 66 Z"/>
+      <path class="dk" d="M54 160 H146 V182 H54 Z"/>
+      <path class="dk" d="M84 36 L100 44 L116 36 L112 26 Q100 34 88 26 Z"/>
+      <path class="dt" d="M100 44 V160"/>
+      <path class="dt" d="M68 122 H86 M132 122 H114"/>
+    </symbol>
+
+    <symbol id="g-jeans" viewBox="0 0 200 200">
+      <path class="m" d="M62 18 H138 L148 72 L160 186 L120 186 L100 84 L80 186 L40 186 L52 72 Z"/>
+      <path class="sh" d="M100 84 L120 186 L160 186 L148 72 L138 18 H100 Z"/>
+      <path class="dk" d="M62 18 H138 L139 32 H61 Z"/>
+      <path class="dt" d="M100 32 V84"/>
+      <path class="dt" d="M64 36 Q76 54 92 52 M136 36 Q124 54 108 52"/>
+    </symbol>
+
+    <symbol id="g-sneaker" viewBox="0 0 200 200">
+      <path class="m" d="M22 118 Q24 92 52 88 L74 62 Q84 56 94 66 L110 90 Q142 92 170 110 Q184 118 182 134 L182 146 H22 Z"/>
+      <path class="sh" d="M110 90 Q142 92 170 110 Q184 118 182 134 L182 146 H130 Z"/>
+      <path class="sole" d="M18 144 H186 V156 Q186 166 176 166 H28 Q18 166 18 156 Z"/>
+      <path class="dt" d="M78 72 L92 88 M70 82 L84 96 M62 92 L76 106"/>
+      <path class="dt" d="M22 128 H182"/>
+    </symbol>
+
+    <symbol id="g-beanie" viewBox="0 0 200 200">
+      <circle class="m" cx="100" cy="34" r="14"/>
+      <path class="m" d="M40 114 Q40 46 100 44 Q160 46 160 114 Z"/>
+      <path class="sh" d="M100 44 Q160 46 160 114 H120 Q132 72 100 44 Z"/>
+      <path class="m" d="M36 108 H164 V142 Q164 148 158 148 H42 Q36 148 36 142 Z"/>
+      <path class="dt" d="M52 112 V144 M68 112 V144 M84 112 V144 M100 112 V144 M116 112 V144 M132 112 V144 M148 112 V144"/>
+    </symbol>
+  </svg>
+
+  <div class="page-curtain" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-row">
+      <a href="index.html" class="brand" aria-label="KROY, на главную">
+        <span class="brand__logo">K</span>
+        <span class="brand__name">KROY</span>
+      </a>
+
+      <nav class="menu" id="menu" aria-label="Основное меню">
+        <a href="index.html" class="is-current" aria-current="page">Главная</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="looks.html">Образы</a>
+        <a href="delivery.html">Доставка</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="cart-btn" id="cart-btn" aria-label="Открыть корзину">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+          <span class="cart-count" id="cart-count" aria-live="polite">0</span>
+        </button>
+        <button type="button" class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ГЛАВНЫЙ СЛАЙДЕР: 4 коллекции. Переключается стрелками, точками, свайпом и сам -->
+    <section class="hero" aria-roledescription="карусель" aria-label="Коллекции">
+      <div class="hero__stage" id="hero">
+
+        <article class="slide is-active" data-photo="images/hero1.jpg" style="--bg1:#3A2390">
+          <div class="slide__bg"></div>
+          <div class="container slide__inner">
+            <div class="slide__text">
+              <span class="eyebrow">Коллекция осень 2026</span>
+              <h1>Худи, в которых хочется остаться</h1>
+              <p>Плотный футер, свободный крой и цвета, которые работают с любой одеждой.</p>
+              <div class="slide__buttons">
+                <a href="catalog.html" class="btn btn--primary" data-magnetic>Смотреть каталог</a>
+                <a href="looks.html" class="btn btn--ghost">Образы</a>
+              </div>
+              <span class="price-chip">от 5 990 ₽</span>
+            </div>
+            <div class="slide__art" aria-hidden="true">
+              <svg class="art art--main" viewBox="0 0 200 200" style="--c:#7C5CFF"><use href="#g-hoodie"/></svg>
+              <svg class="art art--s1" viewBox="0 0 200 200" style="--c:#F2F2F5"><use href="#g-beanie"/></svg>
+              <svg class="art art--s2" viewBox="0 0 200 200" style="--c:#16161B"><use href="#g-sneaker"/></svg>
+            </div>
+          </div>
+        </article>
+
+        <article class="slide" data-photo="images/hero2.jpg" style="--bg1:#1F5A44">
+          <div class="slide__bg"></div>
+          <div class="container slide__inner">
+            <div class="slide__text">
+              <span class="eyebrow">Верхняя одежда</span>
+              <h1>Бомберы без компромиссов</h1>
+              <p>Лёгкие, тёплые и без лишнего. Надеваются поверх всего и не выходят из моды.</p>
+              <div class="slide__buttons">
+                <a href="catalog.html" class="btn btn--primary" data-magnetic>Смотреть каталог</a>
+                <a href="looks.html" class="btn btn--ghost">Образы</a>
+              </div>
+              <span class="price-chip">от 8 990 ₽</span>
+            </div>
+            <div class="slide__art" aria-hidden="true">
+              <svg class="art art--main" viewBox="0 0 200 200" style="--c:#6C8A57"><use href="#g-bomber"/></svg>
+              <svg class="art art--s1" viewBox="0 0 200 200" style="--c:#16161B"><use href="#g-beanie"/></svg>
+              <svg class="art art--s2" viewBox="0 0 200 200" style="--c:#3B5B92"><use href="#g-jeans"/></svg>
+            </div>
+          </div>
+        </article>
+
+        <article class="slide" data-photo="images/hero3.jpg" style="--bg1:#7A4A2B">
+          <div class="slide__bg"></div>
+          <div class="container slide__inner">
+            <div class="slide__text">
+              <span class="eyebrow">Базовый гардероб</span>
+              <h1>Футболки и джинсы на каждый день</h1>
+              <p>Простые вещи, из которых собирается весь гардероб. Сочетаются друг с другом без усилий.</p>
+              <div class="slide__buttons">
+                <a href="catalog.html" class="btn btn--primary" data-magnetic>Смотреть каталог</a>
+                <a href="looks.html" class="btn btn--ghost">Образы</a>
+              </div>
+              <span class="price-chip">от 2 490 ₽</span>
+            </div>
+            <div class="slide__art" aria-hidden="true">
+              <svg class="art art--main" viewBox="0 0 200 200" style="--c:#EDE6D6"><use href="#g-tee"/></svg>
+              <svg class="art art--s1" viewBox="0 0 200 200" style="--c:#3B5B92"><use href="#g-jeans"/></svg>
+              <svg class="art art--s2" viewBox="0 0 200 200" style="--c:#16161B"><use href="#g-tee"/></svg>
+            </div>
+          </div>
+        </article>
+
+        <article class="slide" data-photo="images/hero4.jpg" style="--bg1:#1B3A8C">
+          <div class="slide__bg"></div>
+          <div class="container slide__inner">
+            <div class="slide__text">
+              <span class="eyebrow">Новинки обуви</span>
+              <h1>Кроссовки, в которых легко весь день</h1>
+              <p>Лёгкая подошва, мягкая стелька и цвета, которые не надоедают.</p>
+              <div class="slide__buttons">
+                <a href="catalog.html" class="btn btn--primary" data-magnetic>Смотреть каталог</a>
+                <a href="looks.html" class="btn btn--ghost">Образы</a>
+              </div>
+              <span class="price-chip">от 7 990 ₽</span>
+            </div>
+            <div class="slide__art" aria-hidden="true">
+              <svg class="art art--main" viewBox="0 0 200 200" style="--c:#4D83FF"><use href="#g-sneaker"/></svg>
+              <svg class="art art--s1" viewBox="0 0 200 200" style="--c:#FF5C9E"><use href="#g-sneaker"/></svg>
+              <svg class="art art--s2" viewBox="0 0 200 200" style="--c:#F2F2F5"><use href="#g-beanie"/></svg>
+            </div>
+          </div>
+        </article>
+
+        <!-- Круглый вращающийся значок со ссылкой на каталог -->
+        <a href="catalog.html" class="badge-round" aria-label="Перейти к каталогу">
+          <svg viewBox="0 0 120 120" class="badge-round__ring" aria-hidden="true">
+            <defs><path id="circ" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+            <text><textPath href="#circ" textLength="270" lengthAdjust="spacing">NEW COLLECTION • AUTUMN 2026 • FREE SHIPPING • </textPath></text>
+          </svg>
+          <span class="badge-round__arrow">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
+        </a>
+
+        <!-- Управление: счётчик, точки, стрелки и полоска времени до следующего слайда -->
+        <div class="hero__controls container">
+          <span class="hero__count" id="hero-count" aria-live="polite">01 / 04</span>
+          <div class="hero__dots" id="hero-dots" role="tablist" aria-label="Слайды"></div>
+          <div class="hero__arrows">
+            <button type="button" class="round-btn" id="hero-prev" aria-label="Предыдущий слайд"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <button type="button" class="round-btn" id="hero-next" aria-label="Следующий слайд"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+          </div>
+        </div>
+        <div class="hero__progress" aria-hidden="true"><span id="hero-bar"></span></div>
+      </div>
+
+      <!-- Цифры под слайдером -->
+      <div class="container stats">
+        <div class="stat"><span class="stat__num" data-count="12000" data-suffix="+">12 000+</span><span class="stat__label">довольных покупателей</span></div>
+        <div class="stat"><span class="stat__num" data-count="300" data-suffix="+">300+</span><span class="stat__label">моделей в каталоге</span></div>
+        <div class="stat"><span class="stat__num" data-count="48">48</span><span class="stat__label">часов средняя доставка</span></div>
+      </div>
+    </section>
+
+    <!-- РАЗДЕЛЫ -->
+    <section class="section">
+      <div class="container tiles">
+        <a href="catalog.html?cat=tops" class="tile">
+          <span class="tile__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4l4 3 4-3 4 4-3 3v9H7v-9L4 8z"/></svg></span>
+          <span class="tile__title">Худи и футболки</span>
+          <svg class="tile__arrow icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+        <a href="catalog.html?cat=outer" class="tile">
+          <span class="tile__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6l-1 6 4 12H6l4-12z"/></svg></span>
+          <span class="tile__title">Куртки и бомберы</span>
+          <svg class="tile__arrow icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+        <a href="catalog.html?cat=shoes" class="tile">
+          <span class="tile__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16l2-7 6-2 6 2 2 7z"/><path d="M12 7V4"/></svg></span>
+          <span class="tile__title">Обувь</span>
+          <svg class="tile__arrow icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+        <a href="catalog.html?cat=sale" class="tile">
+          <span class="tile__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h6l8 8-6 6-8-8z"/><circle cx="8.5" cy="8.5" r="1"/></svg></span>
+          <span class="tile__title">Распродажа до −30%</span>
+          <svg class="tile__arrow icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- БЕГУЩАЯ СТРОКА: крупный контурный текст едет по кругу (второй список нужен для бесшовного повтора) -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Бесплатная доставка от 5 000 ₽</span><i>✦</i><span>Возврат 30 дней</span><i>✦</i><span>Новинки каждую неделю</span><i>✦</i>
+        <span>Бесплатная доставка от 5 000 ₽</span><i>✦</i><span>Возврат 30 дней</span><i>✦</i><span>Новинки каждую неделю</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- КАТАЛОГ: карусель с прокруткой, перетаскиванием и счётчиком -->
+    <section class="section" id="katalog">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="spark" aria-hidden="true">✦ <i>·</i> <i>·</i></span>
+            <h2>Хиты сезона</h2>
+            <p>Вещи, которые покупают чаще всего. Выберите цвет, он сразу меняется на картинке, и добавьте в корзину.</p>
+          </div>
+          <a href="catalog.html" class="btn btn--ghost">Весь каталог</a>
+        </div>
+      </div>
+
+      <div class="carousel">
+        <div class="carousel__track container" id="track" tabindex="0" aria-label="Товары, прокручивается вправо и влево">
+
+          <article class="product" data-id="hoodie" data-name="Худи Heavy Cotton" data-price="5990">
+            <div class="product__art" data-photo="images/hoodie.jpg" style="--c:#7C5CFF">
+              <span class="tag">Хит</span>
+              <button type="button" class="fav" aria-label="В избранное" aria-pressed="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.6-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.4-9.3 9-9.3 9z"/></svg></button>
+              <svg class="art" viewBox="0 0 200 200" aria-hidden="true"><use href="#g-hoodie"/></svg>
+            </div>
+            <div class="product__body">
+              <h3><a href="product.html?id=hoodie">Худи Heavy Cotton</a></h3>
+              <p>Плотный футер 380 г/м², свободный крой, глубокий капюшон.</p>
+              <div class="swatches" role="group" aria-label="Цвет">
+                <button type="button" class="sw is-active" style="--s:#7C5CFF" data-color="#7C5CFF" aria-label="Фиолетовый" aria-pressed="true"></button>
+                <button type="button" class="sw" style="--s:#16161B" data-color="#16161B" aria-label="Чёрный" aria-pressed="false"></button>
+                <button type="button" class="sw" style="--s:#9AA3B5" data-color="#9AA3B5" aria-label="Серый" aria-pressed="false"></button>
+              </div>
+              <div class="chips"><span>S–XL</span><span>Унисекс</span><span>Хлопок</span></div>
+              <div class="product__foot">
+                <div class="price"><small>Цена</small><b>5 990 ₽</b></div>
+                <button type="button" class="btn btn--primary add">В корзину</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product" data-id="tee" data-name="Футболка Oversize Basic" data-price="2490">
+            <div class="product__art" data-photo="images/tee.jpg" style="--c:#EDE6D6">
+              <span class="tag">Новинка</span>
+              <button type="button" class="fav" aria-label="В избранное" aria-pressed="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.6-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.4-9.3 9-9.3 9z"/></svg></button>
+              <svg class="art" viewBox="0 0 200 200" aria-hidden="true"><use href="#g-tee"/></svg>
+            </div>
+            <div class="product__body">
+              <h3><a href="product.html?id=tee">Футболка Oversize Basic</a></h3>
+              <p>Плотный джерси 220 г/м², не вытягивается после стирки.</p>
+              <div class="swatches" role="group" aria-label="Цвет">
+                <button type="button" class="sw is-active" style="--s:#EDE6D6" data-color="#EDE6D6" aria-label="Молочный" aria-pressed="true"></button>
+                <button type="button" class="sw" style="--s:#16161B" data-color="#16161B" aria-label="Чёрный" aria-pressed="false"></button>
+                <button type="button" class="sw" style="--s:#FF5C9E" data-color="#FF5C9E" aria-label="Розовый" aria-pressed="false"></button>
+              </div>
+              <div class="chips"><span>XS–XXL</span><span>Унисекс</span><span>Хлопок</span></div>
+              <div class="product__foot">
+                <div class="price"><small>Цена</small><b>2 490 ₽</b></div>
+                <button type="button" class="btn btn--primary add">В корзину</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product" data-id="bomber" data-name="Бомбер Urban" data-price="8990">
+            <div class="product__art" data-photo="images/bomber.jpg" style="--c:#6C8A57">
+              <span class="tag">−15%</span>
+              <button type="button" class="fav" aria-label="В избранное" aria-pressed="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.6-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.4-9.3 9-9.3 9z"/></svg></button>
+              <svg class="art" viewBox="0 0 200 200" aria-hidden="true"><use href="#g-bomber"/></svg>
+            </div>
+            <div class="product__body">
+              <h3><a href="product.html?id=bomber">Бомбер Urban</a></h3>
+              <p>Лёгкая демисезонная куртка с трикотажными манжетами и подкладкой.</p>
+              <div class="swatches" role="group" aria-label="Цвет">
+                <button type="button" class="sw is-active" style="--s:#6C8A57" data-color="#6C8A57" aria-label="Оливковый" aria-pressed="true"></button>
+                <button type="button" class="sw" style="--s:#16161B" data-color="#16161B" aria-label="Чёрный" aria-pressed="false"></button>
+                <button type="button" class="sw" style="--s:#B5673A" data-color="#B5673A" aria-label="Рыжий" aria-pressed="false"></button>
+              </div>
+              <div class="chips"><span>S–XL</span><span>Мужской</span><span>Демисезон</span></div>
+              <div class="product__foot">
+                <div class="price"><small>Цена</small><b>8 990 ₽</b></div>
+                <button type="button" class="btn btn--primary add">В корзину</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product" data-id="jeans" data-name="Джинсы Straight" data-price="5490">
+            <div class="product__art" data-photo="images/jeans.jpg" style="--c:#3B5B92">
+              <span class="tag">Хит</span>
+              <button type="button" class="fav" aria-label="В избранное" aria-pressed="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.6-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.4-9.3 9-9.3 9z"/></svg></button>
+              <svg class="art" viewBox="0 0 200 200" aria-hidden="true"><use href="#g-jeans"/></svg>
+            </div>
+            <div class="product__body">
+              <h3><a href="product.html?id=jeans">Джинсы Straight</a></h3>
+              <p>Прямой крой, средняя посадка, плотный деним с небольшой эластичностью.</p>
+              <div class="swatches" role="group" aria-label="Цвет">
+                <button type="button" class="sw is-active" style="--s:#3B5B92" data-color="#3B5B92" aria-label="Синий" aria-pressed="true"></button>
+                <button type="button" class="sw" style="--s:#16161B" data-color="#16161B" aria-label="Чёрный" aria-pressed="false"></button>
+                <button type="button" class="sw" style="--s:#8E9BB3" data-color="#8E9BB3" aria-label="Голубой" aria-pressed="false"></button>
+              </div>
+              <div class="chips"><span>28–38</span><span>Унисекс</span><span>Деним</span></div>
+              <div class="product__foot">
+                <div class="price"><small>Цена</small><b>5 490 ₽</b></div>
+                <button type="button" class="btn btn--primary add">В корзину</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product" data-id="sneaker" data-name="Кроссовки Cloud" data-price="7990">
+            <div class="product__art" data-photo="images/sneaker.jpg" style="--c:#4D83FF">
+              <span class="tag">Новинка</span>
+              <button type="button" class="fav" aria-label="В избранное" aria-pressed="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.6-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.4-9.3 9-9.3 9z"/></svg></button>
+              <svg class="art" viewBox="0 0 200 200" aria-hidden="true"><use href="#g-sneaker"/></svg>
+            </div>
+            <div class="product__body">
+              <h3><a href="product.html?id=sneaker">Кроссовки Cloud</a></h3>
+              <p>Лёгкая подошва, дышащий верх и мягкая стелька для целого дня на ногах.</p>
+              <div class="swatches" role="group" aria-label="Цвет">
+                <button type="button" class="sw is-active" style="--s:#4D83FF" data-color="#4D83FF" aria-label="Синий" aria-pressed="true"></button>
+                <button type="button" class="sw" style="--s:#F2F2F5" data-color="#F2F2F5" aria-label="Белый" aria-pressed="false"></button>
+                <button type="button" class="sw" style="--s:#FF5C9E" data-color="#FF5C9E" aria-label="Розовый" aria-pressed="false"></button>
+              </div>
+              <div class="chips"><span>36–46</span><span>Унисекс</span><span>Текстиль</span></div>
+              <div class="product__foot">
+                <div class="price"><small>Цена</small><b>7 990 ₽</b></div>
+                <button type="button" class="btn btn--primary add">В корзину</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product" data-id="beanie" data-name="Шапка Rib Beanie" data-price="1490">
+            <div class="product__art" data-photo="images/beanie.jpg" style="--c:#16161B">
+              <span class="tag">Хит</span>
+              <button type="button" class="fav" aria-label="В избранное" aria-pressed="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.6-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.4-9.3 9-9.3 9z"/></svg></button>
+              <svg class="art" viewBox="0 0 200 200" aria-hidden="true"><use href="#g-beanie"/></svg>
+            </div>
+            <div class="product__body">
+              <h3><a href="product.html?id=beanie">Шапка Rib Beanie</a></h3>
+              <p>Мягкая резинка из мериносовой шерсти с добавлением акрила, тёплая и не колется.</p>
+              <div class="swatches" role="group" aria-label="Цвет">
+                <button type="button" class="sw is-active" style="--s:#16161B" data-color="#16161B" aria-label="Чёрный" aria-pressed="true"></button>
+                <button type="button" class="sw" style="--s:#7C5CFF" data-color="#7C5CFF" aria-label="Фиолетовый" aria-pressed="false"></button>
+                <button type="button" class="sw" style="--s:#EDE6D6" data-color="#EDE6D6" aria-label="Молочный" aria-pressed="false"></button>
+              </div>
+              <div class="chips"><span>Универсальный</span><span>Унисекс</span><span>Шерсть</span></div>
+              <div class="product__foot">
+                <div class="price"><small>Цена</small><b>1 490 ₽</b></div>
+                <button type="button" class="btn btn--primary add">В корзину</button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="container carousel__foot">
+          <span class="carousel__count" id="track-count" aria-live="polite">01 из 06</span>
+          <div class="carousel__line" aria-hidden="true"><span id="track-line"></span></div>
+          <div class="hero__arrows">
+            <button type="button" class="round-btn" id="track-prev" aria-label="Назад"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <button type="button" class="round-btn" id="track-next" aria-label="Вперёд"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ОБРАЗЫ: колода карточек, которые перелистываются -->
+    <section class="section" id="obrazy">
+      <div class="container looks">
+        <div class="looks__text">
+          <span class="spark" aria-hidden="true">✦ <i>·</i> <i>·</i></span>
+          <h2>Готовые образы</h2>
+          <p>Не знаете, с чем сочетать? Листайте образы: нажмите на карточку, перетащите её или используйте стрелки. Каждый можно собрать из вещей нашего каталога.</p>
+          <div class="looks__controls">
+            <button type="button" class="round-btn" id="look-prev" aria-label="Предыдущий образ"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <button type="button" class="round-btn" id="look-next" aria-label="Следующий образ"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+            <span class="looks__count" id="look-count" aria-live="polite">01 из 05</span>
+            <a href="looks.html" class="btn btn--ghost looks__all">Все образы</a>
+          </div>
+        </div>
+
+        <div class="deck" id="deck" aria-label="Колода образов">
+          <article class="look" data-photo="images/look1.jpg" style="--g1:#2E1F6B; --g2:#12101F">
+            <div class="look__art" aria-hidden="true">
+              <svg class="art art--a" viewBox="0 0 200 200" style="--c:#16161B"><use href="#g-bomber"/></svg>
+              <svg class="art art--b" viewBox="0 0 200 200" style="--c:#3B5B92"><use href="#g-jeans"/></svg>
+            </div>
+            <div class="look__cap"><span>Образ 01</span><b>Городской вечер</b><small>Бомбер Urban + джинсы Straight</small></div>
+          </article>
+          <article class="look" data-photo="images/look2.jpg" style="--g1:#6B1F52; --g2:#16101C">
+            <div class="look__art" aria-hidden="true">
+              <svg class="art art--a" viewBox="0 0 200 200" style="--c:#7C5CFF"><use href="#g-hoodie"/></svg>
+              <svg class="art art--b" viewBox="0 0 200 200" style="--c:#16161B"><use href="#g-jeans"/></svg>
+            </div>
+            <div class="look__cap"><span>Образ 02</span><b>Выходной день</b><small>Худи Heavy Cotton + джинсы</small></div>
+          </article>
+          <article class="look" data-photo="images/look3.jpg" style="--g1:#7A4A2B; --g2:#18120E">
+            <div class="look__art" aria-hidden="true">
+              <svg class="art art--a" viewBox="0 0 200 200" style="--c:#EDE6D6"><use href="#g-tee"/></svg>
+              <svg class="art art--b" viewBox="0 0 200 200" style="--c:#8E9BB3"><use href="#g-jeans"/></svg>
+            </div>
+            <div class="look__cap"><span>Образ 03</span><b>Минимализм</b><small>Футболка Oversize + джинсы</small></div>
+          </article>
+          <article class="look" data-photo="images/look4.jpg" style="--g1:#1B3A8C; --g2:#0F1220">
+            <div class="look__art" aria-hidden="true">
+              <svg class="art art--a" viewBox="0 0 200 200" style="--c:#9AA3B5"><use href="#g-hoodie"/></svg>
+              <svg class="art art--b" viewBox="0 0 200 200" style="--c:#4D83FF"><use href="#g-sneaker"/></svg>
+            </div>
+            <div class="look__cap"><span>Образ 04</span><b>Спорт-стрит</b><small>Худи + кроссовки Cloud</small></div>
+          </article>
+          <article class="look" data-photo="images/look5.jpg" style="--g1:#1F5A44; --g2:#0E1814">
+            <div class="look__art" aria-hidden="true">
+              <svg class="art art--a" viewBox="0 0 200 200" style="--c:#6C8A57"><use href="#g-bomber"/></svg>
+              <svg class="art art--b" viewBox="0 0 200 200" style="--c:#16161B"><use href="#g-beanie"/></svg>
+            </div>
+            <div class="look__cap"><span>Образ 05</span><b>Тёплый слой</b><small>Бомбер + шапка Rib Beanie</small></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ДОСТАВКА И УСЛОВИЯ -->
+    <section class="section" id="dostavka">
+      <div class="container perks">
+        <div class="perk">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.5"/><circle cx="17" cy="17.5" r="1.5"/></svg>
+          <div><b>Доставка по России</b><span>Бесплатно от 5 000 ₽, обычно за 2–4 дня. <a href="delivery.html">Подробнее</a></span></div>
+        </div>
+        <div class="perk">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg>
+          <div><b>Возврат 30 дней</b><span>Не подошло? Вернём деньги без вопросов</span></div>
+        </div>
+        <div class="perk">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>
+          <div><b>Примерка перед оплатой</b><span>В пунктах выдачи в крупных городах</span></div>
+        </div>
+        <div class="perk">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1"/><rect x="17" y="14" width="4" height="6" rx="1"/></svg>
+          <div><b>Поддержка каждый день</b><span>Ответим в чате за несколько минут</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПОДПИСКА -->
+    <section class="section">
+      <div class="container">
+        <div class="news">
+          <div>
+            <h2>−10% на первый заказ</h2>
+            <p>Подпишитесь на рассылку: новинки, закрытые распродажи и промокоды раньше всех.</p>
+          </div>
+          <form class="news__form" id="news-form">
+            <label for="news-mail" hidden>Ваша почта</label>
+            <input id="news-mail" type="email" placeholder="Ваша почта" required>
+            <button type="submit" class="btn btn--primary">Подписаться</button>
+            <p class="form-msg" id="news-msg" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <a href="index.html" class="brand"><span class="brand__logo">K</span><span class="brand__name">KROY</span></a>
+        <p class="footer__about">Одежда на каждый день: простые вещи, хорошие материалы и честные цены.</p>
+      </div>
+      <div>
+        <h3>Магазин</h3>
+        <ul><li><a href="catalog.html">Каталог</a></li><li><a href="looks.html">Готовые образы</a></li><li><a href="catalog.html?cat=sale">Скидки</a></li></ul>
+      </div>
+      <div>
+        <h3>Помощь</h3>
+        <ul><li><a href="delivery.html">Доставка и возврат</a></li><li><a href="delivery.html#razmery">Таблица размеров</a></li><li><a href="contacts.html">Контакты</a></li></ul>
+      </div>
+      <div>
+        <h3>Связь</h3>
+        <ul><li>+7 (900) 000-00-00</li><li>hello@kroy.example</li><li>Ежедневно 9:00–21:00</li></ul>
+      </div>
+    </div>
+    <div class="container footer__word" aria-hidden="true">KROY</div>
+    <div class="footer__bottom">
+      <div class="container">© 2026 KROY. Демонстрационный сайт для портфолио: магазин вымышленный, товары не продаются.</div>
+    </div>
+  </footer>
+
+  <!-- КОРЗИНА: выдвижная панель справа -->
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="drawer" id="drawer" aria-label="Корзина" aria-hidden="true" tabindex="-1">
+    <div class="drawer__head">
+      <h2>Корзина</h2>
+      <button type="button" class="round-btn" id="drawer-close" aria-label="Закрыть корзину"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <ul class="cart-list" id="cart-list"></ul>
+    <p class="cart-empty" id="cart-empty">Здесь пока пусто. Добавьте что-нибудь из каталога.</p>
+    <div class="drawer__foot">
+      <div class="total"><span>Итого</span><b id="cart-total">0 ₽</b></div>
+      <button type="button" class="btn btn--primary btn--block" id="checkout">Оформить заказ</button>
+      <p class="form-msg" id="checkout-msg" role="status"></p>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
