@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IRON & RAZOR — барбершоп</title>
+  <meta name="description" content="Мужские стрижки, борода и бритьё. Запись онлайн.">
+  <style>
+    /* ===== Базовые настройки ===== */
+    :root {
+      --bg: #141414;
+      --bg-2: #1d1d1d;
+      --text: #f1ece4;
+      --muted: #9a948a;
+      --accent: #c9a24b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+    h1, h2, h3 { font-weight: 700; letter-spacing: 0.5px; }
+    h2 { font-size: 2rem; margin-bottom: 8px; }
+    .lead { color: var(--muted); margin-bottom: 40px; }
+    section { padding: 72px 0; }
+
+    /* ===== Кнопка ===== */
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #141414;
+      padding: 14px 28px;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.85rem;
+      border: none;
+      cursor: pointer;
+      transition: transform .15s, opacity .15s;
+    }
+    .btn:hover { transform: translateY(-2px); opacity: .9; }
+
+    /* ===== Шапка ===== */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(20,20,20,.92);
+      border-bottom: 1px solid #2a2a2a;
+    }
+    .nav { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+    .logo { font-size: 1.2rem; color: var(--accent); letter-spacing: 2px; }
+    nav a { margin-left: 22px; font-family: Arial, sans-serif; font-size: .85rem; color: var(--muted); }
+    nav a:hover { color: var(--text); }
+
+    /* ===== Главный экран ===== */
+    .hero {
+      min-height: 80vh;
+      display: flex; align-items: center;
+      background: radial-gradient(circle at 70% 30%, #2b2416 0%, var(--bg) 60%);
+    }
+    .hero h1 { font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.1; margin-bottom: 18px; }
+    .hero h1 span { color: var(--accent); }
+    .hero p { color: var(--muted); max-width: 520px; margin-bottom: 30px; font-size: 1.1rem; }
+
+    /* ===== Услуги ===== */
+    .prices { background: var(--bg-2); }
+    .price-list { list-style: none; max-width: 640px; }
+    .price-list li {
+      display: flex; justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 1px dashed #3a3a3a;
+      font-size: 1.1rem;
+    }
+    .price-list b { color: var(--accent); font-family: Arial, sans-serif; }
+
+    /* ===== Мастера ===== */
+    .masters { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+    .master { background: var(--bg-2); padding: 24px; border-top: 3px solid var(--accent); }
+    .avatar {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #6d5520);
+      margin-bottom: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; color: #141414; font-weight: 700;
+    }
+    .master p { color: var(--muted); font-size: .95rem; }
+
+    /* ===== Запись ===== */
+    .booking { background: var(--bg-2); }
+    form { display: grid; gap: 14px; max-width: 460px; }
+    input, select {
+      padding: 14px;
+      background: var(--bg);
+      border: 1px solid #3a3a3a;
+      color: var(--text);
+      font-size: 1rem;
+    }
+    input:focus, select:focus { outline: 2px solid var(--accent); }
+    #form-msg { color: var(--accent); font-family: Arial, sans-serif; min-height: 1.4em; }
+
+    /* ===== Подвал ===== */
+    footer { padding: 32px 0; text-align: center; color: var(--muted); font-size: .9rem; border-top: 1px solid #2a2a2a; }
+
+    /* ===== Телефоны ===== */
+    @media (max-width: 600px) {
+      nav a { margin-left: 12px; }
+      section { padding: 48px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="#top" class="logo">IRON &amp; RAZOR</a>
+      <nav>
+        <a href="#prices">Цены</a>
+        <a href="#masters">Мастера</a>
+        <a href="#booking">Запись</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <h1>Стрижка, после которой<br>хочется <span>заходить снова</span></h1>
+        <p>Мужские стрижки, уход за бородой и классическое бритьё опасной бритвой. Без очередей, по записи.</p>
+        <a href="#booking" class="btn">Записаться</a>
+      </div>
+    </section>
+
+    <section class="prices" id="prices">
+      <div class="container">
+        <h2>Услуги и цены</h2>
+        <p class="lead">Цены демонстрационные.</p>
+        <ul class="price-list">
+          <li><span>Мужская стрижка</span><b>1 500 ₽</b></li>
+          <li><span>Стрижка + борода</span><b>2 300 ₽</b></li>
+          <li><span>Моделирование бороды</span><b>900 ₽</b></li>
+          <li><span>Королевское бритьё</span><b>1 200 ₽</b></li>
+          <li><span>Детская стрижка</span><b>1 000 ₽</b></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="masters">
+      <div class="container">
+        <h2>Наши мастера</h2>
+        <p class="lead">Каждый — со своим почерком.</p>
+        <div class="masters">
+          <div class="master">
+            <div class="avatar">А</div>
+            <h3>Артём</h3>
+            <p>Классика и фейды. Опыт 8 лет.</p>
+          </div>
+          <div class="master">
+            <div class="avatar">М</div>
+            <h3>Михаил</h3>
+            <p>Борода и бритьё опасной бритвой. Опыт 6 лет.</p>
+          </div>
+          <div class="master">
+            <div class="avatar">Д</div>
+            <h3>Денис</h3>
+            <p>Современные стрижки и укладка. Опыт 4 года.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking" id="booking">
+      <div class="container">
+        <h2>Онлайн-запись</h2>
+        <p class="lead">Оставьте данные, мы перезвоним и подтвердим время.</p>
+        <form id="booking-form">
+          <input type="text" id="name" placeholder="Ваше имя" required>
+          <input type="tel" id="phone" placeholder="Телефон" required>
+          <select id="service">
+            <option>Мужская стрижка</option>
+            <option>Стрижка + борода</option>
+            <option>Моделирование бороды</option>
+            <option>Королевское бритьё</option>
+          </select>
+          <button type="submit" class="btn">Отправить заявку</button>
+          <p id="form-msg"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      IRON &amp; RAZOR · ул. Примерная, 12 · ежедневно 10:00–21:00<br>
+      Демо-сайт для портфолио
+    </div>
+  </footer>
+
+  <script>
+    // Находим форму и место для сообщения
+    const form = document.getElementById('booking-form');
+    const msg = document.getElementById('form-msg');
+
+    // Когда нажали "Отправить"
+    form.addEventListener('submit', function (event) {
+      event.preventDefault(); // не даём странице перезагрузиться
+      const name = document.getElementById('name').value.trim();
+      // Здесь в реальном проекте данные отправлялись бы на сервер или в Telegram
+      msg.textContent = 'Спасибо, ' + name + '! Мы скоро свяжемся с вами.';
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>

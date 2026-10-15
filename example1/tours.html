@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Туры — Дальний берег</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ВЕРХНЯЯ ПОЛОСА: контакты -->
+  <div class="topbar">
+    <div class="container">
+      <ul class="topbar__list">
+        <li>info@dalniy-bereg.example</li>
+        <li>+7 (900) 000-00-00</li>
+        <li>г. Москва, ул. Примерная, 12</li>
+      </ul>
+      <span>Мы в соцсетях: Telegram · VK</span>
+    </div>
+  </div>
+
+  <!-- ШАПКА: одинаковая на всех страницах -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="8" r="3.5"/>
+          <path d="M3 15c2 0 2-1.5 4.5-1.5S10 15 12 15s2.5-1.5 4.5-1.5S19 15 21 15"/>
+          <path d="M3 19.5c2 0 2-1.5 4.5-1.5S10 19.5 12 19.5s2.5-1.5 4.5-1.5S19 19.5 21 19.5"/>
+        </svg>
+        <span class="logo__text">
+          <span class="logo__name">Дальний берег</span>
+          <span class="logo__tag">Путешествуй. Отдыхай. Возвращайся.</span>
+        </span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="tours.html" class="is-active">Туры</a>
+        <a href="about.html">О нас</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+
+      <div class="header__actions">
+        <a href="contacts.html" class="btn btn--green">Подобрать тур</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ЗАГОЛОВОК СТРАНИЦЫ -->
+    <section class="page-head">
+      <div class="container">
+        <div class="breadcrumbs">
+          <a href="index.html">Главная</a> <span>/</span> <span>Туры</span>
+        </div>
+        <h1>Все туры</h1>
+        <p class="page-head__lead">Выберите направление и вид отдыха. Не нашли подходящий тур? Напишите нам, подберём под ваши даты и бюджет.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- Фильтры работают через script.js: кнопки с data-filter, карточки с data-category -->
+        <div class="filters">
+          <button type="button" class="chip is-active" data-filter="all">Все</button>
+          <button type="button" class="chip" data-filter="beach">Пляжный отдых</button>
+          <button type="button" class="chip" data-filter="nature">Горы и природа</button>
+          <button type="button" class="chip" data-filter="city">Города и экскурсии</button>
+          <button type="button" class="chip" data-filter="hot">Горящие</button>
+          <button type="button" class="chip" data-filter="family">Семейный отдых</button>
+        </div>
+
+        <p class="filters__result" id="filters-result" role="status"></p>
+
+        <div class="tours">
+
+          <article class="tour" data-category="beach hot family">
+            <div class="tour__photo tour__photo--sea">
+              <img class="tour__img" src="images/antalya.jpg" alt="Остров с деревянным мостиком и бирюзовое море" loading="lazy" style="object-position: 50% 50%">
+              <span class="badge">Горящий</span>
+              <button type="button" class="heart" aria-label="Добавить в избранное">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.6-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.4-9.3 9-9.3 9z"/></svg>
+              </button>
+            </div>
+            <div class="tour__body">
+              <h3 class="tour__title"><a href="tour-antalya.html">Отдых у моря</a></h3>
+              <span class="tour__place">Турция, Анталья</span>
+              <span class="tour__price">от 62 900 ₽</span>
+              <div class="tour__meta">
+                <span>7 ночей</span>
+                <span>Отель 5★</span>
+                <span>Всё включено</span>
+              </div>
+              <a href="tour-antalya.html" class="tour__more">Подробнее →</a>
+            </div>
+          </article>
+
+          <article class="tour" data-category="beach">
+            <div class="tour__photo tour__photo--desert">
+              <img class="tour__img" src="images/hurghada.jpg" alt="Вид сверху: песчаный берег и прибой" loading="lazy" style="object-position: 50% 50%">
+              <span class="badge">Всё включено</span>
+              <button type="button" class="heart" aria-label="Добавить в избранное">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.6-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.4-9.3 9-9.3 9z"/></svg>
+              </button>
+            </div>
+            <div class="tour__body">
+              <h3 class="tour__title"><a href="tour-hurghada.html">Красное море и дайвинг</a></h3>
+              <span class="tour__place">Египет, Хургада</span>
+              <span class="tour__price">от 54 500 ₽</span>
+              <div class="tour__meta">
+                <span>7 ночей</span>
+                <span>Отель 4★</span>
+                <span>Всё включено</span>
+              </div>
+              <a href="tour-hurghada.html" class="tour__more">Подробнее →</a>
+            </div>
+          </article>
+
+          <article class="tour" data-category="city">
+            <div class="tour__photo tour__photo--city">
+              <span class="badge">Раннее бронирование</span>
+              <button type="button" class="heart" aria-label="Добавить в избранное">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.6-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.4-9.3 9-9.3 9z"/></svg>
+              </button>
+              <span class="tour__photo-label">фото</span>
+            </div>
+            <div class="tour__body">
+              <h3 class="tour__title"><a href="tour-dubai.html">Город небоскрёбов</a></h3>
+              <span class="tour__place">ОАЭ, Дубай</span>
+              <span class="tour__price">от 78 000 ₽</span>
+              <div class="tour__meta">
+                <span>6 ночей</span>
+                <span>Отель 4★</span>
+                <span>Завтраки</span>
+              </div>
+              <a href="tour-dubai.html" class="tour__more">Подробнее →</a>
+            </div>
+          </article>
+
+          <article class="tour" data-category="beach nature family">
+            <div class="tour__photo tour__photo--mount">
+              <img class="tour__img" src="images/sochi.jpg" alt="Горное озеро с деревянной лодкой, скалы и хвойный лес" loading="lazy" style="object-position: 50% 45%">
+              <span class="badge">Для всей семьи</span>
+              <button type="button" class="heart" aria-label="Добавить в избранное">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.6-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.4-9.3 9-9.3 9z"/></svg>
+              </button>
+            </div>
+            <div class="tour__body">
+              <h3 class="tour__title"><a href="tour-sochi.html">Море и горы</a></h3>
+              <span class="tour__place">Россия, Сочи</span>
+              <span class="tour__price">от 41 800 ₽</span>
+              <div class="tour__meta">
+                <span>7 ночей</span>
+                <span>Отель 4★</span>
+                <span>Завтраки</span>
+              </div>
+              <a href="tour-sochi.html" class="tour__more">Подробнее →</a>
+            </div>
+          </article>
+
+          <article class="tour" data-category="beach">
+            <div class="tour__photo tour__photo--sea">
+              <img class="tour__img" src="images/phuket.jpg" alt="Велосипед под пальмами на тропической улице" loading="lazy" style="object-position: 50% 38%">
+              <span class="badge">Новинка</span>
+              <button type="button" class="heart" aria-label="Добавить в избранное">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.6-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.4-9.3 9-9.3 9z"/></svg>
+              </button>
+            </div>
+            <div class="tour__body">
+              <h3 class="tour__title"><a href="tour-phuket.html">Тропический остров</a></h3>
+              <span class="tour__place">Таиланд, Пхукет</span>
+              <span class="tour__price">от 119 000 ₽</span>
+              <div class="tour__meta">
+                <span>10 ночей</span>
+                <span>Отель 4★</span>
+                <span>Завтраки</span>
+              </div>
+              <a href="tour-phuket.html" class="tour__more">Подробнее →</a>
+            </div>
+          </article>
+
+          <article class="tour" data-category="nature city">
+            <div class="tour__photo tour__photo--mount">
+              <img class="tour__img" src="images/tbilisi.jpg" alt="Зелёная гора и водопад" loading="lazy" style="object-position: 50% 55%">
+              <span class="badge">Экскурсионный</span>
+              <button type="button" class="heart" aria-label="Добавить в избранное">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.6-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.4-9.3 9-9.3 9z"/></svg>
+              </button>
+            </div>
+            <div class="tour__body">
+              <h3 class="tour__title"><a href="tour-tbilisi.html">Города и горы Кавказа</a></h3>
+              <span class="tour__place">Грузия, Тбилиси</span>
+              <span class="tour__price">от 47 500 ₽</span>
+              <div class="tour__meta">
+                <span>6 ночей</span>
+                <span>Отель 3★</span>
+                <span>Завтраки</span>
+              </div>
+              <a href="tour-tbilisi.html" class="tour__more">Подробнее →</a>
+            </div>
+          </article>
+
+          <article class="tour" data-category="city">
+            <div class="tour__photo tour__photo--city">
+              <span class="badge">Выходные</span>
+              <button type="button" class="heart" aria-label="Добавить в избранное">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.6-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.4-9.3 9-9.3 9z"/></svg>
+              </button>
+              <span class="tour__photo-label">фото</span>
+            </div>
+            <div class="tour__body">
+              <h3 class="tour__title"><a href="tour-spb.html">Короткий отдых в городе</a></h3>
+              <span class="tour__place">Россия, Санкт-Петербург</span>
+              <span class="tour__price">от 18 900 ₽</span>
+              <div class="tour__meta">
+                <span>3 ночи</span>
+                <span>Отель 4★</span>
+                <span>Без питания</span>
+              </div>
+              <a href="tour-spb.html" class="tour__more">Подробнее →</a>
+            </div>
+          </article>
+
+          <article class="tour" data-category="beach">
+            <div class="tour__photo tour__photo--desert">
+              <img class="tour__img" src="images/sharm.jpg" alt="Розовый закат над заливом и холмами" loading="lazy" style="object-position: 50% 40%">
+              <span class="badge">Для двоих</span>
+              <button type="button" class="heart" aria-label="Добавить в избранное">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.6-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.4-9.3 9-9.3 9z"/></svg>
+              </button>
+            </div>
+            <div class="tour__body">
+              <h3 class="tour__title"><a href="tour-sharm.html">Романтический отдых</a></h3>
+              <span class="tour__place">Египет, Шарм-эль-Шейх</span>
+              <span class="tour__price">от 66 700 ₽</span>
+              <div class="tour__meta">
+                <span>7 ночей</span>
+                <span>Отель 4★</span>
+                <span>Полупансион</span>
+              </div>
+              <a href="tour-sharm.html" class="tour__more">Подробнее →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="page-end"></div>
+  </main>
+
+  <!-- ПОДВАЛ: одинаковый на всех страницах -->
+  <footer class="footer">
+    <div class="container">
+      <div>
+        <a href="index.html" class="logo">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="8" r="3.5"/>
+          <path d="M3 15c2 0 2-1.5 4.5-1.5S10 15 12 15s2.5-1.5 4.5-1.5S19 15 21 15"/>
+          <path d="M3 19.5c2 0 2-1.5 4.5-1.5S10 19.5 12 19.5s2.5-1.5 4.5-1.5S19 19.5 21 19.5"/>
+        </svg>
+          <span class="logo__text">
+            <span class="logo__name">Дальний берег</span>
+            <span class="logo__tag">Путешествуй. Отдыхай. Возвращайся.</span>
+          </span>
+        </a>
+        <p class="footer__about">Ваш надёжный помощник в выборе отдыха.</p>
+      </div>
+
+      <div>
+        <h3 class="footer__title">Разделы</h3>
+        <ul class="footer__list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="tours.html">Туры</a></li>
+          <li><a href="about.html">О нас</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="footer__title">Направления</h3>
+        <ul class="footer__list">
+          <li><a href="tours.html">Турция</a></li>
+          <li><a href="tours.html">Египет</a></li>
+          <li><a href="tours.html">ОАЭ</a></li>
+          <li><a href="tours.html">Россия</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="footer__title">Контакты</h3>
+        <ul class="footer__list">
+          <li>г. Москва, ул. Примерная, 12</li>
+          <li>+7 (900) 000-00-00</li>
+          <li>info@dalniy-bereg.example</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <span>© 2026 Дальний берег. Все права защищены.</span>
+        <span>Пример сайта для портфолио</span>
+      </div>
+    </div>
+  </footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
