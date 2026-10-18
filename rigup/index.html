@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RigUp — игровые компьютеры на заказ</title>
+  <meta name="description" content="Сборка игровых ПК: готовые конфигурации и конфигуратор с расчётом FPS.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== ШАПКА (одинаковая на всех страницах, меняется только is-active) ===== -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="logo">
+        <span class="logo__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg>
+        </span>
+        <span>Rig<b>Up</b></span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="is-active">Главная</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="configurator.html">Конфигуратор</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+      <div class="header__right">
+        <a href="configurator.html" class="btn btn--lime header__cta">Собрать ПК</a>
+        <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="frame">
+
+    <!-- ===== ГЛАВНЫЙ ЭКРАН ===== -->
+    <section class="hero block">
+      <!-- Холст: на нём JS рисует анимированные "проволочные" горы -->
+      <canvas class="hero__terrain" id="terrain" aria-hidden="true"></canvas>
+      <div class="hero__content">
+        <h1 class="hero__title">Игровые компьютеры, которые <span>выжимают максимум</span></h1>
+        <div class="chips">
+          Для <span class="chip">Геймеров</span><span class="chip">Стримеров</span><span class="chip">3D и монтажа</span> и <span class="chip">Работы</span>
+        </div>
+        <div class="hero__buttons">
+          <a href="catalog.html" class="btn btn--outline">Готовые сборки</a>
+          <a href="configurator.html" class="btn btn--lime">Собрать свой ПК</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== БРЕНДЫ ===== -->
+    <section class="brands block">
+      <span class="brands__label">Собираем только на проверенном железе</span>
+      <div class="brands__list">
+        <span>NVIDIA</span><span>AMD</span><span>intel</span><span>ASUS</span><span>MSI</span><span>CORSAIR</span>
+      </div>
+    </section>
+
+    <!-- ===== УСЛУГИ ===== -->
+    <section class="band block">
+      <div class="band__content">
+        <h2>Что мы делаем</h2>
+        <p>От выбора комплектующих до стресс-теста и доставки — компьютер приезжает готовым к игре.</p>
+      </div>
+    </section>
+
+    <section class="cells block">
+      <div class="cell reveal">
+        <div class="icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+        </div>
+        <h3>Готовые сборки</h3>
+        <p>8 проверенных конфигураций от бюджетной до флагманской. Все уже протестированы, отправляем за 2 дня.</p>
+        <a href="catalog.html" class="btn btn--dark btn--full">Смотреть каталог</a>
+      </div>
+      <div class="cell reveal">
+        <div class="icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+        </div>
+        <h3>Конфигуратор с FPS</h3>
+        <p>Собери компьютер сам и сразу узнай, сколько кадров он выдаст в CS2, Cyberpunk и других играх.</p>
+        <a href="configurator.html" class="btn btn--dark btn--full">Открыть конфигуратор</a>
+      </div>
+      <div class="cell reveal">
+        <div class="icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-2.4z"/></svg>
+        </div>
+        <h3>Апгрейд и сервис</h3>
+        <p>Заменим видеокарту, почистим систему охлаждения и заменим термопасту. Диагностика бесплатно.</p>
+        <a href="contacts.html" class="btn btn--dark btn--full">Оставить заявку</a>
+      </div>
+    </section>
+
+    <!-- ===== ХИТЫ ПРОДАЖ ===== -->
+    <section class="band block">
+      <div class="band__content">
+        <h2>Хиты продаж</h2>
+        <p>Самые популярные сборки этого месяца. FPS посчитан для Cyberpunk 2077 на высоких настройках.</p>
+      </div>
+    </section>
+
+    <!-- Сюда JS вставит 3 карточки -->
+    <section class="pc-grid block" id="hits"></section>
+
+    <!-- ===== ПОЧЕМУ МЫ ===== -->
+    <section class="band block">
+      <div class="band__content">
+        <h2>Почему RigUp?</h2>
+        <p>Мы не просто скручиваем детали. Каждый компьютер проходит путь, который обычно пропускают.</p>
+      </div>
+    </section>
+
+    <section class="cells cells--2 block">
+      <div class="cell reveal">
+        <div class="cell__head">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Гарантия 3 года</h3>
+        </div>
+        <p>Гарантия на всю сборку целиком, а не на каждую деталь отдельно. Сломалось — забираем и чиним сами, без беготни по сервисам производителей.</p>
+      </div>
+      <div class="cell reveal">
+        <div class="cell__head">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.8V4a2 2 0 0 0-4 0v10.8a4 4 0 1 0 4 0z"/><path d="M12 9v7"/></svg></div>
+          <h3>Стресс-тест 24 часа</h3>
+        </div>
+        <p>Перед отправкой каждый ПК сутки работает под полной нагрузкой. Проверяем температуры, стабильность и шум, отчёт прикладываем к заказу.</p>
+      </div>
+      <div class="cell reveal">
+        <div class="cell__head">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h5a4 4 0 0 1 4 4v2a4 4 0 0 0 4 4h5"/><path d="M3 12h3M18 7h3M18 12h3"/></svg></div>
+          <h3>Идеальный кабель-менеджмент</h3>
+        </div>
+        <p>Провода спрятаны, стяжки подрезаны, воздух проходит свободно. Через стекло видно только железо и подсветку.</p>
+      </div>
+      <div class="cell reveal">
+        <div class="cell__head">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="12" height="9" rx="1"/><path d="M14 10h4l3 3v3h-7"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div>
+          <h3>Доставка по всей России</h3>
+        </div>
+        <p>Упаковываем в жёсткий короб с пенными вставками и фиксируем видеокарту. Страхуем каждую посылку.</p>
+      </div>
+    </section>
+
+    <!-- ===== ЦИФРЫ ===== -->
+    <section class="stats block">
+      <div class="stat reveal"><b>2 400+</b><span>собранных ПК</span></div>
+      <div class="stat reveal"><b>24 ч</b><span>стресс-теста</span></div>
+      <div class="stat reveal"><b>3 года</b><span>гарантии</span></div>
+      <div class="stat reveal"><b>4,9 ★</b><span>средняя оценка</span></div>
+    </section>
+
+    <!-- ===== ПРИЗЫВ В КОНФИГУРАТОР ===== -->
+    <section class="cta block">
+      <div class="cta__img">
+        <img src="https://images.unsplash.com/photo-1783783197323-31f5291db6f7?w=1000&q=75&auto=format&fit=crop" alt="Игровое место с RGB-подсветкой" loading="lazy" onerror="this.remove()">
+      </div>
+      <div class="cta__text reveal">
+        <h2>Не нашёл подходящую сборку? <span>Собери сам</span></h2>
+        <p>Выбирай комплектующие, а конфигуратор сразу покажет FPS в играх и проверит совместимость.</p>
+        <ul class="checks">
+          <li>FPS в 6 играх для 1080p, 1440p и 4K</li>
+          <li>Проверка сокета, блока питания и охлаждения</li>
+          <li>Ссылкой на сборку можно поделиться с другом</li>
+        </ul>
+        <div><a href="configurator.html" class="btn btn--lime">Открыть конфигуратор</a></div>
+      </div>
+    </section>
+
+    <!-- ===== ПОДВАЛ ===== -->
+    <footer class="footer">
+      <div class="footer__top">
+        <div>
+          <a href="index.html" class="logo">
+            <span class="logo__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></span>
+            <span>Rig<b>Up</b></span>
+          </a>
+          <p class="footer__about">Собираем игровые и рабочие компьютеры с 2019 года. Демо-проект для портфолио.</p>
+        </div>
+        <div>
+          <h4>Магазин</h4>
+          <div class="footer__links"><a href="catalog.html">Каталог</a><a href="configurator.html">Конфигуратор</a></div>
+        </div>
+        <div>
+          <h4>Компания</h4>
+          <div class="footer__links"><a href="contacts.html">Контакты</a><a href="contacts.html#faq">Вопросы</a></div>
+        </div>
+        <div>
+          <h4>Связь</h4>
+          <div class="footer__links"><a href="tel:+79000000000">+7 (900) 000-00-00</a><a href="mailto:hello@rigup.demo">hello@rigup.demo</a></div>
+        </div>
+      </div>
+      <div class="footer__bottom"><span>© 2026 RigUp</span><span>Фото: Unsplash</span></div>
+    </footer>
+  </main>
+
+  <!-- Порядок важен: сначала данные, потом общий код, потом код страницы -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Хиты продаж: берём 3 сборки по id и рисуем карточки
+    const hits = ['pro', 'titan', 'apex'].map(id => PRESETS.find(p => p.id === id));
+    document.getElementById('hits').innerHTML = hits.map(pcCardHTML).join('');
+    observeReveal(document.getElementById('hits'));
+  </script>
+</body>
+</html>

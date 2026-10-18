@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог — RigUp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== ШАПКА (одинаковая на всех страницах, меняется только is-active) ===== -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="logo">
+        <span class="logo__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg>
+        </span>
+        <span>Rig<b>Up</b></span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html">Главная</a>
+        <a href="catalog.html" class="is-active">Каталог</a>
+        <a href="configurator.html">Конфигуратор</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+      <div class="header__right">
+        <a href="configurator.html" class="btn btn--lime header__cta">Собрать ПК</a>
+        <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="frame">
+
+    <!-- ===== ЗАГОЛОВОК СТРАНИЦЫ ===== -->
+    <section class="band band--page block">
+      <div class="band__content">
+        <div class="crumbs"><a href="index.html">Главная</a> / <span>Каталог</span></div>
+        <h1>Готовые сборки</h1>
+        <p>Проверенные конфигурации под любой бюджет. Любую можно открыть в конфигураторе и поменять детали.</p>
+      </div>
+    </section>
+
+    <!-- ===== ФИЛЬТРЫ И СОРТИРОВКА ===== -->
+    <section class="toolbar block">
+      <!-- data-tag совпадает с tag у сборок в data.js -->
+      <div class="tabs" id="tagTabs">
+        <button class="is-active" data-tag="all">Все</button>
+        <button data-tag="Старт">Старт</button>
+        <button data-tag="Геймер">Геймер</button>
+        <button data-tag="Энтузиаст">Энтузиаст</button>
+        <button data-tag="Ультра">Ультра</button>
+      </div>
+      <select class="select" id="sort" aria-label="Сортировка">
+        <option value="price-asc">Сначала дешевле</option>
+        <option value="price-desc">Сначала дороже</option>
+        <option value="fps">Больше FPS</option>
+      </select>
+    </section>
+
+    <!-- Сюда JS вставит карточки -->
+    <section class="pc-grid block" id="catalog"></section>
+
+    <!-- ===== ПРИЗЫВ В КОНФИГУРАТОР ===== -->
+    <section class="band block">
+      <div class="band__content">
+        <h2>Не нашёл свою?</h2>
+        <p style="margin-bottom: 24px">Собери компьютер с нуля и сразу посмотри FPS в любимых играх.</p>
+        <a href="configurator.html" class="btn btn--lime">Открыть конфигуратор</a>
+      </div>
+    </section>
+
+    <!-- ===== ПОДВАЛ ===== -->
+    <footer class="footer">
+      <div class="footer__top">
+        <div>
+          <a href="index.html" class="logo">
+            <span class="logo__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></span>
+            <span>Rig<b>Up</b></span>
+          </a>
+          <p class="footer__about">Собираем игровые и рабочие компьютеры с 2019 года. Демо-проект для портфолио.</p>
+        </div>
+        <div>
+          <h4>Магазин</h4>
+          <div class="footer__links"><a href="catalog.html">Каталог</a><a href="configurator.html">Конфигуратор</a></div>
+        </div>
+        <div>
+          <h4>Компания</h4>
+          <div class="footer__links"><a href="contacts.html">Контакты</a><a href="contacts.html#faq">Вопросы</a></div>
+        </div>
+        <div>
+          <h4>Связь</h4>
+          <div class="footer__links"><a href="tel:+79000000000">+7 (900) 000-00-00</a><a href="mailto:hello@rigup.demo">hello@rigup.demo</a></div>
+        </div>
+      </div>
+      <div class="footer__bottom"><span>© 2026 RigUp</span><span>Фото: Unsplash</span></div>
+    </footer>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/catalog.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты — RigUp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== ШАПКА (одинаковая на всех страницах, меняется только is-active) ===== -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="logo">
+        <span class="logo__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg>
+        </span>
+        <span>Rig<b>Up</b></span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html">Главная</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="configurator.html">Конфигуратор</a>
+        <a href="contacts.html" class="is-active">Контакты</a>
+      </nav>
+      <div class="header__right">
+        <a href="configurator.html" class="btn btn--lime header__cta">Собрать ПК</a>
+        <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="frame">
+
+    <section class="band band--page block">
+      <div class="band__content">
+        <div class="crumbs"><a href="index.html">Главная</a> / <span>Контакты</span></div>
+        <h1>Приезжай в мастерскую</h1>
+        <p>Покажем сборки вживую, поможем выбрать железо и соберём при тебе.</p>
+      </div>
+    </section>
+
+    <!-- ===== КОНТАКТЫ + ФОРМА ===== -->
+    <section class="cells cells--2 block">
+      <div class="cell reveal">
+        <div class="cell__head">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <h3>Мастерская</h3>
+        </div>
+        <ul class="specs">
+          <li><span>Адрес</span><b>Москва, ул. Электродная, 7</b></li>
+          <li><span>Телефон</span><b><a href="tel:+79000000000">+7 (900) 000-00-00</a></b></li>
+          <li><span>Почта</span><b><a href="mailto:hello@rigup.demo">hello@rigup.demo</a></b></li>
+          <li><span>Будни</span><b>10:00–21:00</b></li>
+          <li><span>Выходные</span><b>11:00–19:00</b></li>
+        </ul>
+        <div class="cta__img" style="min-height: 220px; border-radius: 10px">
+          <img src="https://images.unsplash.com/photo-1662037592536-45692eed7ab0?w=900&q=75&auto=format&fit=crop" alt="Сборка компьютера в мастерской" loading="lazy" onerror="this.remove()">
+        </div>
+      </div>
+
+      <div class="cell reveal">
+        <div class="cell__head">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4z"/></svg></div>
+          <h3>Напиши нам</h3>
+        </div>
+        <p>Ответим в течение часа в рабочее время. Можно сразу приложить ссылку на сборку из конфигуратора.</p>
+        <form class="form" id="contactForm">
+          <div class="form__row">
+            <label class="field">Имя<input type="text" name="name" required></label>
+            <label class="field">Телефон<input type="tel" name="phone" placeholder="+7" required></label>
+          </div>
+          <label class="field">Тема
+            <select name="topic">
+              <option>Подбор компьютера</option>
+              <option>Апгрейд моего ПК</option>
+              <option>Ремонт и чистка</option>
+              <option>Другое</option>
+            </select>
+          </label>
+          <label class="field">Сообщение<textarea name="message" placeholder="Под какие игры или задачи нужен ПК, какой бюджет?"></textarea></label>
+          <button class="btn btn--lime btn--full" type="submit">Отправить</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="band block" id="faq">
+      <div class="band__content">
+        <h2>Частые вопросы</h2>
+        <p>Если не нашёл ответ — звони, расскажем.</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <details class="faq" open>
+        <summary>Насколько точный FPS в конфигураторе?</summary>
+        <p>Это оценка по нашим тестам на высоких настройках графики. В реальной игре цифры могут отличаться на 10–15% в зависимости от сцены, драйверов и версии игры.</p>
+      </details>
+      <details class="faq">
+        <summary>Сколько времени занимает сборка?</summary>
+        <p>Готовые сборки отправляем за 2 дня. Сборка из конфигуратора — 3–5 дней, включая суточный стресс-тест.</p>
+      </details>
+      <details class="faq">
+        <summary>Устанавливаете Windows и драйверы?</summary>
+        <p>Да, по желанию ставим систему, свежие драйверы и настраиваем BIOS: профиль памяти, кривую вентиляторов и подсветку.</p>
+      </details>
+      <details class="faq">
+        <summary>Что, если компьютер сломается?</summary>
+        <p>Гарантия 3 года на всю сборку. Сами забираем компьютер курьером, чиним и привозим обратно.</p>
+      </details>
+      <details class="faq">
+        <summary>Можно принести свои комплектующие?</summary>
+        <p>Можно. Проверим совместимость, соберём и протестируем. Стоимость работы — от 4 990 ₽.</p>
+      </details>
+    </section>
+
+    <!-- ===== ПОДВАЛ ===== -->
+    <footer class="footer">
+      <div class="footer__top">
+        <div>
+          <a href="index.html" class="logo">
+            <span class="logo__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></span>
+            <span>Rig<b>Up</b></span>
+          </a>
+          <p class="footer__about">Собираем игровые и рабочие компьютеры с 2019 года. Демо-проект для портфолио.</p>
+        </div>
+        <div>
+          <h4>Магазин</h4>
+          <div class="footer__links"><a href="catalog.html">Каталог</a><a href="configurator.html">Конфигуратор</a></div>
+        </div>
+        <div>
+          <h4>Компания</h4>
+          <div class="footer__links"><a href="contacts.html">Контакты</a><a href="contacts.html#faq">Вопросы</a></div>
+        </div>
+        <div>
+          <h4>Связь</h4>
+          <div class="footer__links"><a href="tel:+79000000000">+7 (900) 000-00-00</a><a href="mailto:hello@rigup.demo">hello@rigup.demo</a></div>
+        </div>
+      </div>
+      <div class="footer__bottom"><span>© 2026 RigUp</span><span>Фото: Unsplash</span></div>
+    </footer>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Форма обратной связи: в демо просто показываем уведомление
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      // elements.name, а не просто .name: у самой формы тоже есть свойство name
+      const name = e.target.elements.name.value;
+      showToast(`Спасибо, ${name}! Скоро ответим`);
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
