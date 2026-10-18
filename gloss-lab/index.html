@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GLOSS LAB — детейлинг и автохимия</title>
+  <!-- Шрифты с Google Fonts: Unbounded для заголовков, Manrope для текста -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Unbounded:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Полоска прогресса прокрутки (ширину меняет JS) -->
+  <div class="progress" id="progress"></div>
+
+  <!-- ===== ШАПКА ===== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">GLOSS<span>LAB</span></a>
+      <nav class="nav" id="nav">
+        <a href="#services">Услуги</a>
+        <a href="#before-after">До / После</a>
+        <a href="#shop">Магазин</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#booking">Запись</a>
+      </nav>
+      <div class="header__right">
+        <!-- Кнопка корзины: число товаров обновляет JS -->
+        <button class="cart-btn" id="cartOpen" aria-label="Корзина">
+          🛒 <span class="cart-btn__count" id="cartCount">0</span>
+        </button>
+        <!-- Бургер: виден только на телефоне -->
+        <button class="burger" id="burger" aria-label="Меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== ПЕРВЫЙ ЭКРАН ===== -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <p class="hero__tag"><span class="dot"></span> Детейлинг-студия · Москва</p>
+      <h1 class="hero__title"><span class="gradient-text">Блеск</span>, как <br>в первый день</h1>
+      <p class="hero__text">Полировка, керамика и химчистка салона. А ещё та самая химия, которой работаем мы сами: можно забрать домой.</p>
+      <div class="hero__buttons">
+        <a href="#booking" class="btn btn--accent">Записаться</a>
+        <a href="#shop" class="btn btn--ghost">В магазин</a>
+      </div>
+      <!-- Цифры: JS досчитает от 0 до data-count -->
+      <div class="hero__stats">
+        <div><b data-count="1200" data-suffix="+">0</b><span>машин отполировали</span></div>
+        <div><b data-count="4.9" data-decimals="1" data-suffix=" ★">0</b><span>рейтинг на картах</span></div>
+        <div><b data-count="7" data-suffix=" лет">0</b><span>в детейлинге</span></div>
+      </div>
+    </div>
+
+    <!-- ===== ДОРОГА С АНИМИРОВАННОЙ ТАЧКОЙ ===== -->
+    <div class="road">
+      <div class="road__lines"></div>
+      <div class="car">
+        <!-- Машина нарисована в SVG: viewBox — это "холст" 420×110 -->
+        <svg viewBox="0 0 420 110" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Градиенты: кузов, стекло, луч фар -->
+            <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#67e8f9"/>
+              <stop offset="1" stop-color="#0e7490"/>
+            </linearGradient>
+            <linearGradient id="glassGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#e0f2ff"/>
+              <stop offset="1" stop-color="#1e1b4b"/>
+            </linearGradient>
+            <linearGradient id="beamGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#e0fbff" stop-opacity=".7"/>
+              <stop offset="1" stop-color="#e0fbff" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Тень под машиной -->
+          <ellipse cx="162" cy="104" rx="150" ry="6" fill="#000" opacity=".5"/>
+
+          <!-- Луч фар -->
+          <polygon class="car__beam" points="308,56 420,36 420,84" fill="url(#beamGrad)"/>
+
+          <!-- Дымок из выхлопа -->
+          <circle class="puff" cx="8" cy="76" r="5" fill="#8796b0"/>
+          <circle class="puff puff--2" cx="8" cy="76" r="5" fill="#8796b0"/>
+          <circle class="puff puff--3" cx="8" cy="76" r="5" fill="#8796b0"/>
+
+          <!-- Кузов (группа, которая покачивается) -->
+          <g class="car__body">
+            <!-- Спойлер (сзади, слева) -->
+            <path d="M10,45 L40,43 L40,48 L12,51 Z" fill="#0b1020"/>
+            <rect x="27" y="46" width="4" height="7" fill="#0b1020"/>
+            <!-- Корпус с вырезами под колёса. Капот длинный и справа: машина смотрит вправо -->
+            <path d="M314,70 L304,56 Q264,49 226,46 L188,26 Q174,18 149,18 L109,20 Q84,22 62,42 L24,50 Q12,53 10,62 L10,75 Q10,80 16,80 L54,80 A28,28 0 0 1 110,80 L218,80 A28,28 0 0 1 274,80 L308,80 Q314,80 314,74 Z" fill="url(#bodyGrad)"/>
+            <!-- Стекло и стойка -->
+            <path d="M206,45 L182,28 Q172,23 152,23 L114,24 Q96,26 80,43 Z" fill="url(#glassGrad)"/>
+            <rect x="139" y="23" width="5" height="21" fill="#0e7490"/>
+            <!-- Гоночная полоса (фиолетовая) и линия двери -->
+            <path d="M302,62 L14,60" stroke="#a78bfa" stroke-width="3"/>
+            <path d="M174,46 L174,78" stroke="#155e75" stroke-width="1.5"/>
+            <!-- Зеркало (у лобового стекла) -->
+            <path d="M200,44 L210,39 L213,45 Z" fill="#0b1020"/>
+            <!-- Фара (спереди, справа) и задний фонарь (сзади, слева) -->
+            <ellipse cx="307" cy="60" rx="6" ry="3.5" fill="#e0fbff"/>
+            <rect x="10" y="63" width="7" height="5" rx="2" fill="#ff2a5a"/>
+          </g>
+
+          <!-- Колёса: каждое крутится отдельно -->
+          <g class="wheel">
+            <circle cx="82" cy="80" r="22" fill="#05070c"/>
+            <circle cx="82" cy="80" r="15" fill="#1a2233" stroke="#9fb0c8" stroke-width="2"/>
+            <path d="M82,80 L95,80 M82,80 L86,92.4 M82,80 L71.5,87.6 M82,80 L71.5,72.4 M82,80 L86,67.6" stroke="#9fb0c8" stroke-width="3"/>
+            <circle cx="82" cy="80" r="4" fill="#8b5cf6"/>
+          </g>
+          <g class="wheel">
+            <circle cx="246" cy="80" r="22" fill="#05070c"/>
+            <circle cx="246" cy="80" r="15" fill="#1a2233" stroke="#9fb0c8" stroke-width="2"/>
+            <path d="M246,80 L259,80 M246,80 L250,92.4 M246,80 L235.5,87.6 M246,80 L235.5,72.4 M246,80 L250,67.6" stroke="#9fb0c8" stroke-width="3"/>
+            <circle cx="246" cy="80" r="4" fill="#8b5cf6"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== БЕГУЩАЯ СТРОКА ===== -->
+  <!-- Текст повторён 2 раза: так анимация зацикливается без "прыжка" -->
+  <div class="marquee">
+    <div class="marquee__track">
+      <span>Керамика</span><span>✦</span><span>Полировка</span><span>✦</span><span>Химчистка</span><span>✦</span><span>Антидождь</span><span>✦</span><span>Защитная плёнка</span><span>✦</span><span>Детейлинг-мойка</span><span>✦</span>
+      <span>Керамика</span><span>✦</span><span>Полировка</span><span>✦</span><span>Химчистка</span><span>✦</span><span>Антидождь</span><span>✦</span><span>Защитная плёнка</span><span>✦</span><span>Детейлинг-мойка</span><span>✦</span>
+    </div>
+  </div>
+
+  <!-- ===== УСЛУГИ ===== -->
+  <section class="section" id="services">
+    <div class="container">
+      <p class="section__tag">Что умеем</p>
+      <h2 class="section__title reveal">Услуги студии</h2>
+      <div class="services">
+        <div class="service reveal">
+          <div class="service__icon">✨</div>
+          <h3>Полировка кузова</h3>
+          <p>Убираем мелкие царапины и голограммы, возвращаем глубину цвета.</p>
+          <div class="service__bottom">
+            <span class="service__price">от 12 000 ₽</span>
+            <span class="service__time">⏱ 1 день</span>
+          </div>
+        </div>
+        <div class="service service--hot reveal">
+          <span class="service__badge">Популярное</span>
+          <div class="service__icon">🛡️</div>
+          <h3>Керамика</h3>
+          <p>Защитное покрытие на 2–3 года: грязь и вода просто скатываются.</p>
+          <div class="service__bottom">
+            <span class="service__price">от 25 000 ₽</span>
+            <span class="service__time">⏱ 2 дня</span>
+          </div>
+        </div>
+        <div class="service reveal">
+          <div class="service__icon">🧽</div>
+          <h3>Химчистка салона</h3>
+          <p>Сиденья, потолок, ковры: выводим пятна и запахи.</p>
+          <div class="service__bottom">
+            <span class="service__price">от 8 000 ₽</span>
+            <span class="service__time">⏱ 6 часов</span>
+          </div>
+        </div>
+        <div class="service reveal">
+          <div class="service__icon">💧</div>
+          <h3>Детейлинг-мойка</h3>
+          <p>Двухфазная мойка, чистка дисков и арок, сушка без разводов.</p>
+          <div class="service__bottom">
+            <span class="service__price">от 2 500 ₽</span>
+            <span class="service__time">⏱ 2 часа</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ДО / ПОСЛЕ ===== -->
+  <section class="section section--dark" id="before-after">
+    <div class="container">
+      <p class="section__tag">Результат</p>
+      <h2 class="section__title reveal">Потяни ползунок</h2>
+      <!-- --pos — CSS-переменная, её меняет JS при движении ползунка -->
+      <div class="ba reveal" id="ba" style="--pos: 50%">
+        <div class="ba__side ba__side--before"><span class="ba__label">До</span></div>
+        <div class="ba__side ba__side--after"><span class="ba__label ba__label--after">После</span></div>
+        <div class="ba__handle"><span>⇆</span></div>
+        <!-- Невидимый range поверх всего: он и ловит перетаскивание (мышь + палец) -->
+        <input type="range" min="0" max="100" value="50" class="ba__range" id="baRange" aria-label="Сравнить до и после">
+      </div>
+      <p class="ba__caption">Капот BMW после зимы → после полировки и керамики</p>
+    </div>
+  </section>
+
+  <!-- ===== КАК РАБОТАЕМ ===== -->
+  <section class="section" id="process">
+    <div class="container">
+      <p class="section__tag">Процесс</p>
+      <h2 class="section__title reveal">Как мы работаем</h2>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step__num">01</div>
+          <h3>Заявка</h3>
+          <p>Оставляете заявку на сайте или звоните, подбираем удобное время.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step__num">02</div>
+          <h3>Осмотр</h3>
+          <p>Смотрим машину под лампой, показываем все дефекты и называем точную цену.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step__num">03</div>
+          <h3>Работа</h3>
+          <p>Делаем всё в тёплом боксе. Можно наблюдать через камеру онлайн.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step__num">04</div>
+          <h3>Выдача</h3>
+          <p>Принимаете машину при нас и получаете гарантию и советы по уходу.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== МАГАЗИН ===== -->
+  <section class="section section--dark" id="shop">
+    <div class="container">
+      <p class="section__tag">Для дома</p>
+      <h2 class="section__title reveal">Магазин автохимии</h2>
+
+      <!-- Фильтры: data-filter совпадает с category у товаров в script.js -->
+      <div class="filters" id="filters">
+        <button class="filter is-active" data-filter="all">Все</button>
+        <button class="filter" data-filter="wash">Мойка</button>
+        <button class="filter" data-filter="polish">Полировка</button>
+        <button class="filter" data-filter="interior">Салон</button>
+        <button class="filter" data-filter="tools">Инструменты</button>
+      </div>
+
+      <!-- Сюда JS вставит карточки товаров -->
+      <div class="products" id="products"></div>
+    </div>
+  </section>
+
+  <!-- ===== ОТЗЫВЫ ===== -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <p class="section__tag">Отзывы</p>
+      <h2 class="section__title reveal">Говорят клиенты</h2>
+      <div class="reviews">
+        <div class="review reveal">
+          <div class="review__stars">★★★★★</div>
+          <p>«Сделали керамику на Камри. Прошёл месяц, а машина после дождя выглядит чище, чем соседские после мойки.»</p>
+          <div class="review__author">
+            <div class="avatar">А</div>
+            <div><b>Артём</b><span>Toyota Camry</span></div>
+          </div>
+        </div>
+        <div class="review reveal">
+          <div class="review__stars">★★★★★</div>
+          <p>«Химчистка салона после собаки. Запаха нет вообще. Отдельное спасибо, что показали фото до/после.»</p>
+          <div class="review__author">
+            <div class="avatar avatar--violet">М</div>
+            <div><b>Марина</b><span>Kia Sportage</span></div>
+          </div>
+        </div>
+        <div class="review reveal">
+          <div class="review__stars">★★★★★</div>
+          <p>«Купил у них шампунь и микрофибру, теперь мою сам. Ребята ещё и объяснили, как правильно.»</p>
+          <div class="review__author">
+            <div class="avatar">Д</div>
+            <div><b>Денис</b><span>Lada Vesta</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section section--dark" id="faq">
+    <div class="container container--narrow">
+      <p class="section__tag">Вопросы</p>
+      <h2 class="section__title reveal">Частые вопросы</h2>
+      <!-- details/summary — встроенный в HTML аккордеон, работает без JS -->
+      <details class="faq reveal">
+        <summary>Сколько держится керамика?</summary>
+        <p>При правильном уходе 2–3 года. Раз в полгода рекомендуем приезжать на бесплатный осмотр.</p>
+      </details>
+      <details class="faq reveal">
+        <summary>Можно ли мыть машину на обычной мойке после керамики?</summary>
+        <p>Можно, но лучше бесконтактную и без жёстких щёток. Мы дадим памятку по уходу.</p>
+      </details>
+      <details class="faq reveal">
+        <summary>Есть ли гарантия?</summary>
+        <p>Да, на все работы гарантия по договору. На керамику до 3 лет.</p>
+      </details>
+      <details class="faq reveal">
+        <summary>Как быстро доставите заказ из магазина?</summary>
+        <p>Курьером по Москве в день заказа, если оформить до 15:00. Самовывоз из студии в любое время работы.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ===== ЗАПИСЬ ===== -->
+  <section class="section" id="booking">
+    <div class="container">
+      <div class="booking reveal">
+        <div class="booking__text">
+          <h2>Запишитесь на бесплатный осмотр</h2>
+          <p>Посмотрим машину под лампой, покажем все дефекты и назовём точную цену. Ни к чему не обязывает.</p>
+        </div>
+        <form class="booking__form" id="bookingForm">
+          <input type="text" name="name" placeholder="Ваше имя" required>
+          <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+          <select name="service">
+            <option>Полировка кузова</option>
+            <option>Керамика</option>
+            <option>Химчистка салона</option>
+            <option>Детейлинг-мойка</option>
+          </select>
+          <input type="date" name="date" required>
+          <button type="submit" class="btn btn--accent btn--full">Записаться</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ПОДВАЛ ===== -->
+  <footer class="footer" id="contacts">
+    <div class="container footer__inner">
+      <div class="footer__col">
+        <a href="#" class="logo">GLOSS<span>LAB</span></a>
+        <p class="footer__text">Детейлинг-студия и магазин автохимии. Возвращаем машинам блеск с 2019 года.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Контакты</h4>
+        <p>📍 ул. Автомобильная, 12</p>
+        <p>📞 +7 (900) 000-00-00</p>
+        <p>🕘 Ежедневно 9:00–21:00</p>
+      </div>
+      <div class="footer__col">
+        <h4>Соцсети</h4>
+        <div class="socials">
+          <a href="#">Telegram</a>
+          <a href="#">VK</a>
+          <a href="#">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer__bottom">© 2026 GLOSS LAB · демо-проект для портфолио</div>
+  </footer>
+
+  <!-- ===== КОРЗИНА (выезжает справа) ===== -->
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart" id="cart">
+    <div class="cart__head">
+      <h3>Корзина</h3>
+      <button class="cart__close" id="cartClose">✕</button>
+    </div>
+    <div class="cart__items" id="cartItems"></div>
+    <div class="cart__foot">
+      <div class="cart__total">Итого: <span id="cartTotal">0 ₽</span></div>
+      <button class="btn btn--accent btn--full" id="checkoutBtn">Оформить заказ</button>
+    </div>
+  </aside>
+
+  <!-- ===== ОКНО ОФОРМЛЕНИЯ ЗАКАЗА ===== -->
+  <div class="modal" id="modal">
+    <div class="modal__box">
+      <button class="cart__close modal__close" id="modalClose">✕</button>
+      <!-- Шаг 1: форма -->
+      <form class="order-form" id="orderForm">
+        <h3>Оформление заказа</h3>
+        <input type="text" name="name" placeholder="Ваше имя" required>
+        <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+        <select name="delivery">
+          <option value="pickup">Самовывоз из студии</option>
+          <option value="courier">Курьер (+300 ₽)</option>
+        </select>
+        <button type="submit" class="btn btn--accent btn--full">Подтвердить</button>
+      </form>
+      <!-- Шаг 2: спасибо (по умолчанию скрыт) -->
+      <div class="order-done" id="orderDone">
+        <div class="order-done__icon">✅</div>
+        <h3>Заказ принят!</h3>
+        <p>Перезвоним в течение 15 минут.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Всплывающее уведомление (текст подставляет JS) -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Кнопка "наверх" -->
+  <button class="to-top" id="toTop" aria-label="Наверх">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
