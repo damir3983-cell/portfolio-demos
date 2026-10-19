@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Говори — разговорный английский в группах до 6 человек</title>
+  <meta name="description" content="Разговорный английский в мини-группах до 6 человек. 70% урока — живая речь. Первый урок бесплатно, тест уровня за 2 минуты.">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ШАПКА -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">Говори<span class="logo__dot">.</span></a>
+      <nav class="nav" id="nav">
+        <a href="#test">Тест уровня</a>
+        <a href="#prices">Цены</a>
+        <a href="#teachers">Преподаватели</a>
+        <a href="#faq">Вопросы</a>
+      </nav>
+      <a href="#signup" class="btn btn--yellow btn--small header__cta">Пробный урок</a>
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ПЕРВЫЙ ЭКРАН -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <p class="eyebrow">Школа разговорного английского</p>
+          <h1 class="hero__title">Заговорите на&nbsp;английском за&nbsp;<mark>3&nbsp;месяца</mark></h1>
+          <p class="hero__subtitle">70% урока вы говорите сами: обсуждаете работу, путешествия и сериалы. Группы до 6 человек, первый урок — бесплатно.</p>
+          <div class="hero__actions">
+            <a href="#signup" class="btn btn--yellow">Записаться на бесплатный урок</a>
+            <a href="#test" class="link-arrow">Узнать уровень за 2 минуты →</a>
+          </div>
+          <ul class="hero__facts">
+            <li><strong>60 мин</strong><span>длится урок</span></li>
+            <li><strong>до 6</strong><span>человек в группе</span></li>
+            <li><strong>от 690 ₽</strong><span>за занятие</span></li>
+          </ul>
+        </div>
+        <div class="hero__photo">
+          <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=900&h=1000&fit=crop&auto=format&q=75" alt="Ученики разговаривают за столом в кафе" width="900" height="1000">
+          <p class="hero__badge"><strong>1 240</strong> учеников уже говорят свободнее</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ТЕСТ УРОВНЯ -->
+    <section class="section section--dark" id="test">
+      <div class="container test">
+        <div class="test__intro">
+          <p class="eyebrow eyebrow--yellow">Тест за 2 минуты</p>
+          <h2 class="section__title">Узнайте свой уровень</h2>
+          <p class="section__lead">6 вопросов — и вы узнаете, в какую группу идти. Результат сам подставится в заявку.</p>
+        </div>
+
+        <div class="quiz" id="quiz">
+          <!-- Состояние: вопрос -->
+          <div id="quizQuestion">
+            <div class="quiz__progress">
+              <span class="quiz__step" id="quizStep">Вопрос 1 из 6</span>
+              <div class="quiz__bar"><div class="quiz__bar-fill" id="quizBar"></div></div>
+            </div>
+            <p class="quiz__q" id="quizText"></p>
+            <div class="quiz__options" id="quizOptions"></div>
+            <button class="btn btn--yellow" id="quizNext" disabled>Выберите вариант</button>
+          </div>
+
+          <!-- Состояние: результат -->
+          <div class="quiz__result" id="quizResult" hidden>
+            <p class="quiz__step">Ваш уровень</p>
+            <p class="quiz__level" id="resultLevel">B1</p>
+            <p class="quiz__level-name" id="resultName"></p>
+            <p class="quiz__text" id="resultText"></p>
+            <div class="quiz__actions">
+              <a href="#signup" class="btn btn--yellow" id="resultCta">Записаться в группу</a>
+              <button class="link-arrow link-arrow--light" id="quizRestart">Пройти заново</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ЦЕНЫ -->
+    <section class="section" id="prices">
+      <div class="container">
+        <div class="prices__head">
+          <div>
+            <h2 class="section__title">Форматы и цены</h2>
+            <p class="section__lead">Оплата пакетами. Если пропустили урок по болезни — перенесём без доплаты.</p>
+          </div>
+          <div class="switch" role="group" aria-label="Количество занятий">
+            <button class="switch__btn is-active" data-lessons="8">8 занятий</button>
+            <button class="switch__btn" data-lessons="16">16 занятий <span class="switch__sale">−10%</span></button>
+          </div>
+        </div>
+
+        <div class="plans" id="plans"></div>
+      </div>
+    </section>
+
+    <!-- КАК ПРОХОДИТ УРОК -->
+    <section class="section section--tinted">
+      <div class="container">
+        <h2 class="section__title">Как проходит урок</h2>
+        <ol class="timeline">
+          <li>
+            <span class="timeline__time">0–10 мин</span>
+            <h3>Разминка</h3>
+            <p>Обсуждаем новости недели — без учебника, просто разговор.</p>
+          </li>
+          <li>
+            <span class="timeline__time">10–25 мин</span>
+            <h3>Новая тема</h3>
+            <p>15 полезных фраз под ситуацию: собеседование, отель, созвон с коллегами.</p>
+          </li>
+          <li>
+            <span class="timeline__time">25–55 мин</span>
+            <h3>Практика в парах</h3>
+            <p>Разыгрываете диалоги, преподаватель поправляет ошибки на ходу.</p>
+          </li>
+          <li>
+            <span class="timeline__time">55–60 мин</span>
+            <h3>Итоги</h3>
+            <p>Получаете список своих ошибок и 10-минутное задание в Telegram.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ПРЕПОДАВАТЕЛИ -->
+    <section class="section" id="teachers">
+      <div class="container">
+        <h2 class="section__title">Преподаватели</h2>
+        <p class="section__lead">У каждого — международный сертификат и минимум 5 лет практики.</p>
+        <div class="teachers">
+          <article class="teacher">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=700&fit=crop&auto=format&q=75" alt="Преподаватель Марина" width="600" height="700" loading="lazy">
+            <h3 class="teacher__name">Марина Соколова</h3>
+            <p class="teacher__meta">CELTA · 9 лет опыта</p>
+            <p class="teacher__text">Ведёт группы для работы: созвоны, переписка, презентации.</p>
+          </article>
+          <article class="teacher">
+            <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=600&h=700&fit=crop&auto=format&q=75" alt="Преподаватель Алексей" width="600" height="700" loading="lazy">
+            <h3 class="teacher__name">Алексей Веденин</h3>
+            <p class="teacher__meta">IELTS 8.5 · 6 лет опыта</p>
+            <p class="teacher__text">Готовит к IELTS и переезду. Жил 3 года в Лондоне.</p>
+          </article>
+          <article class="teacher">
+            <img src="https://images.unsplash.com/photo-1573496800808-56566a492b63?w=600&h=700&fit=crop&auto=format&q=75" alt="Преподаватель Дарья" width="600" height="700" loading="lazy">
+            <h3 class="teacher__name">Дарья Ким</h3>
+            <p class="teacher__meta">TKT · 5 лет опыта</p>
+            <p class="teacher__text">Работает с новичками: снимает страх ошибок за первые 4 урока.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ВОПРОСЫ -->
+    <section class="section section--tinted" id="faq">
+      <div class="container faq">
+        <h2 class="section__title">Частые вопросы</h2>
+        <div class="faq__list">
+          <details>
+            <summary>Я совсем не знаю английский. Мне можно?</summary>
+            <p>Да. Есть группы с нуля (уровень A1): первые 4 урока учимся представляться, заказывать еду и спрашивать дорогу.</p>
+          </details>
+          <details>
+            <summary>Занятия онлайн или в классе?</summary>
+            <p>И так, и так. Онлайн — в Zoom, в классе — на ул. Московской, 25. Формат можно менять каждый месяц.</p>
+          </details>
+          <details>
+            <summary>Что если я пропущу урок?</summary>
+            <p>Запись урока и задание придут в Telegram. По болезни переносим занятие без доплаты.</p>
+          </details>
+          <details>
+            <summary>Как проходит бесплатный урок?</summary>
+            <p>30 минут с преподавателем: определяем уровень, цель и подбираем группу. Ни к чему не обязывает.</p>
+          </details>
+          <details>
+            <summary>Можно вернуть деньги?</summary>
+            <p>Да, за непройденные занятия — в течение 5 рабочих дней.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ЗАПИСЬ -->
+    <section class="section section--dark" id="signup">
+      <div class="container signup">
+        <div class="signup__text">
+          <h2 class="section__title">Бесплатный пробный урок</h2>
+          <p class="section__lead">Оставьте заявку — администратор перезвонит в течение 15 минут и подберёт время.</p>
+          <ul class="checks">
+            <li>30 минут с преподавателем</li>
+            <li>Точный уровень и план обучения</li>
+            <li>Без оплаты и обязательств</li>
+          </ul>
+        </div>
+
+        <div class="signup__box">
+          <form class="form" id="signupForm" novalidate>
+            <div class="field">
+              <label for="name">Имя</label>
+              <input id="name" name="name" type="text" placeholder="Иван" autocomplete="given-name">
+              <p class="field__error"></p>
+            </div>
+
+            <div class="field">
+              <label for="phone">Телефон</label>
+              <input id="phone" name="phone" type="tel" placeholder="+7 (900) 123-45-67" autocomplete="tel">
+              <p class="field__error"></p>
+            </div>
+
+            <div class="form__row">
+              <div class="field">
+                <label for="format">Формат</label>
+                <select id="format" name="format">
+                  <option value="">Выберите</option>
+                  <option value="group">Группа</option>
+                  <option value="pair">Пара</option>
+                  <option value="solo">Индивидуально</option>
+                </select>
+                <p class="field__error"></p>
+              </div>
+              <div class="field">
+                <label for="level">Уровень</label>
+                <select id="level" name="level">
+                  <option value="">Не знаю</option>
+                  <option value="A1">A1 — начальный</option>
+                  <option value="A2">A2 — базовый</option>
+                  <option value="B1">B1 — средний</option>
+                  <option value="B2">B2 — выше среднего</option>
+                </select>
+              </div>
+            </div>
+
+            <fieldset class="field">
+              <legend>Когда удобно заниматься</legend>
+              <div class="chips">
+                <label class="chip"><input type="radio" name="time" value="morning"><span>Утро</span></label>
+                <label class="chip"><input type="radio" name="time" value="day"><span>День</span></label>
+                <label class="chip"><input type="radio" name="time" value="evening" checked><span>Вечер</span></label>
+              </div>
+            </fieldset>
+
+            <!-- Состояние: ошибка отправки -->
+            <p class="form__error" id="formError" hidden></p>
+
+            <button type="submit" class="btn btn--yellow btn--full" id="submitBtn">Записаться на бесплатный урок</button>
+            <p class="form__note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+          </form>
+
+          <!-- Состояние: заявка отправлена -->
+          <div class="success" id="success" hidden>
+            <div class="success__icon">✓</div>
+            <p class="success__title">Заявка отправлена</p>
+            <p class="success__text" id="successText"></p>
+            <button class="btn btn--outline" id="successReset">Отправить ещё одну заявку</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ПОДВАЛ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <a href="#" class="logo">Говори<span class="logo__dot">.</span></a>
+        <p class="footer__note">Демо-проект для портфолио. Фото: Unsplash</p>
+      </div>
+      <ul class="footer__list">
+        <li><span>Адрес</span>ул. Московская, 25</li>
+        <li><span>Телефон</span><a href="tel:+79000000000">+7 (900) 000-00-00</a></li>
+        <li><span>Режим работы</span>Пн–Сб 9:00–21:00</li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
