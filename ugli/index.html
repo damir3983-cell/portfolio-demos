@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Угли — стейки на дубовых углях. Бронь стола за 30 секунд</title>
+  <meta name="description" content="Гриль-ресторан «Угли»: стейки сухого вызревания 21 день на дубовых углях 450°. Выберите стол на схеме зала и забронируйте онлайн.">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- Класс js ставим сразу — без JS контент просто виден без анимаций -->
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="cursor" id="cursor"><span class="cursor__label" id="cursorLabel"></span></div>
+  <!-- Фото блюда, которое летает за курсором в меню -->
+  <div class="menu-preview" id="menuPreview" aria-hidden="true"><img alt="" id="menuPreviewImg"></div>
+
+  <!-- ===================== ШАПКА ===================== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#top" class="logo" aria-label="Угли — на главную">
+        <svg class="logo__flame" viewBox="0 0 24 32" aria-hidden="true">
+          <path d="M12 1c1 6 8 9 8 18a8 8 0 0 1-16 0c0-4 2-6 3-8 0 3 1 5 3 5-1-5 0-11 2-15z"/>
+        </svg>
+        Угли
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#kitchen">Кухня</a>
+        <a href="#menu">Меню</a>
+        <a href="#gallery">Атмосфера</a>
+        <a href="#booking">Бронь</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <a href="tel:+79000000000" class="header__phone">+7 (900) 000-00-00</a>
+      <a href="#booking" class="btn btn--ember btn--small header__cta">Забронировать</a>
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== ПЕРВЫЙ ЭКРАН: ВРАЩАЮЩАЯСЯ ТАРЕЛКА =====================
+         Секция высотой 320vh, сцена внутри прилипает к экрану.
+         Пока листаете: тарелка растёт и крутится, буквы заголовка разлетаются,
+         затем тарелка уезжает вправо, а слева появляется текст с бронью. -->
+    <section class="hero" id="top">
+      <div class="hero__stage" id="heroStage">
+        <canvas class="hero__embers" id="embers" aria-hidden="true"></canvas>
+        <div class="hero__glow" aria-hidden="true"></div>
+
+        <h1 class="hero__title" aria-label="Огонь и мясо">
+          <span class="hero__word hero__word--1" data-split>Огонь</span>
+          <span class="hero__word hero__word--2" data-split><em>и</em>&nbsp;мясо</span>
+        </h1>
+
+        <div class="hero__plate" id="heroPlate">
+          <div class="hero__plate-inner">
+            <img src="https://images.unsplash.com/photo-1519077336050-4ca5cac9d64f?w=1400&h=1400&fit=crop&auto=format&q=80" alt="Артишоки с углей на белой тарелке, вид сверху" width="1400" height="1400">
+          </div>
+          <!-- Текст по кругу вокруг тарелки -->
+          <svg class="hero__ring" viewBox="0 0 200 200" aria-hidden="true">
+            <defs><path id="ringPath" d="M100 100 m-88 0 a88 88 0 1 1 176 0 a88 88 0 1 1 -176 0"/></defs>
+            <text><textPath href="#ringPath">дубовые угли · 450 градусов · сухое вызревание 21 день ·</textPath></text>
+          </svg>
+        </div>
+
+        <div class="hero__bottom">
+          <p class="hero__lead">Стейк на&nbsp;дубовых углях за&nbsp;12&nbsp;минут. Стол бронируется онлайн за&nbsp;30&nbsp;секунд.</p>
+          <div class="hero__actions">
+            <a href="#booking" class="btn btn--ember">Забронировать стол</a>
+            <a href="#menu" class="link-line">Смотреть меню</a>
+          </div>
+        </div>
+
+        <!-- Финальная сцена: тарелка уехала вправо, слева — подробности -->
+        <div class="hero__final" id="heroFinal">
+          <p class="eyebrow">Гриль-ресторан на Речной, 8</p>
+          <h2 class="hero__final-title">Готовим только на&nbsp;<em>живом огне</em></h2>
+          <ul class="hero__facts">
+            <li><strong>450°</strong><span>жар дубовых углей</span></li>
+            <li><strong>21 день</strong><span>сухого вызревания</span></li>
+            <li><strong>от&nbsp;1&nbsp;290&nbsp;₽</strong><span>горячее</span></li>
+          </ul>
+          <a href="#booking" class="btn btn--ember">Выбрать стол на схеме</a>
+        </div>
+
+        <div class="hero__hint" aria-hidden="true"><span class="hero__hint-line"></span>Листайте</div>
+      </div>
+    </section>
+
+    <!-- ===================== МАНИФЕСТ: ТЕКСТ «НАКАЛЯЕТСЯ» ===================== -->
+    <section class="section manifest">
+      <div class="container">
+        <p class="eyebrow" data-reveal>О нас</p>
+        <p class="manifest__text" id="manifest">
+          <span class="manifest__line">У нас нет газовой плиты и&nbsp;микроволновки.</span>
+          <span class="manifest__line">Только гриль на&nbsp;дубовых и&nbsp;вишнёвых дровах,</span>
+          <span class="manifest__line">мясо собственного вызревания</span>
+          <span class="manifest__line">и&nbsp;шеф, который выходит в&nbsp;зал.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== КАК МЫ ГОТОВИМ: ЛИПКАЯ СЦЕНА ===================== -->
+    <section class="process" id="kitchen">
+      <div class="process__stage">
+        <div class="container process__grid">
+          <div class="process__info">
+            <p class="eyebrow">Как мы готовим</p>
+            <p class="process__number"><span id="processNum">450</span><small id="processUnit">°</small></p>
+            <div class="process__texts" id="processTexts">
+              <div class="process__text is-active">
+                <h3>Разжигаем дуб и&nbsp;вишню</h3>
+                <p>Дрова сушим 2 года. К открытию угли набирают 450° — так стейк запечатывается за секунды и остаётся сочным.</p>
+              </div>
+              <div class="process__text">
+                <h3>Вызреваем мясо сами</h3>
+                <p>21 день в камере при +2°. Мясо теряет лишнюю воду и становится мягким, с ореховым вкусом.</p>
+              </div>
+              <div class="process__text">
+                <h3>12 минут на&nbsp;решётке</h3>
+                <p>Переворачиваем один раз. Прожарку проверяем термометром, а не на глаз — ошибка не больше 2°.</p>
+              </div>
+              <div class="process__text">
+                <h3>Отдых и&nbsp;подача</h3>
+                <p>Стейк отдыхает 5 минут, чтобы сок распределился. Шеф режет его у вашего стола.</p>
+              </div>
+            </div>
+            <div class="process__dots" id="processDots">
+              <button type="button" class="is-active" aria-label="Этап 1: огонь"></button>
+              <button type="button" aria-label="Этап 2: вызревание"></button>
+              <button type="button" aria-label="Этап 3: решётка"></button>
+              <button type="button" aria-label="Этап 4: подача"></button>
+            </div>
+          </div>
+
+          <div class="process__media" id="processMedia">
+            <img src="https://images.unsplash.com/photo-1543005472-1b1d37fa4eae?w=1100&h=1300&fit=crop&auto=format&q=75" alt="Горящие дубовые дрова" class="is-active">
+            <img src="https://images.unsplash.com/photo-1690983330536-3b0089d07cf9?w=1100&h=1300&fit=crop&auto=format&q=75" alt="Стейки сухого вызревания на доске" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1588182657969-777d766e31ab?w=1100&h=1300&fit=crop&auto=format&q=75" alt="Пламя над решёткой гриля" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1663530761401-15eefb544889?w=1100&h=1300&fit=crop&auto=format&q=75" alt="Шеф поливает стейк соусом" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== МЕНЮ ===================== -->
+    <section class="section menu" id="menu">
+      <div class="container">
+        <div class="menu__head">
+          <div>
+            <p class="eyebrow" data-reveal>Меню</p>
+            <h2 class="section__title" data-reveal>17 блюд, которые <em>знают огонь</em></h2>
+          </div>
+          <p class="menu__note" data-reveal>Цены за порцию. Вес мяса указан до&nbsp;приготовления.</p>
+        </div>
+        <div class="menu__tabs" id="menuTabs" role="tablist"></div>
+        <ul class="menu__list" id="menuList"></ul>
+        <div class="menu__cta" data-reveal>
+          <p>Хотите что-то особенное к празднику? Шеф соберёт сет под ваш бюджет.</p>
+          <a href="#booking" class="btn btn--dark">Забронировать стол</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ГАЛЕРЕЯ: ОБРАТНЫЙ ЗУМ =====================
+         Сначала центральное фото на весь экран. При прокрутке сетка отдаляется,
+         и становится видно, что это одна из 9 фотографий. -->
+    <section class="gallery" id="gallery">
+      <div class="gallery__stage">
+        <div class="gallery__grid" id="galleryGrid">
+          <figure><img src="https://images.unsplash.com/photo-1546964124-0cce460f38ef?w=900&h=700&fit=crop&auto=format&q=70" alt="Стейк со спаржей" loading="lazy"></figure>
+          <figure><img src="https://images.unsplash.com/photo-1709548145082-04d0cde481d4?w=900&h=700&fit=crop&auto=format&q=70" alt="Вечерний зал ресторана" loading="lazy"></figure>
+          <figure><img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?w=900&h=700&fit=crop&auto=format&q=70" alt="Мясная доска с картофелем" loading="lazy"></figure>
+          <figure><img src="https://images.unsplash.com/photo-1627947063935-55577ec3c2e1?w=900&h=700&fit=crop&auto=format&q=70" alt="Дым над решёткой гриля" loading="lazy"></figure>
+          <figure class="gallery__center"><img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?w=1800&h=1400&fit=crop&auto=format&q=75" alt="Шеф у гриля с открытым огнём" loading="lazy"></figure>
+          <figure><img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=900&h=700&fit=crop&auto=format&q=70" alt="Лосось с сальсой" loading="lazy"></figure>
+          <figure><img src="https://images.unsplash.com/photo-1552960226-639240203497?w=900&h=700&fit=crop&auto=format&q=70" alt="Тёплый свет ламп в зале" loading="lazy"></figure>
+          <figure><img src="https://images.unsplash.com/photo-1588168333986-5078d3ae3976?w=900&h=700&fit=crop&auto=format&q=70" alt="Стейк средней прожарки в разрезе" loading="lazy"></figure>
+          <figure><img src="https://images.unsplash.com/photo-1761315600943-d8a5bb0c499f?w=900&h=700&fit=crop&auto=format&q=70" alt="Салат с курицей гриль" loading="lazy"></figure>
+        </div>
+        <div class="gallery__caption" id="galleryCaption">
+          <p class="gallery__title">Открытая кухня — <em>в&nbsp;центре зала</em></p>
+          <p class="gallery__sub">Видно каждый стейк от решётки до тарелки</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ШЕФ ===================== -->
+    <section class="section chef">
+      <div class="container chef__grid">
+        <figure class="chef__photo" data-reveal>
+          <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=1000&h=1250&fit=crop&auto=format&q=75" alt="Шеф-повар ресторана за работой" loading="lazy" data-parallax="0.12">
+        </figure>
+        <div class="chef__text">
+          <p class="eyebrow" data-reveal>Шеф</p>
+          <blockquote class="chef__quote" data-reveal>
+            «Хороший стейк не нуждается в соусе. Ему нужны правильные угли, 21 день терпения и 5 минут отдыха».
+          </blockquote>
+          <p class="chef__name" data-reveal>Артём Волков, шеф «Углей»<br><span>12 лет у гриля, 3 года в Буэнос-Айресе</span></p>
+          <!-- Подпись рисуется при прокрутке -->
+          <svg class="chef__sign" id="chefSign" viewBox="0 0 320 110" aria-hidden="true">
+            <path d="M10 78 C 30 20, 48 18, 44 60 S 36 98, 62 70 S 92 24, 98 52 S 104 84, 126 60 C 140 44, 150 40, 152 58 C 154 76, 168 74, 182 52 C 194 32, 206 30, 204 56 C 202 80, 226 76, 240 54 C 252 36, 266 38, 262 62 C 258 84, 286 80, 310 40"/>
+            <path d="M40 92 C 120 84, 220 86, 300 74"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== БРОНЬ ПО СХЕМЕ ЗАЛА ===================== -->
+    <section class="section booking" id="booking">
+      <div class="container">
+        <div class="booking__head">
+          <p class="eyebrow" data-reveal>Бронь стола</p>
+          <h2 class="section__title" data-reveal>Выберите стол <em>прямо на&nbsp;схеме</em></h2>
+          <p class="section__lead" data-reveal>Бронь бесплатная и держится 15 минут после назначенного времени. Подтверждение придёт в SMS.</p>
+        </div>
+
+        <div class="booking__grid">
+          <!-- Параметры -->
+          <div class="booking__controls">
+            <div class="control">
+              <p class="control__label">Гости</p>
+              <div class="stepper">
+                <button type="button" id="guestsMinus" aria-label="Меньше гостей">−</button>
+                <span id="guestsValue">2</span>
+                <button type="button" id="guestsPlus" aria-label="Больше гостей">+</button>
+              </div>
+            </div>
+
+            <div class="control">
+              <p class="control__label">Дата</p>
+              <div class="chips chips--dates" id="bookDates"></div>
+            </div>
+
+            <div class="control">
+              <p class="control__label">Время</p>
+              <div class="chips chips--times" id="bookTimes"></div>
+            </div>
+          </div>
+
+          <!-- Схема зала -->
+          <div class="hall" id="hall">
+            <div class="hall__top">
+              <p class="hall__status" id="hallStatus">Свободно 7 из 12 столов</p>
+              <ul class="legend">
+                <li><span class="legend__dot legend__dot--free"></span>Свободен</li>
+                <li><span class="legend__dot legend__dot--busy"></span>Занят</li>
+                <li><span class="legend__dot legend__dot--picked"></span>Ваш</li>
+              </ul>
+            </div>
+
+            <div class="hall__map">
+              <div class="hall__scroll"><svg class="hall__svg" id="hallSvg" viewBox="0 0 640 420" role="group" aria-label="Схема зала"></svg></div>
+
+              <!-- Состояние: загрузка -->
+              <div class="hall__loading" id="hallLoading" hidden><span class="spinner"></span>Проверяем свободные столы…</div>
+
+              <!-- Состояние: нет подходящих столов -->
+              <div class="hall__empty" id="hallEmpty" hidden></div>
+            </div>
+
+            <!-- Шаг 2: контакты (появляется после выбора стола) -->
+            <div class="confirm" id="confirm" hidden>
+              <p class="confirm__summary" id="confirmSummary"></p>
+              <form class="confirm__form" id="bookForm" novalidate>
+                <div class="field">
+                  <label for="fName">Имя</label>
+                  <input id="fName" name="name" type="text" placeholder="Дмитрий" autocomplete="given-name">
+                  <p class="field__error"></p>
+                </div>
+                <div class="field">
+                  <label for="fPhone">Телефон</label>
+                  <input id="fPhone" name="phone" type="tel" placeholder="+7 (900) 123-45-67" autocomplete="tel">
+                  <p class="field__error"></p>
+                </div>
+                <p class="form__error" id="bookError" hidden></p>
+                <button type="submit" class="btn btn--ember confirm__btn" id="bookSubmit">Забронировать</button>
+              </form>
+            </div>
+            <p class="hall__hint" id="hallHint">Нажмите на свободный стол на схеме</p>
+
+            <!-- Состояние: успех -->
+            <div class="ticket" id="ticket" hidden>
+              <div class="ticket__top">
+                <svg class="ticket__flame" viewBox="0 0 24 32" aria-hidden="true"><path d="M12 1c1 6 8 9 8 18a8 8 0 0 1-16 0c0-4 2-6 3-8 0 3 1 5 3 5-1-5 0-11 2-15z"/></svg>
+                <p class="ticket__title">Стол ваш!</p>
+                <p class="ticket__text" id="ticketText"></p>
+              </div>
+              <div class="ticket__rows" id="ticketRows"></div>
+              <button class="btn btn--light btn--small" id="ticketNew">Забронировать ещё</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== ПОДВАЛ ===================== -->
+  <footer class="footer" id="contacts">
+    <div class="container">
+      <div class="footer__grid">
+        <div><p class="footer__label">Адрес</p><p>Речная ул., 8<br>парковка во дворе</p></div>
+        <div><p class="footer__label">Часы</p><p>Пн–Чт 12:00–00:00<br>Пт–Вс 12:00–02:00</p></div>
+        <div><p class="footer__label">Бронь</p><p><a href="tel:+79000000000" class="link-line">+7 (900) 000-00-00</a></p></div>
+        <div><p class="footer__label">Демо-проект</p><p>Для портфолио. Фото: Unsplash</p></div>
+      </div>
+      <p class="footer__big" id="footerBig" aria-hidden="true">Угли</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
