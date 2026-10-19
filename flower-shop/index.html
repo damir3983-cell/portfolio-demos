@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Бутон — букеты с доставкой за 2 часа</title>
+  <meta name="description" content="Букеты из свежих цветов с доставкой по городу за 2 часа. Фото букета перед отправкой.">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ШАПКА -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">Бутон</a>
+      <nav class="nav">
+        <a href="#catalog">Каталог</a>
+        <a href="#delivery">Доставка</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <button class="cart-btn" id="cartOpen" aria-label="Открыть корзину">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 7h12l-1 13H7L6 7z"/>
+          <path d="M9 7a3 3 0 0 1 6 0"/>
+        </svg>
+        <span class="cart-btn__text">Корзина</span>
+        <span class="cart-btn__count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ПЕРВЫЙ ЭКРАН -->
+    <section class="hero">
+      <!-- Узор рисуем один раз как <symbol>, а потом вставляем через <use> слева и справа -->
+      <svg width="0" height="0" class="visually-hidden" aria-hidden="true">
+        <symbol id="vine" viewBox="0 0 120 640">
+          <!-- стебель -->
+          <path d="M60 0 C20 80 100 160 60 240 S20 400 60 480 S100 560 60 640" fill="none" stroke="currentColor" stroke-width="2"/>
+          <!-- листья -->
+          <g fill="var(--leaf)">
+            <ellipse cx="44" cy="60"  rx="16" ry="6" transform="rotate(-30 44 60)"/>
+            <ellipse cx="78" cy="150" rx="16" ry="6" transform="rotate(30 78 150)"/>
+            <ellipse cx="40" cy="290" rx="16" ry="6" transform="rotate(-30 40 290)"/>
+            <ellipse cx="80" cy="390" rx="16" ry="6" transform="rotate(30 80 390)"/>
+            <ellipse cx="44" cy="520" rx="16" ry="6" transform="rotate(-30 44 520)"/>
+          </g>
+          <!-- цветы: 5 лепестков + серединка -->
+          <defs>
+            <g id="bloom">
+              <circle cx="0" cy="-9" r="8"/><circle cx="8.5" cy="-3" r="8"/><circle cx="5.3" cy="7.3" r="8"/>
+              <circle cx="-5.3" cy="7.3" r="8"/><circle cx="-8.5" cy="-3" r="8"/>
+              <circle r="5" fill="#f6c453"/>
+            </g>
+          </defs>
+          <use href="#bloom" x="34" y="110"/>
+          <use href="#bloom" x="88" y="210"/>
+          <use href="#bloom" x="32" y="350"/>
+          <use href="#bloom" x="90" y="440"/>
+          <use href="#bloom" x="36" y="590"/>
+        </symbol>
+      </svg>
+
+      <svg class="hero__ornament hero__ornament--left" aria-hidden="true"><use href="#vine"/></svg>
+      <svg class="hero__ornament hero__ornament--right" aria-hidden="true"><use href="#vine"/></svg>
+
+      <div class="container hero__inner">
+        <h1 class="hero__title">Букеты с&nbsp;доставкой за&nbsp;2&nbsp;часа</h1>
+        <p class="hero__subtitle">Собираем из свежих цветов в день заказа и присылаем фото букета до отправки курьеру.</p>
+        <a href="#catalog" class="btn btn--primary">Выбрать букет</a>
+        <ul class="hero__facts">
+          <li><strong>от&nbsp;1&nbsp;900&nbsp;₽</strong><span>цена букета</span></li>
+          <li><strong>2 часа</strong><span>доставка по городу</span></li>
+          <li><strong>0 ₽</strong><span>доставка от 5&nbsp;000&nbsp;₽</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- КАТАЛОГ -->
+    <section class="section" id="catalog">
+      <div class="container">
+        <div class="catalog__head">
+          <h2 class="section__title">Каталог</h2>
+          <label class="sort">
+            <span class="sort__label">Сортировка</span>
+            <select id="sort" class="sort__select">
+              <option value="popular">Сначала популярные</option>
+              <option value="cheap">Сначала дешевле</option>
+              <option value="expensive">Сначала дороже</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="filters" id="filters">
+          <button class="filter is-active" data-filter="all">Все</button>
+          <button class="filter" data-filter="roses">Розы</button>
+          <button class="filter" data-filter="peonies">Пионы</button>
+          <button class="filter" data-filter="tulips">Тюльпаны</button>
+          <button class="filter" data-filter="mixed">Сборные</button>
+          <button class="filter" data-filter="box">Композиции</button>
+          <button class="filter" data-filter="dried">Сухоцветы</button>
+        </div>
+
+        <div class="products" id="products"></div>
+
+        <!-- Состояние «пусто» для фильтра -->
+        <div class="empty" id="catalogEmpty" hidden>
+          <p class="empty__title">В этой категории пока ничего нет</p>
+          <p class="empty__text">Посмотрите другие букеты — соберём любой за 2 часа.</p>
+          <button class="btn btn--ghost" data-filter-reset>Показать все букеты</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- КАК ДОСТАВЛЯЕМ -->
+    <section class="section section--tinted" id="delivery">
+      <div class="container">
+        <h2 class="section__title">Как мы доставляем</h2>
+        <ol class="steps">
+          <li class="step">
+            <span class="step__num">1</span>
+            <h3 class="step__title">Оформляете заказ</h3>
+            <p class="step__text">Выбираете букет, адрес и время — это займёт 2 минуты.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">2</span>
+            <h3 class="step__title">Собираем букет</h3>
+            <p class="step__text">Флорист собирает букет и присылает вам фото до отправки.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">3</span>
+            <h3 class="step__title">Привозим</h3>
+            <p class="step__text">Курьер привезёт за 2 часа или к точному времени. Бесплатно от 5 000 ₽.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <!-- ПОДВАЛ -->
+  <footer class="footer" id="contacts">
+    <div class="container footer__inner">
+      <div>
+        <a href="#" class="logo">Бутон</a>
+        <p class="footer__note">Демо-проект для портфолио. Фото: Unsplash</p>
+      </div>
+      <ul class="footer__list">
+        <li><span>Адрес</span>ул. Садовая, 12</li>
+        <li><span>Телефон</span><a href="tel:+79000000000">+7 (900) 000-00-00</a></li>
+        <li><span>Режим работы</span>Ежедневно 8:00–22:00</li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- КОРЗИНА -->
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="cart" id="cart" aria-hidden="true" aria-label="Корзина">
+    <div class="cart__head">
+      <h2 class="cart__title">Корзина</h2>
+      <button class="icon-btn" id="cartClose" aria-label="Закрыть корзину">✕</button>
+    </div>
+
+    <div class="cart__body">
+      <!-- Состояние: корзина пуста -->
+      <div class="empty empty--cart" id="cartEmpty">
+        <p class="empty__title">Корзина пока пуста</p>
+        <p class="empty__text">Добавьте букет из каталога — привезём его за 2 часа.</p>
+        <button class="btn btn--primary" id="toCatalog">Перейти в каталог</button>
+      </div>
+
+      <!-- Состояние: есть товары -->
+      <div id="cartFilled" hidden>
+        <ul class="cart__list" id="cartList"></ul>
+
+        <div class="summary">
+          <div class="summary__row"><span>Букеты</span><span id="sumItems">0 ₽</span></div>
+          <div class="summary__row"><span>Доставка</span><span id="sumDelivery">390 ₽</span></div>
+          <div class="summary__row summary__row--total"><span>Итого</span><span id="sumTotal">0 ₽</span></div>
+          <p class="summary__hint" id="deliveryHint"></p>
+        </div>
+
+        <form class="form" id="orderForm" novalidate>
+          <h3 class="form__title">Куда доставить</h3>
+
+          <div class="field">
+            <label for="name">Ваше имя</label>
+            <input id="name" name="name" type="text" placeholder="Анна" autocomplete="name">
+            <p class="field__error"></p>
+          </div>
+
+          <div class="field">
+            <label for="phone">Телефон</label>
+            <input id="phone" name="phone" type="tel" placeholder="+7 (900) 123-45-67" autocomplete="tel">
+            <p class="field__error"></p>
+          </div>
+
+          <div class="field">
+            <label for="address">Адрес доставки</label>
+            <input id="address" name="address" type="text" placeholder="Улица, дом, квартира" autocomplete="street-address">
+            <p class="field__error"></p>
+          </div>
+
+          <div class="form__row">
+            <div class="field">
+              <label for="date">Дата</label>
+              <input id="date" name="date" type="date">
+              <p class="field__error"></p>
+            </div>
+            <div class="field">
+              <label for="time">Время</label>
+              <select id="time" name="time">
+                <option value="">Выберите</option>
+                <option>Как можно скорее</option>
+                <option>10:00–12:00</option>
+                <option>12:00–14:00</option>
+                <option>14:00–16:00</option>
+                <option>16:00–18:00</option>
+                <option>18:00–20:00</option>
+              </select>
+              <p class="field__error"></p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="comment">Текст открытки <span class="field__optional">— необязательно</span></label>
+            <textarea id="comment" name="comment" rows="2" placeholder="С днём рождения!"></textarea>
+          </div>
+
+          <!-- Состояние: ошибка отправки -->
+          <p class="form__error" id="formError" hidden></p>
+
+          <button type="submit" class="btn btn--primary btn--full" id="submitBtn">Оформить заказ</button>
+          <p class="form__note">Флорист перезвонит в течение 10 минут, чтобы подтвердить заказ. Оплата при получении.</p>
+        </form>
+      </div>
+
+      <!-- Состояние: заказ принят -->
+      <div class="success" id="cartSuccess" hidden>
+        <div class="success__icon">✓</div>
+        <p class="success__title" id="successTitle">Заказ принят</p>
+        <p class="success__text">Флорист перезвонит вам в течение 10 минут, чтобы подтвердить заказ, и пришлёт фото букета перед отправкой.</p>
+        <button class="btn btn--ghost" id="successBack">Вернуться в каталог</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Всплывающее уведомление -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
