@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ровно — ремонт квартиры за 60 дней по фиксированной смете</title>
+  <meta name="description" content="Ремонт квартир под ключ: фиксируем смету в договоре, сдаём за 60 дней, гарантия 5 лет. Рассчитайте стоимость онлайн за 1 минуту.">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <!-- Курсор-прицел, как у чертёжника (только для мышки) -->
+  <div class="cursor" id="cursor"><span class="cursor__label" id="cursorLabel"></span></div>
+
+  <!-- ===================== ШАПКА ===================== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#top" class="logo" aria-label="Ровно — на главную">
+        <span class="logo__level" aria-hidden="true"><span class="logo__bubble"></span></span>
+        Ровно
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#stages">Как работаем</a>
+        <a href="#calc">Калькулятор</a>
+        <a href="#cases">Объекты</a>
+        <a href="#guarantee">Гарантия</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <a href="tel:+79000000000" class="header__phone">+7 (900) 000-00-00</a>
+      <a href="#calc" class="btn btn--accent btn--small header__cta">Рассчитать</a>
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== ПЕРВЫЙ ЭКРАН: БЫЛО → СТАЛО =====================
+         Секция 320vh, сцена прилипает к экрану. При прокрутке:
+         1) поверх бетонной коробки чертится план квартиры,
+         2) «валик» проезжает по экрану и открывает готовый интерьер,
+         3) счётчик дней бежит от 0 до 58. -->
+    <section class="hero" id="top">
+      <div class="hero__stage" id="heroStage">
+        <img class="hero__img hero__img--before" src="https://images.unsplash.com/photo-1634586648651-f1fb9ec10d90?w=2200&auto=format&q=75" alt="Квартира до ремонта: голые стены и строительный мусор" width="2200" height="1467">
+        <div class="hero__after">
+          <img class="hero__img" src="https://images.unsplash.com/photo-1628744876497-eb30460be9f6?w=2200&auto=format&q=75" alt="Та же квартира после ремонта: светлая гостиная" width="2200" height="1467">
+        </div>
+        <div class="hero__roller" id="heroRoller" aria-hidden="true"></div>
+        <div class="hero__shade" aria-hidden="true"></div>
+
+        <!-- План квартиры, который «чертится» -->
+        <svg class="hero__plan" id="heroPlan" viewBox="0 0 400 300" aria-hidden="true">
+          <g class="plan__walls">
+            <path d="M10 10 H390 V290 H10 Z"/>
+            <path d="M230 10 V170 H390"/>
+            <path d="M230 210 V290"/>
+            <path d="M120 170 H230 M120 170 V290"/>
+            <path d="M300 170 V290"/>
+          </g>
+          <g class="plan__dims">
+            <path d="M10 -2 H390 M10 -6 V2 M390 -6 V2"/>
+            <path d="M402 10 V290 M398 10 H406 M398 290 H406"/>
+          </g>
+          <g class="plan__labels">
+            <text x="120" y="90">Кухня-гостиная</text><text x="120" y="108" class="plan__area">28,4 м²</text>
+            <text x="310" y="85">Спальня</text><text x="310" y="103" class="plan__area">16,2 м²</text>
+            <text x="65" y="232">Детская</text><text x="65" y="250" class="plan__area">11,8 м²</text>
+            <text x="175" y="232">С/у</text><text x="175" y="250" class="plan__area">4,6 м²</text>
+            <text x="345" y="232">Гардероб</text><text x="345" y="250" class="plan__area">3,0 м²</text>
+            <text x="200" y="-10" class="plan__dim">12,6 м</text>
+          </g>
+        </svg>
+
+        <div class="container hero__content">
+          <p class="eyebrow eyebrow--light">Ремонт квартир под ключ</p>
+          <h1 class="hero__title">Ремонт за&nbsp;60&nbsp;дней по&nbsp;смете, которая не&nbsp;вырастет</h1>
+          <p class="hero__lead">Фиксируем цену в договоре. Если выйдем за смету — доплачиваем из своего кармана.</p>
+          <div class="hero__actions">
+            <a href="#calc" class="btn btn--accent">Рассчитать стоимость за 1 минуту</a>
+            <a href="#cases" class="link-line link-line--light">Смотреть объекты</a>
+          </div>
+        </div>
+
+        <!-- Счётчик дней ремонта -->
+        <div class="hero__days" id="heroDays">
+          <span class="hero__days-label" id="heroDaysLabel">До ремонта</span>
+          <span class="hero__days-num"><span id="heroDaysNum">0</span><small> / 58 дней</small></span>
+          <span class="hero__days-bar"><span id="heroDaysBar"></span></span>
+        </div>
+
+        <div class="hero__hint" aria-hidden="true">
+          <span class="hero__hint-arrow">↓</span> Листайте — сделаем ремонт
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ЦИФРЫ ===================== -->
+    <section class="section numbers">
+      <div class="container">
+        <ul class="numbers__list">
+          <li data-reveal><strong><span data-count="340">0</span></strong><span>квартир сдали с 2017 года</span></li>
+          <li data-reveal style="--d: 1"><strong><span data-count="0">0</span> ₽</strong><span>доплат сверх сметы за 8 лет</span></li>
+          <li data-reveal style="--d: 2"><strong><span data-count="5">0</span> лет</strong><span>гарантия на все работы</span></li>
+          <li data-reveal style="--d: 3"><strong><span data-count="2">0</span> раза</strong><span>в неделю фотоотчёт в Telegram</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== ЭТАПЫ: СТОПКА КАРТОЧЕК ===================== -->
+    <section class="section stages" id="stages">
+      <div class="container">
+        <div class="stages__head">
+          <p class="eyebrow" data-reveal>Как работаем</p>
+          <h2 class="section__title" data-reveal>5 этапов, и&nbsp;на&nbsp;каждом вы знаете, за&nbsp;что платите</h2>
+        </div>
+
+        <div class="stack" id="stack">
+          <article class="stack__card" style="--i: 0">
+            <div class="stack__text">
+              <span class="stack__num">01</span>
+              <h3 class="stack__title">Замер и смета</h3>
+              <p class="stack__time">1 день · бесплатно</p>
+              <p class="stack__desc">Инженер приезжает с лазерным дальномером и тепловизором. Через 2 дня — смета на каждый метр плитки и каждую розетку.</p>
+              <ul class="stack__list"><li>3D-обмер квартиры</li><li>Смета с ценой каждой работы</li><li>Договор с фиксированной суммой</li></ul>
+            </div>
+            <img class="stack__img" src="https://images.unsplash.com/photo-1523413363574-c30aa1c2a516?w=1000&h=800&fit=crop&auto=format&q=70" alt="Мастер проверяет стену" loading="lazy">
+          </article>
+
+          <article class="stack__card" style="--i: 1">
+            <div class="stack__text">
+              <span class="stack__num">02</span>
+              <h3 class="stack__title">Демонтаж и черновые работы</h3>
+              <p class="stack__time">12–18 дней</p>
+              <p class="stack__desc">Сносим старое, выравниваем стены по лазеру — отклонение не больше 2 мм на 2 метра. Мусор вывозим каждый день.</p>
+              <ul class="stack__list"><li>Штукатурка по маякам</li><li>Стяжка пола</li><li>Перегородки по проекту</li></ul>
+            </div>
+            <img class="stack__img" src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?w=1000&h=800&fit=crop&auto=format&q=70" alt="Мастер на стремянке во время ремонта" loading="lazy">
+          </article>
+
+          <article class="stack__card" style="--i: 2">
+            <div class="stack__text">
+              <span class="stack__num">03</span>
+              <h3 class="stack__title">Инженерия</h3>
+              <p class="stack__time">8–12 дней</p>
+              <p class="stack__desc">Электрика, вода, вентиляция. Каждую трассу снимаем на фото до того, как закрыть стеной — схема остаётся у вас.</p>
+              <ul class="stack__list"><li>Новая электрика с автоматами</li><li>Разводка воды из полипропилена</li><li>Фото всех скрытых трасс</li></ul>
+            </div>
+            <img class="stack__img" src="https://images.unsplash.com/photo-1618832515490-e181c4794a45?w=1000&h=800&fit=crop&auto=format&q=70" alt="Кухня во время ремонта, мебель укрыта плёнкой" loading="lazy">
+          </article>
+
+          <article class="stack__card" style="--i: 3">
+            <div class="stack__text">
+              <span class="stack__num">04</span>
+              <h3 class="stack__title">Чистовая отделка</h3>
+              <p class="stack__time">18–25 дней</p>
+              <p class="stack__desc">Плитка, покраска, полы, двери. Материалы закупаем по вашему выбору со скидкой до 15% у поставщиков.</p>
+              <ul class="stack__list"><li>Плитка с затиркой и герметиком</li><li>Покраска в 2 слоя</li><li>Установка дверей и плинтусов</li></ul>
+            </div>
+            <img class="stack__img" src="https://images.unsplash.com/photo-1599619585752-c3edb42a414c?w=1000&h=800&fit=crop&auto=format&q=70" alt="Валик в ванночке с белой краской" loading="lazy">
+          </article>
+
+          <article class="stack__card" style="--i: 4">
+            <div class="stack__text">
+              <span class="stack__num">05</span>
+              <h3 class="stack__title">Уборка и сдача</h3>
+              <p class="stack__time">2 дня</p>
+              <p class="stack__desc">Клининг после ремонта и приёмка по чек-листу из 120 пунктов. Подписываете акт, только когда всё устраивает.</p>
+              <ul class="stack__list"><li>Профессиональный клининг</li><li>Приёмка по чек-листу</li><li>Гарантийный талон на 5 лет</li></ul>
+            </div>
+            <img class="stack__img" src="https://images.unsplash.com/photo-1774612673121-7da610a4e1aa?w=1000&h=800&fit=crop&auto=format&q=70" alt="Готовая кухня с островом" loading="lazy">
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== КАЛЬКУЛЯТОР ===================== -->
+    <section class="section calc" id="calc">
+      <div class="container">
+        <div class="calc__head">
+          <p class="eyebrow" data-reveal>Калькулятор</p>
+          <h2 class="section__title" data-reveal>Посчитайте ремонт за&nbsp;1&nbsp;минуту</h2>
+          <p class="section__lead" data-reveal>Точность ±7%. Точную смету инженер составит после бесплатного замера.</p>
+        </div>
+
+        <div class="calc__grid">
+          <div class="calc__form">
+            <!-- Тип квартиры -->
+            <fieldset class="calc__block">
+              <legend class="calc__label">Какая квартира</legend>
+              <div class="segmented" id="calcType">
+                <label><input type="radio" name="type" value="new" checked><span>Новостройка</span></label>
+                <label><input type="radio" name="type" value="old"><span>Вторичка</span></label>
+                <label><input type="radio" name="type" value="house"><span>Дом</span></label>
+              </div>
+              <p class="calc__note" id="typeNote">Голые стены от застройщика — демонтаж не нужен.</p>
+            </fieldset>
+
+            <!-- Площадь -->
+            <div class="calc__block">
+              <div class="calc__row">
+                <label class="calc__label" for="areaInput">Площадь</label>
+                <div class="area-input">
+                  <input type="number" id="areaInput" value="54" min="20" max="300" inputmode="numeric">
+                  <span>м²</span>
+                </div>
+              </div>
+              <input type="range" id="areaRange" class="range" min="20" max="200" value="54" aria-label="Площадь, м²">
+              <div class="range__marks"><span>20 м²</span><span>110 м²</span><span>200 м²</span></div>
+              <p class="field__error" id="areaError"></p>
+            </div>
+
+            <!-- Санузлы -->
+            <div class="calc__block calc__row">
+              <p class="calc__label">Санузлы</p>
+              <div class="stepper">
+                <button type="button" id="bathMinus" aria-label="Меньше санузлов">−</button>
+                <span id="bathValue">1</span>
+                <button type="button" id="bathPlus" aria-label="Больше санузлов">+</button>
+              </div>
+            </div>
+
+            <!-- Уровень ремонта -->
+            <fieldset class="calc__block">
+              <legend class="calc__label">Уровень ремонта</legend>
+              <div class="levels" id="calcLevels"></div>
+            </fieldset>
+
+            <!-- Опции -->
+            <fieldset class="calc__block">
+              <legend class="calc__label">Добавить</legend>
+              <div class="options" id="calcOptions"></div>
+            </fieldset>
+          </div>
+
+          <!-- Итог (прилипает при прокрутке) -->
+          <aside class="result" id="result">
+            <div class="result__main" id="resultMain">
+              <p class="result__label">Стоимость ремонта</p>
+              <p class="result__total"><span id="resTotal">0</span> ₽</p>
+              <p class="result__per"><span id="resPerM">0</span> ₽ за м² · <span id="resDays">0 дней</span></p>
+
+              <div class="bar" id="resBar">
+                <span class="bar__part bar__part--work" id="barWork"></span>
+                <span class="bar__part bar__part--mat" id="barMat"></span>
+                <span class="bar__part bar__part--opt" id="barOpt"></span>
+              </div>
+              <ul class="result__legend">
+                <li><i class="dot dot--work"></i>Работы<span id="resWork">0 ₽</span></li>
+                <li><i class="dot dot--mat"></i>Черновые материалы<span id="resMat">0 ₽</span></li>
+                <li><i class="dot dot--opt"></i>Дополнительно<span id="resOpt">0 ₽</span></li>
+              </ul>
+              <p class="result__pay">Оплата по этапам: 5 платежей по <strong id="resPay">0 ₽</strong></p>
+
+              <button class="btn btn--accent btn--full" id="resCta">Зафиксировать смету и цену</button>
+            </div>
+
+            <!-- Состояние: площадь не указана -->
+            <div class="result__empty" id="resultEmpty" hidden>
+              <p class="result__empty-title">Укажите площадь</p>
+              <p>От 20 до 300 м² — и мы сразу покажем цену, сроки и состав сметы.</p>
+              <button class="btn btn--light btn--small" id="resetArea">Поставить 54 м²</button>
+            </div>
+
+            <!-- Форма заявки -->
+            <form class="lead" id="leadForm" novalidate hidden>
+              <p class="lead__title">Куда прислать смету?</p>
+              <p class="lead__summary" id="leadSummary"></p>
+              <div class="field">
+                <label for="lName">Имя</label>
+                <input id="lName" name="name" type="text" placeholder="Анна" autocomplete="given-name">
+                <p class="field__error"></p>
+              </div>
+              <div class="field">
+                <label for="lPhone">Телефон</label>
+                <input id="lPhone" name="phone" type="tel" placeholder="+7 (900) 123-45-67" autocomplete="tel">
+                <p class="field__error"></p>
+              </div>
+              <div class="messengers" role="group" aria-label="Как связаться">
+                <label><input type="radio" name="via" value="Telegram" checked><span>Telegram</span></label>
+                <label><input type="radio" name="via" value="WhatsApp"><span>WhatsApp</span></label>
+                <label><input type="radio" name="via" value="звонок"><span>Звонок</span></label>
+              </div>
+              <p class="form__error" id="leadError" hidden></p>
+              <button type="submit" class="btn btn--accent btn--full" id="leadSubmit">Получить смету</button>
+              <button type="button" class="lead__back" id="leadBack">← Изменить параметры</button>
+            </form>
+
+            <!-- Состояние: заявка отправлена -->
+            <div class="result__done" id="resultDone" hidden>
+              <svg class="done-level" viewBox="0 0 120 40" aria-hidden="true">
+                <rect x="2" y="8" width="116" height="24" rx="12"/>
+                <circle cx="60" cy="20" r="7"/>
+                <path d="M48 8 V32 M72 8 V32"/>
+              </svg>
+              <p class="result__done-title">Всё ровно!</p>
+              <p id="doneText"></p>
+              <button class="btn btn--light btn--small" id="doneBack">Посчитать другую квартиру</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+      <!-- На телефоне итог далеко внизу — показываем его в плашке, пока заполняют форму -->
+      <a href="#result" class="calc-bar" id="calcBar" aria-hidden="true" tabindex="-1">
+        <span><small>Ваш ремонт</small><strong id="calcBarTotal">0 ₽</strong></span>
+        <span class="calc-bar__go">Смета ↓</span>
+      </a>
+    </section>
+
+    <!-- ===================== ОБЪЕКТЫ: КАРУСЕЛЬ С ПЕРЕТАСКИВАНИЕМ ===================== -->
+    <section class="section cases" id="cases">
+      <div class="container cases__head">
+        <div>
+          <p class="eyebrow" data-reveal>Объекты</p>
+          <h2 class="section__title" data-reveal>Сданные квартиры</h2>
+        </div>
+        <div class="cases__nav">
+          <button class="round-btn" id="casesPrev" aria-label="Назад">←</button>
+          <button class="round-btn" id="casesNext" aria-label="Вперёд">→</button>
+        </div>
+      </div>
+      <div class="cases__viewport" id="casesViewport" data-cursor="Тяните">
+        <div class="cases__track" id="casesTrack"><!-- карточки рисует JS --></div>
+      </div>
+      <div class="container">
+        <div class="cases__progress"><span id="casesProgress"></span></div>
+      </div>
+    </section>
+
+    <!-- ===================== ГАРАНТИЯ: СТРОКИ ВЫЕЗЖАЮТ ИЗ-ПОД МАСКИ ===================== -->
+    <section class="section guarantee" id="guarantee">
+      <div class="container">
+        <p class="eyebrow eyebrow--light" data-reveal>Гарантия</p>
+        <p class="guarantee__text" data-lines>
+          <span class="mask"><span>Смета в договоре —</span></span>
+          <span class="mask"><span>это наша ответственность.</span></span>
+          <span class="mask"><span>Вышли за неё —</span></span>
+          <span class="mask"><span class="accent">платим сами.</span></span>
+        </p>
+        <div class="guarantee__grid">
+          <div data-reveal><strong>5 лет</strong><p>Гарантия на все работы. Трещина, отклеилась плитка — переделываем бесплатно за 7 дней.</p></div>
+          <div data-reveal style="--d: 1"><strong>0,1% в день</strong><p>Неустойка за каждый день просрочки. Прописана в договоре, а не на словах.</p></div>
+          <div data-reveal style="--d: 2"><strong>24/7</strong><p>Камера на объекте и личный кабинет — смотрите, что происходит, из любой точки мира.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== ПОДВАЛ ===================== -->
+  <footer class="footer" id="contacts">
+    <div class="container">
+      <div class="footer__grid">
+        <div><p class="footer__label">Офис</p><p>Строителей пр., 21, офис 4</p></div>
+        <div><p class="footer__label">Часы</p><p>Пн–Сб 9:00–20:00<br>замеры и по воскресеньям</p></div>
+        <div><p class="footer__label">Связаться</p><p><a class="link-line" href="tel:+79000000000">+7 (900) 000-00-00</a></p></div>
+        <div><p class="footer__label">Демо-проект</p><p>Для портфолио. Фото: Unsplash</p></div>
+      </div>
+      <!-- Слово стоит криво и «выравнивается» по уровню, когда докручиваете до конца -->
+      <div class="footer__level" id="footerLevel">
+        <p class="footer__big">Ровно</p>
+        <div class="footer__vial" aria-hidden="true"><span id="footerBubble"></span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
