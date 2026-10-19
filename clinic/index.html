@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Линия — клиника, где врач объясняет. Приём через 15 минут после записи</title>
+  <meta name="description" content="Многопрофильная клиника «Линия»: терапия, неврология, педиатрия, стоматология, МРТ и анализы. Онлайн-запись за 1 минуту, приём без очереди.">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- Ставим класс js сразу, чтобы анимации появления не мигали. Без JS весь контент просто виден. -->
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- Полоска прогресса прокрутки страницы -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Кастомный курсор (только на компьютере с мышкой) -->
+  <div class="cursor" id="cursor"><span class="cursor__label" id="cursorLabel"></span></div>
+
+  <!-- ===================== ШАПКА ===================== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#top" class="logo" aria-label="Клиника Линия — на главную">
+        <svg class="logo__mark" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M2 17h7l3-8 5 15 4-11 2 4h7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Линия
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="#directions">Направления</a>
+        <a href="#checkup">Check-up</a>
+        <a href="#doctors">Врачи</a>
+        <a href="#prices">Цены</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <a href="tel:+79000000000" class="header__phone">+7 (900) 000-00-00</a>
+      <a href="#booking" class="btn btn--accent btn--small header__cta">Записаться</a>
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== ПЕРВЫЙ ЭКРАН =====================
+         Секция высокая (300vh), а внутри неё «сцена» прилипает к экрану (position: sticky).
+         Пока вы листаете эти 300vh, JS считает прогресс от 0 до 1 и по нему:
+         — раскрывает фото с маленького окна на весь экран,
+         — разводит строки заголовка в стороны,
+         — показывает финальный текст поверх фото. -->
+    <section class="hero" id="top" data-scene="hero">
+      <div class="hero__stage">
+        <div class="hero__media" id="heroMedia">
+          <img src="https://images.unsplash.com/photo-1648775507324-b48dd3791fa5?w=2200&auto=format&q=80" alt="Светлый холл клиники с деревом в центре" width="2200" height="1467">
+          <div class="hero__shade"></div>
+        </div>
+
+        <div class="hero__intro">
+          <h1 class="hero__title">
+            <span class="hero__line hero__line--1">Медицина,</span>
+            <span class="hero__line hero__line--2">которая объясняет</span>
+          </h1>
+          <div class="hero__row">
+            <p class="hero__lead">Запишитесь онлайн за&nbsp;1&nbsp;минуту — врач примет без очереди и&nbsp;объяснит каждое назначение.</p>
+            <a href="#booking" class="btn btn--dark hero__btn">Записаться к врачу</a>
+          </div>
+        </div>
+
+        <!-- Плашки вокруг фото, улетают при прокрутке -->
+        <div class="hero__chip hero__chip--left">
+          <span class="hero__chip-dot"></span>
+          <span><strong>42 врача</strong> в одном здании</span>
+        </div>
+        <div class="hero__chip hero__chip--right">
+          <strong>24 ч</strong>
+          <span>результаты анализов в приложении</span>
+        </div>
+
+        <!-- Финальный текст поверх раскрытого фото -->
+        <div class="hero__final">
+          <p class="eyebrow eyebrow--light">Приём без очереди</p>
+          <h2 class="hero__final-title">Врач примет через 15&nbsp;минут после записи</h2>
+          <div class="hero__final-actions">
+            <a href="#booking" class="btn btn--light">Выбрать время приёма</a>
+            <a href="#directions" class="link-line link-line--light">Смотреть направления</a>
+          </div>
+        </div>
+
+        <div class="hero__hint" aria-hidden="true">
+          <span class="mouse"><span class="mouse__wheel"></span></span>
+          Листайте
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== БЕГУЩАЯ СТРОКА ===================== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track" id="marqueeTrack">
+        <span>Терапия</span><i>✳</i><span>Неврология</span><i>✳</i><span>Педиатрия</span><i>✳</i>
+        <span>Офтальмология</span><i>✳</i><span>Стоматология</span><i>✳</i><span>МРТ 1,5 Тесла</span><i>✳</i>
+        <span>Анализы за 24 часа</span><i>✳</i>
+      </div>
+    </div>
+
+    <!-- ===================== МАНИФЕСТ ===================== -->
+    <section class="section manifest">
+      <div class="container">
+        <p class="eyebrow" data-reveal>О клинике</p>
+        <p class="manifest__text" id="manifest">Врач в «Линии» не просто ставит диагноз. Он рисует схему, объясняет, зачем нужен каждый анализ и сколько будет стоить лечение — до того, как вы заплатите хоть рубль.</p>
+
+        <ul class="stats">
+          <li class="stats__item" data-reveal>
+            <strong class="stats__num"><span data-count="18">0</span></strong>
+            <span>лет работаем на Набережной</span>
+          </li>
+          <li class="stats__item" data-reveal style="--d: 1">
+            <strong class="stats__num"><span data-count="42">0</span></strong>
+            <span>врача 11 специальностей</span>
+          </li>
+          <li class="stats__item" data-reveal style="--d: 2">
+            <strong class="stats__num"><span data-count="15">0</span><small>мин</small></strong>
+            <span>среднее ожидание в холле</span>
+          </li>
+          <li class="stats__item" data-reveal style="--d: 3">
+            <strong class="stats__num"><span data-count="4.9" data-decimals="1">0</span><small>★</small></strong>
+            <span>рейтинг по 2 300 отзывам</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== НАПРАВЛЕНИЯ: ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ =====================
+         Вы крутите колесо вниз, а карточки едут влево.
+         На телефоне — обычная лента, которую листают пальцем. -->
+    <section class="directions" id="directions" data-scene="directions">
+      <div class="directions__stage">
+        <div class="container directions__head">
+          <div>
+            <p class="eyebrow">7 направлений</p>
+            <h2 class="section__title">Всё обследование — в&nbsp;одном здании</h2>
+          </div>
+          <div class="directions__counter">
+            <span id="dirCurrent">01</span> / 07
+            <div class="directions__bar"><div class="directions__bar-fill" id="dirBar"></div></div>
+          </div>
+        </div>
+        <div class="directions__viewport">
+          <div class="directions__track" id="dirTrack"><!-- карточки рисует JS --></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CHECK-UP: ЛИНИЯ РИСУЕТСЯ ПРИ ПРОКРУТКЕ ===================== -->
+    <section class="section checkup" id="checkup" data-scene="checkup">
+      <div class="container">
+        <div class="checkup__head">
+          <p class="eyebrow" data-reveal>Check-up за одно утро</p>
+          <h2 class="section__title" data-reveal>5 врачей и 28 анализов за 3,5 часа</h2>
+          <p class="section__lead" data-reveal>Приходите к 8:30 натощак — к обеду получите заключение и план на год. 9&nbsp;800&nbsp;₽ за всё.</p>
+        </div>
+
+        <div class="checkup__grid">
+          <!-- Слева: фото, которое меняется вместе с активным шагом (только компьютер) -->
+          <div class="checkup__media">
+            <div class="checkup__frame" id="checkupFrame">
+              <img src="https://images.unsplash.com/photo-1579165466949-3180a3d056d5?w=1000&h=1200&fit=crop&auto=format&q=75" alt="" class="is-active" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1666214280352-db292c05fd80?w=1000&h=1200&fit=crop&auto=format&q=75" alt="" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1758691462123-8a17ae95d203?w=1000&h=1200&fit=crop&auto=format&q=75" alt="" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1576210117723-cd06449a467d?w=1000&h=1200&fit=crop&auto=format&q=75" alt="" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1000&h=1200&fit=crop&auto=format&q=75" alt="" loading="lazy">
+            </div>
+            <p class="checkup__time" id="checkupTime">08:30</p>
+          </div>
+
+          <!-- Справа: шаги и линия, которая рисуется при прокрутке -->
+          <ol class="steps" id="steps">
+            <li class="steps__line" aria-hidden="true"><span class="steps__line-fill" id="stepsFill"></span></li>
+            <li class="step">
+              <span class="step__dot"></span>
+              <span class="step__time">08:30 · 20 минут</span>
+              <h3 class="step__title">Анализы</h3>
+              <p class="step__text">28 показателей крови и мочи. Результаты придут в приложение к 11:00.</p>
+              <img class="step__img" src="https://images.unsplash.com/photo-1579165466949-3180a3d056d5?w=800&h=500&fit=crop&auto=format&q=75" alt="Лаборант с пипеткой" loading="lazy">
+            </li>
+            <li class="step">
+              <span class="step__dot"></span>
+              <span class="step__time">09:00 · 40 минут</span>
+              <h3 class="step__title">УЗИ и ЭКГ</h3>
+              <p class="step__text">УЗИ брюшной полости, щитовидной железы и ЭКГ — в соседних кабинетах, без ожидания.</p>
+              <img class="step__img" src="https://images.unsplash.com/photo-1666214280352-db292c05fd80?w=800&h=500&fit=crop&auto=format&q=75" alt="Кабинет диагностики" loading="lazy">
+            </li>
+            <li class="step">
+              <span class="step__dot"></span>
+              <span class="step__time">09:45 · 30 минут</span>
+              <h3 class="step__title">Терапевт и кардиолог</h3>
+              <p class="step__text">Давление, пульс, разговор о самочувствии и образе жизни.</p>
+              <img class="step__img" src="https://images.unsplash.com/photo-1758691462123-8a17ae95d203?w=800&h=500&fit=crop&auto=format&q=75" alt="Врач измеряет давление" loading="lazy">
+            </li>
+            <li class="step">
+              <span class="step__dot"></span>
+              <span class="step__time">10:30 · 25 минут</span>
+              <h3 class="step__title">Офтальмолог</h3>
+              <p class="step__text">Проверка зрения и глазного давления — особенно важно, если вы много за компьютером.</p>
+              <img class="step__img" src="https://images.unsplash.com/photo-1576210117723-cd06449a467d?w=800&h=500&fit=crop&auto=format&q=75" alt="Проверка зрения" loading="lazy">
+            </li>
+            <li class="step">
+              <span class="step__dot"></span>
+              <span class="step__time">11:30 · 30 минут</span>
+              <h3 class="step__title">Заключение</h3>
+              <p class="step__text">Терапевт собирает все результаты и объясняет их простыми словами. План на год — в приложении.</p>
+              <img class="step__img" src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&h=500&fit=crop&auto=format&q=75" alt="Врач беседует с пациентом" loading="lazy">
+            </li>
+          </ol>
+        </div>
+
+        <div class="checkup__cta" data-reveal>
+          <a href="#booking" class="btn btn--accent" data-direction="therapy">Записаться на check-up за 9 800 ₽</a>
+          <span class="checkup__note">Вместо 14 600 ₽, если проходить по отдельности</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== КЛИНИКА ИЗНУТРИ: ПАРАЛЛАКС ===================== -->
+    <section class="section inside">
+      <div class="container inside__grid">
+        <div class="inside__text">
+          <p class="eyebrow" data-reveal>Клиника изнутри</p>
+          <h2 class="section__title" data-reveal>2&nbsp;400&nbsp;м² без запаха больницы</h2>
+          <p class="section__lead" data-reveal>Кофе в холле, детская комната, отдельный вход для пациентов с температурой и парковка на 60 машин.</p>
+        </div>
+        <figure class="inside__photo inside__photo--1" data-speed="-0.12">
+          <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&h=800&fit=crop&auto=format&q=75" alt="Стойка регистратуры" loading="lazy">
+        </figure>
+        <figure class="inside__photo inside__photo--2" data-speed="0.1">
+          <img src="https://images.unsplash.com/photo-1629909614456-6b1c5c94cecc?w=800&h=1000&fit=crop&auto=format&q=75" alt="Зона ожидания с диваном" loading="lazy">
+        </figure>
+        <figure class="inside__photo inside__photo--3" data-speed="-0.05">
+          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=900&h=700&fit=crop&auto=format&q=75" alt="Стоматологический кабинет" loading="lazy">
+        </figure>
+        <figure class="inside__photo inside__photo--4" data-speed="0.16">
+          <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&h=900&fit=crop&auto=format&q=75" alt="Лаборатория" loading="lazy">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================== ВРАЧИ ===================== -->
+    <section class="section doctors" id="doctors">
+      <div class="container">
+        <div class="doctors__head">
+          <div>
+            <p class="eyebrow" data-reveal>Врачи</p>
+            <h2 class="section__title" data-reveal>Стаж от 7 лет и&nbsp;время на&nbsp;вопросы</h2>
+          </div>
+          <p class="section__lead" data-reveal>Первичный приём — 40 минут, а не 12. Этого хватает, чтобы разобраться, а не выписать стандартный список.</p>
+        </div>
+        <div class="doctors__grid" id="doctorsGrid"><!-- карточки врачей рисует JS --></div>
+      </div>
+    </section>
+
+    <!-- ===================== ЦЕНЫ ===================== -->
+    <section class="section prices" id="prices">
+      <div class="container">
+        <div class="prices__head">
+          <div>
+            <p class="eyebrow" data-reveal>Цены</p>
+            <h2 class="section__title" data-reveal>Цена известна до&nbsp;приёма</h2>
+          </div>
+          <label class="search" data-reveal>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <input type="search" id="priceSearch" placeholder="Найти услугу, например «МРТ»" aria-label="Поиск по услугам">
+          </label>
+        </div>
+
+        <div class="tabs" id="priceTabs" role="tablist"></div>
+
+        <ul class="price-list" id="priceList"></ul>
+
+        <!-- Состояние: ничего не найдено -->
+        <div class="empty" id="priceEmpty" hidden>
+          <p class="empty__title">Такой услуги не нашли</p>
+          <p class="empty__text">Возможно, она называется иначе. Позвоните — администратор подскажет цену за 1 минуту.</p>
+          <div class="empty__actions">
+            <button class="btn btn--dark btn--small" id="priceReset">Показать все услуги</button>
+            <a href="tel:+79000000000" class="link-line">+7 (900) 000-00-00</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ЗАПИСЬ: 4 ШАГА ===================== -->
+    <section class="section booking" id="booking">
+      <div class="container booking__grid">
+        <div class="booking__text">
+          <p class="eyebrow eyebrow--light" data-reveal>Онлайн-запись</p>
+          <h2 class="section__title" data-reveal>Запись к&nbsp;врачу за&nbsp;1&nbsp;минуту</h2>
+          <ul class="booking__points" data-reveal>
+            <li>Свободное время видно сразу — без звонков</li>
+            <li>SMS-напоминание за 2 часа до приёма</li>
+            <li>Отменить можно в один клик из SMS</li>
+          </ul>
+        </div>
+
+        <div class="wizard" id="wizard">
+          <!-- Прогресс по шагам -->
+          <div class="wizard__top">
+            <span class="wizard__step-label" id="wizardLabel">Шаг 1 из 4 · Направление</span>
+            <div class="wizard__progress" id="wizardProgress">
+              <span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+
+          <!-- Шаг 1: направление -->
+          <div class="wizard__panel" data-step="1">
+            <h3 class="wizard__title">Что вас беспокоит?</h3>
+            <div class="options" id="optDirections"></div>
+          </div>
+
+          <!-- Шаг 2: врач -->
+          <div class="wizard__panel" data-step="2" hidden>
+            <h3 class="wizard__title">Выберите врача</h3>
+            <div class="doc-options" id="optDoctors"></div>
+          </div>
+
+          <!-- Шаг 3: дата и время -->
+          <div class="wizard__panel" data-step="3" hidden>
+            <h3 class="wizard__title">Когда удобно?</h3>
+            <div class="dates" id="optDates"></div>
+            <div class="slots" id="optSlots"></div>
+          </div>
+
+          <!-- Шаг 4: контакты -->
+          <div class="wizard__panel" data-step="4" hidden>
+            <h3 class="wizard__title">Куда прислать подтверждение?</h3>
+            <div class="summary" id="summary"></div>
+            <form class="form" id="bookingForm" novalidate>
+              <div class="field">
+                <label for="bName">Имя и фамилия</label>
+                <input id="bName" name="name" type="text" placeholder="Ирина Смирнова" autocomplete="name">
+                <p class="field__error"></p>
+              </div>
+              <div class="field">
+                <label for="bPhone">Телефон для SMS</label>
+                <input id="bPhone" name="phone" type="tel" placeholder="+7 (900) 123-45-67" autocomplete="tel">
+                <p class="field__error"></p>
+              </div>
+              <p class="form__error" id="bookingError" hidden></p>
+            </form>
+          </div>
+
+          <!-- Финал: запись подтверждена -->
+          <div class="wizard__panel wizard__done" data-step="5" hidden>
+            <svg class="done-check" viewBox="0 0 52 52" aria-hidden="true">
+              <circle cx="26" cy="26" r="24" fill="none" stroke="currentColor" stroke-width="3"/>
+              <path d="M15 27l7 7 15-15" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3 class="wizard__title">Вы записаны</h3>
+            <p class="wizard__done-text" id="doneText"></p>
+            <button class="btn btn--light btn--small" id="wizardRestart">Записаться ещё раз</button>
+          </div>
+
+          <!-- Кнопки навигации -->
+          <div class="wizard__nav" id="wizardNav">
+            <button class="btn btn--ghost-light btn--small" id="wizardBack" hidden>← Назад</button>
+            <button class="btn btn--light" id="wizardNext" disabled>Выберите направление</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== ПОДВАЛ ===================== -->
+  <footer class="footer" id="contacts">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__label">Адрес</p>
+          <p>Набережная ул., 14<br>вход с парковки</p>
+        </div>
+        <div>
+          <p class="footer__label">Режим работы</p>
+          <p>Пн–Пт 8:00–21:00<br>Сб 9:00–15:00</p>
+        </div>
+        <div>
+          <p class="footer__label">Связаться</p>
+          <p><a href="tel:+79000000000" class="link-line">+7 (900) 000-00-00</a></p>
+        </div>
+        <div>
+          <p class="footer__label">Демо-проект</p>
+          <p>Для портфолио. Фото: Unsplash</p>
+        </div>
+      </div>
+      <p class="footer__big" id="footerBig" aria-hidden="true">
+        <span>Л</span><span>и</span><span>н</span><span>и</span><span>я</span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
