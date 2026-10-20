@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Тренеры — Пульс</title>
+<meta name="description" content="Тренеры фитнес-клуба Пульс: сила, кардио, йога, бокс, плавание">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%231238C9'/%3E%3Cpath d='M4 17h6l3-7 4 13 3-6h8' fill='none' stroke='%23fff' stroke-width='2.5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="preconnect" href="https://images.unsplash.com">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="page-trenery">
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="logo" href="index.html" aria-label="Пульс — на главную"><svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#1238C9"/><path d="M4 18h6l3-7 4 13 3-6h10" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/></svg><span>Пульс</span></a>
+    <nav class="site-nav" id="nav" aria-label="Основное меню"><a href="index.html">Клуб</a><a href="raspisanie.html">Расписание</a><a href="trenery.html" aria-current="page">Тренеры</a><a href="abonementy.html">Абонементы</a><a href="kontakty.html">Контакты</a><a class="btn nav-cta" href="kontakty.html#trial">Пробная тренировка</a></nav>
+    <a class="header-phone" href="tel:+78462100000">+7 (846) 210-00-00</a>
+    <a class="btn header-cta" href="kontakty.html#trial">Пробная тренировка</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню"><span></span></button>
+  </div>
+</header>
+<main>
+
+<section class="page-hero wrap stack">
+  <h1 data-reveal>Тренеры клуба</h1>
+  <p class="lead" data-reveal>Персональная тренировка — 1 800 ₽, пакет из 10 — 15 000 ₽. Первая встреча с тренером входит в любой абонемент.</p>
+</section>
+<div class="banner wrap"><div class="banner-media"><img data-scale src="https://images.unsplash.com/photo-1517438322307-e67111335449?w=2200&h=1100&fit=crop&auto=format&q=75" alt="Тренер держит лапы, спортсмен отрабатывает удар"><p class="banner-note">Первая встреча с тренером — <b>0 ₽</b></p></div></div>
+<section class="wrap stack" style="padding-bottom:var(--s3)">
+  <div class="chips" data-filter="tr" role="group" aria-label="Направление"><button class="chip" data-value="all" aria-pressed="true">Все</button><button class="chip" data-value="cardio" aria-pressed="false">Кардио</button><button class="chip" data-value="power" aria-pressed="false">Сила</button><button class="chip" data-value="yoga" aria-pressed="false">Йога и растяжка</button><button class="chip" data-value="box" aria-pressed="false">Бокс</button><button class="chip" data-value="water" aria-pressed="false">Бассейн</button></div>
+  <div class="trainer-list" data-filter-list="tr"><article class="trainer-row" data-reveal data-tags="power"><div class="trainer-photo"><img src="https://images.unsplash.com/photo-1758875568932-0eefd3e60090?w=500&h=500&fit=crop&auto=format&q=75" alt="Артём Ганиев, тренер клуба «Пульс»" loading="lazy"></div><div class="stack-sm"><h3>Артём Ганиев</h3><p class="muted">Функциональный тренинг, кроссфит, стаж 9 лет</p><p>Мастер спорта по пауэрлифтингу. Готовит к первому подтягиванию за 6 недель.</p><a class="btn ghost" href="kontakty.html#trial">Записаться к тренеру</a></div></article><article class="trainer-row" data-reveal data-tags="cardio"><div class="trainer-photo"><img src="https://images.unsplash.com/photo-1708011108776-45ad9e625269?w=500&h=500&fit=crop&auto=format&q=75" alt="Ирина Котова, тренер клуба «Пульс»" loading="lazy"></div><div class="stack-sm"><h3>Ирина Котова</h3><p class="muted">Сайкл, табата, снижение веса, стаж 7 лет</p><p>Ведёт программу «−5 кг за 8 недель»: в 2025 году её прошли 140 человек.</p><a class="btn ghost" href="kontakty.html#trial">Записаться к тренеру</a></div></article><article class="trainer-row" data-reveal data-tags="yoga"><div class="trainer-photo"><img src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?w=500&h=500&fit=crop&auto=format&q=75" alt="Мария Лис, тренер клуба «Пульс»" loading="lazy"></div><div class="stack-sm"><h3>Мария Лис</h3><p class="muted">Хатха-йога, йога для спины, стаж 12 лет</p><p>Сертификат Yoga Alliance 500. Работает с офисной болью в пояснице.</p><a class="btn ghost" href="kontakty.html#trial">Записаться к тренеру</a></div></article><article class="trainer-row" data-reveal data-tags="box"><div class="trainer-photo"><img src="https://images.unsplash.com/photo-1570170609489-43197f518df0?w=500&h=500&fit=crop&auto=format&q=75" alt="Руслан Ибрагимов, тренер клуба «Пульс»" loading="lazy"></div><div class="stack-sm"><h3>Руслан Ибрагимов</h3><p class="muted">Бокс, ОФП, стаж 15 лет</p><p>КМС по боксу. Первые 3 занятия — без спарринга, только техника.</p><a class="btn ghost" href="kontakty.html#trial">Записаться к тренеру</a></div></article><article class="trainer-row" data-reveal data-tags="water"><div class="trainer-photo"><img src="https://images.unsplash.com/photo-1622629797619-c100e3e67e2e?w=500&h=500&fit=crop&auto=format&q=75" alt="Ольга Сидоренко, тренер клуба «Пульс»" loading="lazy"></div><div class="stack-sm"><h3>Ольга Сидоренко</h3><p class="muted">Плавание, аквааэробика, стаж 10 лет</p><p>Учит взрослых плавать с нуля: 25 м кролем через 10 занятий.</p><a class="btn ghost" href="kontakty.html#trial">Записаться к тренеру</a></div></article><article class="trainer-row" data-reveal data-tags="yoga"><div class="trainer-photo"><img src="https://images.unsplash.com/photo-1683848644078-f339179c4ff6?w=500&h=500&fit=crop&auto=format&q=75" alt="Дарья Шмидт, тренер клуба «Пульс»" loading="lazy"></div><div class="stack-sm"><h3>Дарья Шмидт</h3><p class="muted">Пилатес, стретчинг, стаж 6 лет</p><p>Реабилитолог. Подбирает нагрузку после травм колена и спины.</p><a class="btn ghost" href="kontakty.html#trial">Записаться к тренеру</a></div></article></div>
+  <div class="empty-state" data-filter-empty="tr" hidden><h3>Тренеров по этому направлению пока нет</h3><button class="btn ghost" data-filter-reset="tr">Показать всех</button></div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="stack-sm">
+        <a class="logo" href="index.html"><svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#1238C9"/><path d="M4 18h6l3-7 4 13 3-6h10" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/></svg><span>Пульс</span></a>
+        <p style="max-width:36ch;opacity:.75">Фитнес-клуб 24/7 в Самаре: 1 800 м² зала, бассейн 25 м и 64 групповых тренировки в неделю.</p>
+      </div>
+      <div><h4>Разделы</h4><a href="index.html">Клуб</a><a href="raspisanie.html">Расписание</a><a href="trenery.html">Тренеры</a><a href="abonementy.html">Абонементы</a><a href="kontakty.html">Контакты</a></div>
+      <div><h4>Связаться</h4><a href="tel:+78462100000">+7 (846) 210-00-00</a><a href="mailto:hello@puls-demo.ru">hello@puls-demo.ru</a><p style="opacity:.75;padding-top:4px">Самара, Московское шоссе, 87, ТЦ «Восход», 3 этаж<br>Круглосуточно, без выходных</p></div>
+    </div>
+    <div class="footer-note"><span>© <span data-year></span> Пульс. Демо-сайт для портфолио: компания, цены и контакты вымышлены.</span><a href="#top" onclick="window.scrollTo({top:0});return false">Наверх</a></div>
+  </div>
+</footer>
+<a class="btn mobile-cta" href="kontakty.html#trial">Пробная тренировка</a>
+<script src="assets/core.js"></script>
+<script src="assets/lenis.min.js"></script>
+<script src="assets/motion.js"></script>
+
+</body>
+</html>

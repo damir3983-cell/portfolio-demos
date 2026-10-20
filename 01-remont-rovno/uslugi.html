@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Тарифы и цены — Ровно</title>
+<meta name="description" content="Цены на ремонт квартир в Самаре от 6 900 ₽/м² и калькулятор стоимости">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232443E0'/%3E%3Cpath d='M6 20h20' stroke='%23F5C518' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="preconnect" href="https://images.unsplash.com">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="page-uslugi">
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="logo" href="index.html" aria-label="Ровно — на главную"><svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2443E0"/><path d="M7 21h20" stroke="#F5C518" stroke-width="3"/><circle cx="17" cy="21" r="3" fill="#F5C518"/></svg><span>Ровно</span></a>
+    <nav class="site-nav" id="nav" aria-label="Основное меню"><a href="index.html">Главная</a><a href="uslugi.html" aria-current="page">Тарифы и цены</a><a href="raboty.html">Наши объекты</a><a href="kontakty.html">Контакты</a><a class="btn nav-cta" href="kontakty.html#zamer">Вызвать замерщика</a></nav>
+    <a class="header-phone" href="tel:+78462000000">+7 (846) 200-00-00</a>
+    <a class="btn header-cta" href="kontakty.html#zamer">Вызвать замерщика</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню"><span></span></button>
+  </div>
+</header>
+<main>
+
+<section class="page-hero wrap stack">
+  <h1 data-reveal>Тарифы и цены на ремонт</h1>
+  <p class="lead" data-reveal>Цена за квадратный метр включает работы и черновые материалы. Чистовые материалы — по чекам из магазина, без нашей наценки.</p>
+</section>
+<div class="banner wrap"><div class="banner-media"><img data-scale src="https://images.unsplash.com/photo-1664638413302-d1ca29ac885b?w=2200&h=1000&fit=crop&auto=format&q=75" alt="Дизайнер подбирает образцы материалов для сметы"><p class="banner-note">Смета за <b>24 часа</b> после замера — с ценой каждой позиции</p></div></div>
+
+<section class="wrap calc-wrap" id="calc">
+  <form class="calc" id="calcForm" onsubmit="return false">
+    <h2>Калькулятор ремонта</h2>
+    <div class="field"><label for="area">Площадь квартиры: <output id="areaOut">50</output> м²</label><input id="area" type="range" min="18" max="150" value="50"></div>
+    <fieldset class="field"><legend>Тариф</legend><div class="seg" id="tariff">
+      <label><input type="radio" name="t" value="6900" data-days="21"><span>Косметический</span></label>
+      <label><input type="radio" name="t" value="14500" data-days="55" checked><span>Капитальный</span></label>
+      <label><input type="radio" name="t" value="22000" data-days="75"><span>Дизайнерский</span></label></div></fieldset>
+    <fieldset class="field"><legend>Тип жилья</legend><div class="seg">
+      <label><input type="radio" name="h" value="1" checked><span>Новостройка</span></label>
+      <label><input type="radio" name="h" value="1.12"><span>Вторичка, +12% на демонтаж</span></label></div></fieldset>
+    <fieldset class="field"><legend>Дополнительно</legend>
+      <label class="check"><input type="checkbox" value="45000" class="extra"> <span>Перенос санузла с согласованием — 45 000 ₽</span></label>
+      <label class="check"><input type="checkbox" value="1200" data-per="m" class="extra"> <span>Тёплый пол во всей квартире — 1 200 ₽/м²</span></label>
+      <label class="check"><input type="checkbox" value="18000" class="extra"> <span>Клининг после ремонта — 18 000 ₽</span></label>
+    </fieldset>
+  </form>
+  <aside class="calc-result" aria-live="polite">
+    <p class="muted">Примерная стоимость работ</p>
+    <p class="calc-sum" id="sum">725 000 ₽</p>
+    <p>Срок: <b id="days">55 дней</b></p>
+    <p class="muted">Платёж за один этап — около <b id="stage">145 000 ₽</b></p>
+    <a class="btn" href="kontakty.html#zamer">Зафиксировать цену на замере</a>
+    <p class="muted small">Точную смету замерщик составит на месте. Отклонение от калькулятора за 2025 год — в среднем 6%.</p>
+  </aside>
+</section>
+
+<section class="section wrap stack">
+  <h2>Что входит в каждый тариф</h2>
+  <div class="incl-grid"><div class="incl" data-reveal><div class="incl-img"><img src="https://images.unsplash.com/photo-1599619585752-c3edb42a414c?w=800&h=500&fit=crop&auto=format&q=72" alt="Валик и белая краска" loading="lazy"></div><h3>Косметический</h3><p class="tariff-price">от 6 900 ₽/м²</p><ul><li>Покраска или обои</li><li>Ламинат или линолеум</li><li>Замена розеток и света</li><li>Без демонтажа стен</li></ul></div><div class="incl" data-reveal><div class="incl-img"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&h=500&fit=crop&auto=format&q=72" alt="Электрик меняет проводку" loading="lazy"></div><h3>Капитальный</h3><p class="tariff-price">от 14 500 ₽/м²</p><ul><li>Штукатурка по маякам</li><li>Новая электрика и трубы</li><li>Стяжка и тёплый пол</li><li>Плитка в санузле под ключ</li></ul></div><div class="incl" data-reveal><div class="incl-img"><img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&h=500&fit=crop&auto=format&q=72" alt="Спальня по дизайн-проекту" loading="lazy"></div><h3>Дизайнерский</h3><p class="tariff-price">от 22 000 ₽/м²</p><ul><li>Дизайн-проект в подарок</li><li>Скрытые двери и плинтусы</li><li>Сложный свет и потолки</li><li>Комплектация мебелью</li></ul></div></div>
+  <div class="table-scroll"><table class="cmp"><thead><tr><th></th><th>Косметический</th><th>Капитальный</th><th>Дизайнерский</th></tr></thead><tbody><tr><th scope="row">Демонтаж и вывоз мусора</th><td>—</td><td>✓</td><td>✓</td></tr><tr><th scope="row">Выравнивание стен по маякам</th><td>—</td><td>✓</td><td>✓</td></tr><tr><th scope="row">Замена электрики</th><td>Розетки и свет</td><td>Полностью</td><td>Полностью + умный свет</td></tr><tr><th scope="row">Сантехника и трубы</th><td>Замена смесителей</td><td>Новая разводка</td><td>Новая разводка + инсталляции</td></tr><tr><th scope="row">Стяжка пола</th><td>—</td><td>Полусухая</td><td>Полусухая + тёплый пол везде</td></tr><tr><th scope="row">Отделка стен</th><td>Покраска или обои</td><td>Покраска, плитка</td><td>Декоративная штукатурка, панели</td></tr><tr><th scope="row">Дизайн-проект</th><td>—</td><td>Планировка</td><td>Полный, с визуализацией</td></tr><tr><th scope="row">Срок на 50 м²</th><td>21 день</td><td>55 дней</td><td>75 дней</td></tr></tbody></table></div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="stack-sm">
+        <a class="logo" href="index.html"><svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2443E0"/><path d="M7 21h20" stroke="#F5C518" stroke-width="3"/><circle cx="17" cy="21" r="3" fill="#F5C518"/></svg><span>Ровно</span></a>
+        <p style="max-width:36ch;opacity:.75">Ремонтируем квартиры в Самаре под ключ: фиксированная смета, этапная оплата и гарантия 3 года на все работы.</p>
+      </div>
+      <div><h4>Разделы</h4><a href="index.html">Главная</a><a href="uslugi.html">Тарифы и цены</a><a href="raboty.html">Наши объекты</a><a href="kontakty.html">Контакты</a></div>
+      <div><h4>Связаться</h4><a href="tel:+78462000000">+7 (846) 200-00-00</a><a href="mailto:zamer@rovno-demo.ru">zamer@rovno-demo.ru</a><p style="opacity:.75;padding-top:4px">Самара, ул. Молодогвардейская, 151, офис 4<br>Пн–Сб 9:00–20:00</p></div>
+    </div>
+    <div class="footer-note"><span>© <span data-year></span> Ровно. Демо-сайт для портфолио: компания, цены и контакты вымышлены.</span><a href="#top" onclick="window.scrollTo({top:0});return false">Наверх</a></div>
+  </div>
+</footer>
+<a class="btn mobile-cta" href="kontakty.html#zamer">Вызвать замерщика</a>
+<script src="assets/core.js"></script>
+<script src="assets/motion.js"></script>
+<script>
+(function(){const f=document.getElementById('calcForm');const a=document.getElementById('area');const fmt=v=>Math.round(v/1000)*1000;
+function calc(){const m=+a.value;document.getElementById('areaOut').textContent=m;const t=f.querySelector('[name=t]:checked');const h=+f.querySelector('[name=h]:checked').value;
+let s=m*(+t.value)*h;f.querySelectorAll('.extra:checked').forEach(e=>{s+=e.dataset.per?m*(+e.value):+e.value});
+const days=Math.round((+t.dataset.days)*Math.max(.6,Math.sqrt(m/50)));
+const el=document.getElementById('sum');const nv=fmt(s);const ov=+el.dataset.v||nv;el.dataset.v=nv;const t0=performance.now();(function st(t){const k=Math.min(1,(t-t0)/450),e=1-Math.pow(1-k,3);el.textContent=Math.round((ov+(nv-ov)*e)/1000*1000).toLocaleString('ru-RU')+' ₽';if(k<1)requestAnimationFrame(st)})(t0);el.classList.remove('is-bump');void el.offsetWidth;el.classList.add('is-bump');document.getElementById('days').textContent=days+' '+plural(days,'день','дня','дней');
+document.getElementById('stage').textContent=fmt(s/5).toLocaleString('ru-RU')+' ₽';}
+f.addEventListener('input',calc);calc();})();
+</script>
+</body>
+</html>

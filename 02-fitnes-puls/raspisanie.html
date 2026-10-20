@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Расписание — Пульс</title>
+<meta name="description" content="Расписание групповых тренировок фитнес-клуба Пульс на неделю">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%231238C9'/%3E%3Cpath d='M4 17h6l3-7 4 13 3-6h8' fill='none' stroke='%23fff' stroke-width='2.5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="preconnect" href="https://images.unsplash.com">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="page-raspisanie">
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="logo" href="index.html" aria-label="Пульс — на главную"><svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#1238C9"/><path d="M4 18h6l3-7 4 13 3-6h10" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/></svg><span>Пульс</span></a>
+    <nav class="site-nav" id="nav" aria-label="Основное меню"><a href="index.html">Клуб</a><a href="raspisanie.html" aria-current="page">Расписание</a><a href="trenery.html">Тренеры</a><a href="abonementy.html">Абонементы</a><a href="kontakty.html">Контакты</a><a class="btn nav-cta" href="kontakty.html#trial">Пробная тренировка</a></nav>
+    <a class="header-phone" href="tel:+78462100000">+7 (846) 210-00-00</a>
+    <a class="btn header-cta" href="kontakty.html#trial">Пробная тренировка</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню"><span></span></button>
+  </div>
+</header>
+<main>
+
+<section class="page-hero wrap stack">
+  <h1 data-reveal>Расписание групповых тренировок</h1>
+  <p class="lead" data-reveal>Запись открывается за 7 дней. Если мест нет, встаньте в лист ожидания — 8 из 10 человек в нём попадают на занятие.</p>
+</section>
+<div class="banner wrap"><div class="banner-media"><img data-scale src="https://images.unsplash.com/photo-1784819482818-36e4b287d6dd?w=2200&h=1100&fit=crop&auto=format&q=75" alt="Занятие в сайкл-студии"><p class="banner-note">64 занятия <b>в неделю</b></p></div></div>
+<section class="wrap stack" style="padding-bottom:var(--s3)">
+  <div class="stack-sm"><p class="filter-label">День недели</p><div class="chips" role="group" aria-label="День недели"><button class="chip" data-day-btn="mon" aria-pressed="true">Пн</button><button class="chip" data-day-btn="tue" aria-pressed="false">Вт</button><button class="chip" data-day-btn="wed" aria-pressed="false">Ср</button><button class="chip" data-day-btn="thu" aria-pressed="false">Чт</button><button class="chip" data-day-btn="fri" aria-pressed="false">Пт</button><button class="chip" data-day-btn="sat" aria-pressed="false">Сб</button><button class="chip" data-day-btn="sun" aria-pressed="false">Вс</button></div></div>
+  <div class="stack-sm"><p class="filter-label">Направление</p><div class="chips" role="group" aria-label="Направление"><button class="chip" data-dir-btn="all" aria-pressed="true">Все направления</button><button class="chip" data-dir-btn="cardio" aria-pressed="false">Кардио</button><button class="chip" data-dir-btn="power" aria-pressed="false">Сила</button><button class="chip" data-dir-btn="yoga" aria-pressed="false">Йога и растяжка</button><button class="chip" data-dir-btn="box" aria-pressed="false">Бокс</button><button class="chip" data-dir-btn="water" aria-pressed="false">Бассейн</button></div></div>
+  <ul class="slots" id="slots"><li class="slot" data-day="mon" data-dir="cardio" data-preview="https://images.unsplash.com/photo-1784819482828-841bd302cbb5?w=640&h=440&fit=crop&auto=format&q=75"><time>07:00</time><div><b>Утренний сайкл</b><span class="muted">Ирина Котова, Сайкл-студия, 45 мин</span></div><span class="tag tag-cardio">Кардио</span><span class="spots low">Осталось 4 места</span></li><li class="slot" data-day="mon" data-dir="yoga" data-preview="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=640&h=440&fit=crop&auto=format&q=75"><time>09:30</time><div><b>Хатха-йога</b><span class="muted">Мария Лис, Зал тишины, 60 мин</span></div><span class="tag tag-yoga">Йога и растяжка</span><span class="spots">Свободно 9 мест</span></li><li class="slot" data-day="mon" data-dir="power" data-preview="https://images.unsplash.com/photo-1521804906057-1df8fdb718b7?w=640&h=440&fit=crop&auto=format&q=75"><time>19:00</time><div><b>Функциональный тренинг</b><span class="muted">Артём Ганиев, Зал 2, 55 мин</span></div><span class="tag tag-power">Сила</span><span class="spots full">Мест нет — встать в лист ожидания</span></li><li class="slot" data-day="mon" data-dir="box" data-preview="https://images.unsplash.com/photo-1517438322307-e67111335449?w=640&h=440&fit=crop&auto=format&q=75"><time>20:30</time><div><b>Бокс для начинающих</b><span class="muted">Руслан Ибрагимов, Ринг, 60 мин</span></div><span class="tag tag-box">Бокс</span><span class="spots">Свободно 6 мест</span></li><li class="slot" data-day="tue" data-dir="water" data-preview="https://images.unsplash.com/photo-1600965962102-9d260a71890d?w=640&h=440&fit=crop&auto=format&q=75"><time>08:00</time><div><b>Аквааэробика</b><span class="muted">Ольга Сидоренко, Бассейн, 45 мин</span></div><span class="tag tag-water">Бассейн</span><span class="spots">Свободно 12 мест</span></li><li class="slot" data-day="tue" data-dir="cardio" data-preview="https://images.unsplash.com/photo-1784819482828-841bd302cbb5?w=640&h=440&fit=crop&auto=format&q=75"><time>18:30</time><div><b>Табата</b><span class="muted">Ирина Котова, Зал 2, 40 мин</span></div><span class="tag tag-cardio">Кардио</span><span class="spots low">Осталось 3 места</span></li><li class="slot" data-day="tue" data-dir="yoga" data-preview="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=640&h=440&fit=crop&auto=format&q=75"><time>20:00</time><div><b>Йога для спины</b><span class="muted">Мария Лис, Зал тишины, 60 мин</span></div><span class="tag tag-yoga">Йога и растяжка</span><span class="spots">Свободно 7 мест</span></li><li class="slot" data-day="wed" data-dir="cardio" data-preview="https://images.unsplash.com/photo-1784819482828-841bd302cbb5?w=640&h=440&fit=crop&auto=format&q=75"><time>07:00</time><div><b>Утренний сайкл</b><span class="muted">Ирина Котова, Сайкл-студия, 45 мин</span></div><span class="tag tag-cardio">Кардио</span><span class="spots">Свободно 8 мест</span></li><li class="slot" data-day="wed" data-dir="power" data-preview="https://images.unsplash.com/photo-1521804906057-1df8fdb718b7?w=640&h=440&fit=crop&auto=format&q=75"><time>12:00</time><div><b>Пилатес</b><span class="muted">Дарья Шмидт, Зал тишины, 50 мин</span></div><span class="tag tag-power">Сила</span><span class="spots">Свободно 5 мест</span></li><li class="slot" data-day="wed" data-dir="box" data-preview="https://images.unsplash.com/photo-1517438322307-e67111335449?w=640&h=440&fit=crop&auto=format&q=75"><time>19:00</time><div><b>Бокс: спарринг-день</b><span class="muted">Руслан Ибрагимов, Ринг, 75 мин</span></div><span class="tag tag-box">Бокс</span><span class="spots low">Осталось 2 места</span></li><li class="slot" data-day="thu" data-dir="water" data-preview="https://images.unsplash.com/photo-1600965962102-9d260a71890d?w=640&h=440&fit=crop&auto=format&q=75"><time>08:00</time><div><b>Плавание: техника кроля</b><span class="muted">Ольга Сидоренко, Бассейн, 45 мин</span></div><span class="tag tag-water">Бассейн</span><span class="spots low">Осталось 4 места</span></li><li class="slot" data-day="thu" data-dir="power" data-preview="https://images.unsplash.com/photo-1521804906057-1df8fdb718b7?w=640&h=440&fit=crop&auto=format&q=75"><time>19:00</time><div><b>Функциональный тренинг</b><span class="muted">Артём Ганиев, Зал 2, 55 мин</span></div><span class="tag tag-power">Сила</span><span class="spots">Свободно 10 мест</span></li><li class="slot" data-day="fri" data-dir="cardio" data-preview="https://images.unsplash.com/photo-1784819482828-841bd302cbb5?w=640&h=440&fit=crop&auto=format&q=75"><time>18:00</time><div><b>Сайкл-интервалы</b><span class="muted">Ирина Котова, Сайкл-студия, 50 мин</span></div><span class="tag tag-cardio">Кардио</span><span class="spots low">Осталось 1 место</span></li><li class="slot" data-day="fri" data-dir="yoga" data-preview="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=640&h=440&fit=crop&auto=format&q=75"><time>19:30</time><div><b>Стретчинг</b><span class="muted">Дарья Шмидт, Зал тишины, 60 мин</span></div><span class="tag tag-yoga">Йога и растяжка</span><span class="spots">Свободно 11 мест</span></li><li class="slot" data-day="sat" data-dir="power" data-preview="https://images.unsplash.com/photo-1521804906057-1df8fdb718b7?w=640&h=440&fit=crop&auto=format&q=75"><time>10:00</time><div><b>Кроссфит WOD</b><span class="muted">Артём Ганиев, Зал 2, 60 мин</span></div><span class="tag tag-power">Сила</span><span class="spots">Свободно 6 мест</span></li><li class="slot" data-day="sat" data-dir="water" data-preview="https://images.unsplash.com/photo-1600965962102-9d260a71890d?w=640&h=440&fit=crop&auto=format&q=75"><time>11:30</time><div><b>Аквааэробика</b><span class="muted">Ольга Сидоренко, Бассейн, 45 мин</span></div><span class="tag tag-water">Бассейн</span><span class="spots">Свободно 14 мест</span></li><li class="slot" data-day="sun" data-dir="yoga" data-preview="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=640&h=440&fit=crop&auto=format&q=75"><time>11:00</time><div><b>Йога-нидра</b><span class="muted">Мария Лис, Зал тишины, 70 мин</span></div><span class="tag tag-yoga">Йога и растяжка</span><span class="spots">Свободно 9 мест</span></li><li class="slot" data-day="sun" data-dir="cardio" data-preview="https://images.unsplash.com/photo-1784819482828-841bd302cbb5?w=640&h=440&fit=crop&auto=format&q=75"><time>12:30</time><div><b>Табата</b><span class="muted">Ирина Котова, Зал 2, 40 мин</span></div><span class="tag tag-cardio">Кардио</span><span class="spots">Свободно 7 мест</span></li></ul>
+  <div class="empty-state" id="slotsEmpty" hidden>
+    <h3>В этот день такого направления нет</h3>
+    <p class="muted" id="emptyHint">Попробуйте другой день или все направления.</p>
+    <button class="btn ghost" id="resetDir">Показать все направления</button>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="stack-sm">
+        <a class="logo" href="index.html"><svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#1238C9"/><path d="M4 18h6l3-7 4 13 3-6h10" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/></svg><span>Пульс</span></a>
+        <p style="max-width:36ch;opacity:.75">Фитнес-клуб 24/7 в Самаре: 1 800 м² зала, бассейн 25 м и 64 групповых тренировки в неделю.</p>
+      </div>
+      <div><h4>Разделы</h4><a href="index.html">Клуб</a><a href="raspisanie.html">Расписание</a><a href="trenery.html">Тренеры</a><a href="abonementy.html">Абонементы</a><a href="kontakty.html">Контакты</a></div>
+      <div><h4>Связаться</h4><a href="tel:+78462100000">+7 (846) 210-00-00</a><a href="mailto:hello@puls-demo.ru">hello@puls-demo.ru</a><p style="opacity:.75;padding-top:4px">Самара, Московское шоссе, 87, ТЦ «Восход», 3 этаж<br>Круглосуточно, без выходных</p></div>
+    </div>
+    <div class="footer-note"><span>© <span data-year></span> Пульс. Демо-сайт для портфолио: компания, цены и контакты вымышлены.</span><a href="#top" onclick="window.scrollTo({top:0});return false">Наверх</a></div>
+  </div>
+</footer>
+<a class="btn mobile-cta" href="kontakty.html#trial">Пробная тренировка</a>
+<script src="assets/core.js"></script>
+<script src="assets/lenis.min.js"></script>
+<script src="assets/motion.js"></script>
+<script>
+(function(){let day='mon',dir='all';const list=[...document.querySelectorAll('#slots .slot')],empty=document.getElementById('slotsEmpty'),hint=document.getElementById('emptyHint');
+const names={mon:'понедельник',tue:'вторник',wed:'среду',thu:'четверг',fri:'пятницу',sat:'субботу',sun:'воскресенье'};
+function apply(){let n=0;list.forEach(s=>{const ok=s.dataset.day===day&&(dir==='all'||s.dataset.dir===dir);s.hidden=!ok;if(ok)n++;});
+empty.hidden=n>0;if(!n){const other=[...new Set(list.filter(s=>s.dataset.dir===dir).map(s=>s.dataset.day))];hint.textContent='Это направление есть в '+other.map(d=>names[d]).join(', ')+'.';}
+document.querySelectorAll('[data-day-btn]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.dayBtn===day));
+document.querySelectorAll('[data-dir-btn]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.dirBtn===dir));}
+document.addEventListener('click',e=>{const d=e.target.closest('[data-day-btn]'),r=e.target.closest('[data-dir-btn]');if(d){day=d.dataset.dayBtn;apply();}if(r){dir=r.dataset.dirBtn;apply();}if(e.target.id==='resetDir'){dir='all';apply();}});
+apply();})();
+</script>
+</body>
+</html>

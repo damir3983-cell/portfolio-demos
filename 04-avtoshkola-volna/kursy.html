@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Курсы и цены — Зелёная волна</title>
+<meta name="description" content="Цены на обучение в автошколе: категория B от 39 000 ₽, калькулятор стоимости">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232A2D31'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%231FA35B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/cine.css">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="preconnect" href="https://images.unsplash.com">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="page-kursy">
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="logo" href="index.html" aria-label="Зелёная волна — на главную"><svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#2A2D31"/><circle cx="12" cy="17" r="5" fill="#4A4E54"/><circle cx="23" cy="17" r="5" fill="#1FA35B"/></svg><span>Зелёная волна</span></a>
+    <nav class="site-nav" id="nav" aria-label="Основное меню"><a href="index.html">Автошкола</a><a href="kursy.html" aria-current="page">Курсы и цены</a><a href="test.html">Тест ПДД</a><a href="kontakty.html">Филиалы</a><a class="btn nav-cta" href="kontakty.html#zapis">Записаться на курс</a></nav>
+    <a class="header-phone" href="tel:+78462400000">+7 (846) 240-00-00</a>
+    <a class="btn header-cta" href="kontakty.html#zapis">Записаться на курс</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню"><span></span></button>
+  </div>
+</header>
+<main>
+
+<section class="page-hero wrap stack">
+  <h1 data-reveal>Курсы и цены</h1>
+  <p class="lead" data-reveal>В цену входят учебники, внутренние экзамены и топливо. Отдельно — только госпошлина 2 000 ₽ и медсправка.</p>
+</section>
+<div class="banner wrap"><div class="banner-media"><img data-scale src="https://images.unsplash.com/photo-1518783211485-10fd3bfb2ce2?w=2200&h=1100&fit=crop&auto=format&q=75" alt="Ученик за рулём во время урока"><p class="banner-note">Топливо и учебники — <b>уже в цене</b></p></div></div>
+
+<section class="wrap calc-wrap" style="padding-bottom:var(--s3)">
+  <form data-reveal class="calc" id="calc" onsubmit="return false">
+    <fieldset class="field"><legend>Категория</legend><div class="seg">
+      <label><input type="radio" name="cat" value="B" checked><span>B — легковой</span></label>
+      <label><input type="radio" name="cat" value="A"><span>A — мотоцикл</span></label>
+      <label><input type="radio" name="cat" value="BE"><span>BE — с прицепом</span></label></div></fieldset>
+    <fieldset class="field" id="gearBox"><legend>Коробка передач</legend><div class="seg">
+      <label><input type="radio" name="gear" value="0" checked><span>Механика</span></label>
+      <label><input type="radio" name="gear" value="4000"><span>Автомат, +4 000 ₽</span></label></div>
+      <p class="muted small">С автоматом сдают на 12% чаще с первой попытки, но в правах будет отметка «AT».</p></fieldset>
+    <fieldset class="field"><legend>Теория</legend><div class="seg">
+      <label><input type="radio" name="th" value="0" checked><span>В классе</span></label>
+      <label><input type="radio" name="th" value="-3000"><span>Онлайн, −3 000 ₽</span></label></div></fieldset>
+    <div class="field"><span class="legend-like">Дополнительные часы вождения, 1 100 ₽ за час</span>
+      <div class="stepper"><button type="button" id="minus" aria-label="Убрать час">−</button><output id="hours">0</output><button type="button" id="plus" aria-label="Добавить час">+</button></div>
+      <p class="muted small" id="hoursHint">Базовый курс — 56 часов. Новичкам советуем добавить 4–6.</p></div>
+    <label class="check"><input type="checkbox" id="split" checked> <span>Рассрочка без процентов на 6 месяцев</span></label>
+  </form>
+  <aside class="calc-result" aria-live="polite">
+    <p class="small">Ваш курс</p>
+    <p class="calc-sum" id="sum">39 000 ₽</p>
+    <p id="per">или 6 500 ₽ в месяц</p>
+    <p class="small" id="dur">2,5 месяца до экзамена</p>
+    <a class="btn" href="kontakty.html#zapis">Записаться на этот курс</a>
+  </aside>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="stack-sm">
+        <a class="logo" href="index.html"><svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#2A2D31"/><circle cx="12" cy="17" r="5" fill="#4A4E54"/><circle cx="23" cy="17" r="5" fill="#1FA35B"/></svg><span>Зелёная волна</span></a>
+        <p style="max-width:36ch;opacity:.75">Автошкола в Самаре: 3 филиала, 26 инструкторов и автодром у Южного моста. 87% учеников сдают в ГИБДД с первой попытки.</p>
+      </div>
+      <div><h4>Разделы</h4><a href="index.html">Автошкола</a><a href="kursy.html">Курсы и цены</a><a href="test.html">Тест ПДД</a><a href="kontakty.html">Филиалы</a></div>
+      <div><h4>Связаться</h4><a href="tel:+78462400000">+7 (846) 240-00-00</a><a href="mailto:uchis@volna-demo.ru">uchis@volna-demo.ru</a><p style="opacity:.75;padding-top:4px">Самара, пр. Кирова, 304, 2 этаж<br>Пн–Сб 9:00–20:00</p></div>
+    </div>
+    <div class="footer-note"><span>© <span data-year></span> Зелёная волна. Демо-сайт для портфолио: компания, цены и контакты вымышлены.</span><a href="#top" onclick="window.scrollTo({top:0});return false">Наверх</a></div>
+  </div>
+</footer>
+<a class="btn mobile-cta" href="kontakty.html#zapis">Записаться на курс</a>
+<script src="assets/core.js"></script>
+<script src="assets/lenis.min.js"></script>
+<script src="assets/cine.js"></script>
+<script>
+(function(){const base={B:39000,A:27000,BE:18000},dur={B:'2,5 месяца до экзамена',A:'1,5 месяца, сезон с апреля по октябрь',BE:'3 недели до экзамена'};
+const f=document.getElementById('calc');let h=0;const q=new URLSearchParams(location.search).get('cat');if(q&&base[q])f.querySelector(`[name=cat][value="${q}"]`).checked=true;
+function calc(){const c=f.querySelector('[name=cat]:checked').value;document.getElementById('gearBox').hidden=c==='A';
+let s=base[c]+(c==='A'?0:+f.querySelector('[name=gear]:checked').value)+(+f.querySelector('[name=th]:checked').value)+h*1100;
+document.getElementById('hours').textContent=h;document.getElementById('minus').disabled=h===0;document.getElementById('plus').disabled=h===20;
+document.getElementById('hoursHint').textContent=h===20?'Максимум — 20 часов. Больше можно докупить во время обучения.':'Базовый курс — '+(c==='B'?56:c==='A'?18:8)+' часов. Новичкам советуем добавить 4–6.';
+document.getElementById('sum').textContent=s.toLocaleString('ru-RU')+' ₽';const sp=document.getElementById('split').checked;
+document.getElementById('per').textContent=sp?('или '+(Math.ceil(s/6/100)*100).toLocaleString('ru-RU')+' ₽ в месяц, 6 платежей'):'Оплата одним платежом';document.getElementById('dur').textContent=dur[c];}
+document.getElementById('minus').onclick=()=>{h=Math.max(0,h-1);calc()};document.getElementById('plus').onclick=()=>{h=Math.min(20,h+1);calc()};
+f.addEventListener('change',calc);calc();})();
+</script>
+</body>
+</html>

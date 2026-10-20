@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Контакты — Пульс</title>
+<meta name="description" content="Запись на бесплатную пробную тренировку в фитнес-клуб Пульс">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%231238C9'/%3E%3Cpath d='M4 17h6l3-7 4 13 3-6h8' fill='none' stroke='%23fff' stroke-width='2.5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="preconnect" href="https://images.unsplash.com">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="page-kontakty">
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="logo" href="index.html" aria-label="Пульс — на главную"><svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#1238C9"/><path d="M4 18h6l3-7 4 13 3-6h10" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/></svg><span>Пульс</span></a>
+    <nav class="site-nav" id="nav" aria-label="Основное меню"><a href="index.html">Клуб</a><a href="raspisanie.html">Расписание</a><a href="trenery.html">Тренеры</a><a href="abonementy.html">Абонементы</a><a href="kontakty.html" aria-current="page">Контакты</a><a class="btn nav-cta" href="kontakty.html#trial">Пробная тренировка</a></nav>
+    <a class="header-phone" href="tel:+78462100000">+7 (846) 210-00-00</a>
+    <a class="btn header-cta" href="kontakty.html#trial">Пробная тренировка</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню"><span></span></button>
+  </div>
+</header>
+<main>
+
+<section class="page-hero wrap stack">
+  <h1 data-reveal>Пробная тренировка и контакты</h1>
+  <p class="lead" data-reveal>60 минут с тренером: замер состава тела, разминка и тренировка под вашу цель. Бесплатно, нужны только кроссовки.</p>
+</section>
+<section class="wrap contact-grid" style="padding-bottom:var(--s3)">
+  <form class="trial-form stack" data-reveal id="trial" data-form data-success="<b>Вы записаны на пробную.</b> Администратор позвонит в течение 15 минут и предложит время. Возьмите сменную обувь и полотенце." novalidate>
+    <h2>Записаться на пробную</h2>
+    <div class="form-body stack"><div class="field"><label for="f-name">Имя</label><input class="input" type="text" id="f-name" name="name" placeholder="Как к вам обращаться" autocomplete="name" required data-empty="Напишите имя, чтобы администратор знал, кого встречать"><span class="field-error" aria-live="polite"></span></div>
+<div class="field"><label for="f-phone">Телефон</label><input class="input" type="tel" id="f-phone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" inputmode="tel" required data-empty="Укажите телефон — по нему подтвердим запись"><span class="field-error" aria-live="polite"></span></div>
+<div class="field"><label for="f-dir">Что хотите попробовать</label><select class="input" id="f-dir" name="dir"><option>Тренажёрный зал с тренером</option><option>Групповую тренировку</option><option>Бассейн</option><option>Бокс</option><option>Пока не знаю — подскажите</option></select><span class="field-error" aria-live="polite"></span></div>
+<div class="field"><label class="check"><input type="checkbox" name="agree" required checked> <span>Согласен на обработку персональных данных для обратного звонка</span></label><span class="field-error" aria-live="polite"></span></div><button class="btn" type="submit" data-loading="Записываем…">Записаться на пробную</button></div>
+    <p class="form-status" role="status"></p>
+  </form>
+  <div class="stack">
+    <div class="contact-photo" data-reveal><img src="https://images.unsplash.com/photo-1637430308606-86576d8fef3c?w=1100&h=690&fit=crop&auto=format&q=75" alt="Зал клуба «Пульс» с тренажёрами" loading="lazy"><p class="banner-note">Открыто <b>24/7</b></p></div>
+    <div class="stack-sm"><h3>Адрес</h3><p>Самара, Московское шоссе, 87, ТЦ «Восход», 3 этаж<br>5 минут пешком от метро «Безымянка», парковка на 300 мест бесплатно 3 часа</p></div>
+    <div class="stack-sm"><h3>Режим работы</h3><p>Зал — круглосуточно. Бассейн — 7:00–23:00. Детский клуб — 9:00–21:00.</p></div>
+    <div class="stack-sm"><h3>Телефон ресепшена</h3><p><a href="tel:+78462100000">+7 (846) 210-00-00</a></p></div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="stack-sm">
+        <a class="logo" href="index.html"><svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#1238C9"/><path d="M4 18h6l3-7 4 13 3-6h10" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/></svg><span>Пульс</span></a>
+        <p style="max-width:36ch;opacity:.75">Фитнес-клуб 24/7 в Самаре: 1 800 м² зала, бассейн 25 м и 64 групповых тренировки в неделю.</p>
+      </div>
+      <div><h4>Разделы</h4><a href="index.html">Клуб</a><a href="raspisanie.html">Расписание</a><a href="trenery.html">Тренеры</a><a href="abonementy.html">Абонементы</a><a href="kontakty.html">Контакты</a></div>
+      <div><h4>Связаться</h4><a href="tel:+78462100000">+7 (846) 210-00-00</a><a href="mailto:hello@puls-demo.ru">hello@puls-demo.ru</a><p style="opacity:.75;padding-top:4px">Самара, Московское шоссе, 87, ТЦ «Восход», 3 этаж<br>Круглосуточно, без выходных</p></div>
+    </div>
+    <div class="footer-note"><span>© <span data-year></span> Пульс. Демо-сайт для портфолио: компания, цены и контакты вымышлены.</span><a href="#top" onclick="window.scrollTo({top:0});return false">Наверх</a></div>
+  </div>
+</footer>
+<a class="btn mobile-cta" href="kontakty.html#trial">Пробная тренировка</a>
+<script src="assets/core.js"></script>
+<script src="assets/lenis.min.js"></script>
+<script src="assets/motion.js"></script>
+
+</body>
+</html>

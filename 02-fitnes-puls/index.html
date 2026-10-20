@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Фитнес-клуб 24/7 в Самаре — Пульс</title>
+<meta name="description" content="Фитнес-клуб Пульс: зал 1200 м², бассейн 25 м, пробная тренировка бесплатно">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%231238C9'/%3E%3Cpath d='M4 17h6l3-7 4 13 3-6h8' fill='none' stroke='%23fff' stroke-width='2.5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="preconnect" href="https://images.unsplash.com">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="page-index">
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="logo" href="index.html" aria-label="Пульс — на главную"><svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#1238C9"/><path d="M4 18h6l3-7 4 13 3-6h10" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/></svg><span>Пульс</span></a>
+    <nav class="site-nav" id="nav" aria-label="Основное меню"><a href="index.html" aria-current="page">Клуб</a><a href="raspisanie.html">Расписание</a><a href="trenery.html">Тренеры</a><a href="abonementy.html">Абонементы</a><a href="kontakty.html">Контакты</a><a class="btn nav-cta" href="kontakty.html#trial">Пробная тренировка</a></nav>
+    <a class="header-phone" href="tel:+78462100000">+7 (846) 210-00-00</a>
+    <a class="btn header-cta" href="kontakty.html#trial">Пробная тренировка</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню"><span></span></button>
+  </div>
+</header>
+<main>
+
+<!-- ============ 1. ИНТРО: слово-маска ============
+     Фото видно только сквозь буквы «ПУЛЬС». При прокрутке слово разлетается
+     на весь экран, будто камера пролетает сквозь букву. -->
+<section class="intro" id="intro">
+  <div class="intro-stage" id="introStage">
+    <div class="intro-media"><img src="https://images.unsplash.com/photo-1778828494354-9b717d36dc99?w=2200&auto=format&q=75" alt="Тренажёрный зал ночью: ряды тренажёров в синем свете" fetchpriority="high"></div>
+    <svg class="intro-mask" id="introMask" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <defs>
+        <mask id="wordMask" maskUnits="userSpaceOnUse" x="-8000" y="-8000" width="17600" height="16900">
+          <rect x="-8000" y="-8000" width="17600" height="16900" fill="#fff"/>
+          <text x="800" y="590" text-anchor="middle" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="430" letter-spacing="-6" fill="#000">ПУЛЬС</text>
+        </mask>
+      </defs>
+      <rect x="-8000" y="-8000" width="17600" height="16900" fill="#070D1E" mask="url(#wordMask)"/>
+    </svg>
+    <p class="intro-kicker"><span class="dot"></span>Открыто сейчас · 24/7 · Самара, метро Безымянка</p>
+    <div class="intro-content wrap">
+      <h1 class="split-title"><span class="ln"><span>Фитнес-клуб 24/7 у метро Безымянка.</span></span><span class="ln"><span>Первая тренировка бесплатно</span></span></h1>
+      <p class="lead">Зал 1 200 м², бассейн 25 м и 64 групповых занятия в неделю. Абонемент от 1 900 ₽ в месяц.</p>
+      <div class="hero-actions"><a class="btn btn--red" href="kontakty.html#trial">Записаться на пробную</a><a class="btn ghost" href="raspisanie.html">Расписание на неделю</a></div>
+    </div>
+    <svg class="intro-ecg" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true"><path d="M0 120 H180 L200 120 L215 95 L230 120 H300 L318 120 L332 20 L350 210 L366 120 H470 L490 100 L515 120 H640 L660 120 L675 95 L690 120 H760 L778 120 L792 20 L810 210 L826 120 H930 L950 100 L975 120 H1200" pathLength="1"/></svg>
+    <div class="intro-bpm" aria-hidden="true"><b id="introBpm">72</b><span>уд/мин</span></div>
+    <div class="scroll-cue" aria-hidden="true"><span></span>Листайте</div>
+  </div>
+</section>
+
+<!-- ============ 2. ЧЕТЫРЕ ЗОНЫ: кинематографичные сцены ============
+     Каждая сцена закреплена: окно с фото раскрывается на весь экран,
+     огромное название едет через кадр, сбоку всплывают маленькие кадры. -->
+<div class="scenes-intro wrap">
+  <p class="eyebrow" data-reveal>Что внутри клуба</p>
+  <h2 data-reveal>Четыре зоны на 1 800 м². Всё работает круглосуточно, кроме бассейна</h2>
+</div>
+
+<section class="scene" data-scene>
+  <div class="scene-stage">
+    <div class="scene-media"><img src="https://images.unsplash.com/photo-1689877020200-403d8542d95d?w=2000&h=1300&fit=crop&auto=format&q=75" alt="Тренажёрный зал с рядами тренажёров и свободными весами" loading="lazy"></div>
+    <div class="scene-shade"></div>
+    <p class="scene-title" aria-hidden="true">ЗАЛ · ЗАЛ · ЗАЛ</p>
+    <div class="scene-info wrap">
+      <p class="scene-num">01 <span>/ 04</span></p>
+      <h3>Тренажёрный зал 1 200 м²</h3>
+      <p>140 тренажёров Technogym, 4 стойки для приседа и помост для становой тяги. В 3 часа ночи в зале в среднем 9 человек — очередей нет.</p>
+      <ul class="scene-facts"><li><b>140</b>тренажёров</li><li><b>4</b>стойки</li><li><b>до 60 кг</b>гантели</li></ul>
+    </div>
+    <figure class="scene-float scene-float--a"><img src="https://images.unsplash.com/photo-1521804906057-1df8fdb718b7?w=600&h=760&fit=crop&auto=format&q=75" alt="Штанга на резиновом полу зала" loading="lazy"></figure>
+    <figure class="scene-float scene-float--b"><img src="https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?w=600&h=760&fit=crop&auto=format&q=75" alt="Спортсменка подтягивается на турнике" loading="lazy"></figure>
+  </div>
+</section>
+
+<section class="scene scene--right" data-scene>
+  <div class="scene-stage">
+    <div class="scene-media"><img src="https://images.unsplash.com/photo-1760031670160-4da44e9596d0?w=2000&h=1300&fit=crop&auto=format&q=75" alt="Ряд красных велотренажёров в сайкл-студии" loading="lazy"></div>
+    <div class="scene-shade"></div>
+    <p class="scene-title" aria-hidden="true">САЙКЛ · САЙКЛ · САЙКЛ</p>
+    <div class="scene-info wrap">
+      <p class="scene-num">02 <span>/ 04</span></p>
+      <h3>Сайкл-студия на 32 места</h3>
+      <p>У каждого велотренажёра экран мощности: видно свои ватты в реальном времени, а после занятия — график в приложении.</p>
+      <ul class="scene-facts"><li><b>32</b>велотренажёра</li><li><b>45 мин</b>занятие</li><li><b>до 600 ккал</b>за раз</li></ul>
+    </div>
+    <figure class="scene-float scene-float--a"><img src="https://images.unsplash.com/photo-1784819482818-36e4b287d6dd?w=600&h=760&fit=crop&auto=format&q=75" alt="Спортсменка крутит педали на велотренажёре" loading="lazy"></figure>
+    <figure class="scene-float scene-float--b"><img src="https://images.unsplash.com/photo-1784819482828-841bd302cbb5?w=600&h=760&fit=crop&auto=format&q=75" alt="Тренировка на велотренажёре в тёмной студии" loading="lazy"></figure>
+  </div>
+</section>
+
+<section class="scene" data-scene>
+  <div class="scene-stage">
+    <div class="scene-media"><img src="https://images.unsplash.com/photo-1782958995190-75701221aab4?w=2000&h=1300&fit=crop&auto=format&q=75" alt="Крытый бассейн с дорожками и тёплым светом" loading="lazy"></div>
+    <div class="scene-shade"></div>
+    <p class="scene-title" aria-hidden="true">БАССЕЙН · БАССЕЙН</p>
+    <div class="scene-info wrap">
+      <p class="scene-num">03 <span>/ 04</span></p>
+      <h3>Бассейн 25 м</h3>
+      <p>5 дорожек, вода 28 °C, обеззараживание ультрафиолетом — без запаха хлорки на коже. Открыт с 7:00 до 23:00.</p>
+      <ul class="scene-facts"><li><b>5</b>дорожек</li><li><b>28 °C</b>вода</li><li><b>0</b>запаха хлорки</li></ul>
+    </div>
+    <figure class="scene-float scene-float--a"><img src="https://images.unsplash.com/photo-1600965962102-9d260a71890d?w=600&h=760&fit=crop&auto=format&q=75" alt="Пловец в очках плывёт баттерфляем" loading="lazy"></figure>
+    <figure class="scene-float scene-float--b"><img src="https://images.unsplash.com/photo-1790698342175-5d6d5cfc414e?w=600&h=760&fit=crop&auto=format&q=75" alt="Пловец на стартовой тумбе перед заплывом" loading="lazy"></figure>
+  </div>
+</section>
+
+<section class="scene scene--right" data-scene>
+  <div class="scene-stage">
+    <div class="scene-media"><img src="https://images.unsplash.com/photo-1716307043003-dbe6a5cc496e?w=2000&h=1300&fit=crop&auto=format&q=75" alt="Боксёрский ринг и груши в тёмном зале единоборств" loading="lazy"></div>
+    <div class="scene-shade"></div>
+    <p class="scene-title" aria-hidden="true">РИНГ · РИНГ · РИНГ</p>
+    <div class="scene-info wrap">
+      <p class="scene-num">04 <span>/ 04</span></p>
+      <h3>Ринг и зал единоборств</h3>
+      <p>Ринг 6×6 м и 12 мешков. Перчатки и бинты выдаём бесплатно — на первое занятие можно прийти без экипировки.</p>
+      <ul class="scene-facts"><li><b>6×6 м</b>ринг</li><li><b>12</b>мешков</li><li><b>0 ₽</b>перчатки</li></ul>
+    </div>
+    <figure class="scene-float scene-float--a"><img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=600&h=760&fit=crop&auto=format&q=75" alt="Боксёрские перчатки на полу ринга" loading="lazy"></figure>
+    <figure class="scene-float scene-float--b"><img src="https://images.unsplash.com/photo-1773289338378-2d083b1e5b84?w=600&h=760&fit=crop&auto=format&q=75" alt="Двое боксёров работают на мешках" loading="lazy"></figure>
+  </div>
+</section>
+
+<!-- ============ 3. ПУЛЬС ТРЕНИРОВКИ ============
+     55 минут функциональной тренировки за одну прокрутку: пульс растёт,
+     линия ЭКГ становится резче, фото меняются по фазам. -->
+<section class="pulse" id="pulse">
+  <div class="pulse-stage">
+    <div class="pulse-bg">
+      <img class="is-on" src="https://images.unsplash.com/photo-1784819482818-36e4b287d6dd?w=1800&h=1100&fit=crop&auto=format&q=75" alt="" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1605296867724-fa87a8ef53fd?w=1800&h=1100&fit=crop&auto=format&q=75" alt="" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1535743686920-55e4145369b9?w=1800&h=1100&fit=crop&auto=format&q=75" alt="" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1761971975973-cbb3e59263de?w=1800&h=1100&fit=crop&auto=format&q=75" alt="" loading="lazy">
+    </div>
+    <div class="pulse-inner wrap">
+      <div class="pulse-left">
+        <p class="eyebrow">Функциональный тренинг · 55 минут</p>
+        <div class="pulse-num"><b id="pulseBpm">72</b><span>уд/мин</span></div>
+        <div class="pulse-time"><span id="pulseMin">0</span> мин из 55</div>
+      </div>
+      <ol class="pulse-phases" id="pulsePhases">
+        <li class="is-on"><b>0–10 мин · Разминка</b><span>Сайкл в лёгком темпе, суставная гимнастика. Пульс до 110.</span></li>
+        <li><b>10–35 мин · Силовой блок</b><span>Становая, присед, жим — 4 круга. Тренер ставит вес под вашу технику.</span></li>
+        <li><b>35–45 мин · Табата</b><span>8 раундов по 20 секунд. Пиковый пульс — около 165.</span></li>
+        <li><b>45–55 мин · Заминка</b><span>Растяжка и дыхание. Пульс возвращается к 90–100.</span></li>
+      </ol>
+    </div>
+    <svg class="pulse-ecg" viewBox="0 0 1200 200" preserveAspectRatio="none" aria-hidden="true"><path id="pulsePath" d="" pathLength="1"/></svg>
+  </div>
+</section>
+
+<!-- ============ 4. СЕГОДНЯ В КЛУБЕ ============ -->
+<section class="section today">
+  <div class="wrap stack">
+    <div class="sec-head" data-reveal><h2>Понедельник в клубе</h2><a href="raspisanie.html">Вся неделя</a></div>
+    <ul class="slots slots--preview">
+      <li class="slot" data-reveal data-preview="https://images.unsplash.com/photo-1784819482828-841bd302cbb5?w=640&h=440&fit=crop&auto=format&q=75"><time>07:00</time><div><b>Утренний сайкл</b><span class="muted">Ирина Котова, Сайкл-студия, 45 мин</span></div><span class="tag tag-cardio">Кардио</span><span class="spots low">Осталось 4 места</span></li>
+      <li class="slot" data-reveal data-preview="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=640&h=440&fit=crop&auto=format&q=75"><time>09:30</time><div><b>Хатха-йога</b><span class="muted">Мария Лис, Зал тишины, 60 мин</span></div><span class="tag tag-yoga">Йога и растяжка</span><span class="spots">Свободно 9 мест</span></li>
+      <li class="slot" data-reveal data-preview="https://images.unsplash.com/photo-1521804906057-1df8fdb718b7?w=640&h=440&fit=crop&auto=format&q=75"><time>19:00</time><div><b>Функциональный тренинг</b><span class="muted">Артём Ганиев, Зал 2, 55 мин</span></div><span class="tag tag-power">Сила</span><span class="spots full">Мест нет — встать в лист ожидания</span></li>
+      <li class="slot" data-reveal data-preview="https://images.unsplash.com/photo-1517438322307-e67111335449?w=640&h=440&fit=crop&auto=format&q=75"><time>20:30</time><div><b>Бокс для начинающих</b><span class="muted">Руслан Ибрагимов, Ринг, 60 мин</span></div><span class="tag tag-box">Бокс</span><span class="spots">Свободно 6 мест</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 5. ТРЕНЕРЫ: «выбор персонажа» ============ -->
+<section class="section crew">
+  <div class="wrap stack">
+    <div class="sec-head" data-reveal><h2>Выберите своего тренера</h2><a href="trenery.html">Все 6 тренеров</a></div>
+    <div class="crew-grid">
+      <a class="crew-card" href="trenery.html" data-reveal data-tilt><img src="https://images.unsplash.com/photo-1758875568932-0eefd3e60090?w=700&h=900&fit=crop&auto=format&q=75" alt="Артём Ганиев" loading="lazy"><span class="crew-tag">Сила</span><span class="crew-name">Артём<br>Ганиев</span><span class="crew-meta">Мастер спорта по пауэрлифтингу · 9 лет</span></a>
+      <a class="crew-card" href="trenery.html" data-reveal data-tilt><img src="https://images.unsplash.com/photo-1708011108776-45ad9e625269?w=700&h=900&fit=crop&auto=format&q=75" alt="Ирина Котова" loading="lazy"><span class="crew-tag">Кардио</span><span class="crew-name">Ирина<br>Котова</span><span class="crew-meta">«−5 кг за 8 недель» · 7 лет</span></a>
+      <a class="crew-card" href="trenery.html" data-reveal data-tilt><img src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?w=700&h=900&fit=crop&auto=format&q=75" alt="Мария Лис" loading="lazy"><span class="crew-tag">Йога</span><span class="crew-name">Мария<br>Лис</span><span class="crew-meta">Yoga Alliance 500 · 12 лет</span></a>
+      <a class="crew-card" href="trenery.html" data-reveal data-tilt><img src="https://images.unsplash.com/photo-1570170609489-43197f518df0?w=700&h=900&fit=crop&auto=format&q=75" alt="Руслан Ибрагимов" loading="lazy"><span class="crew-tag">Бокс</span><span class="crew-name">Руслан<br>Ибрагимов</span><span class="crew-meta">КМС по боксу · 15 лет</span></a>
+      <a class="crew-card" href="trenery.html" data-reveal data-tilt><img src="https://images.unsplash.com/photo-1622629797619-c100e3e67e2e?w=700&h=900&fit=crop&auto=format&q=75" alt="Ольга Сидоренко" loading="lazy"><span class="crew-tag">Бассейн</span><span class="crew-name">Ольга<br>Сидоренко</span><span class="crew-meta">25 м кролем за 10 занятий · 10 лет</span></a>
+      <a class="crew-card" href="trenery.html" data-reveal data-tilt><img src="https://images.unsplash.com/photo-1683848644078-f339179c4ff6?w=700&h=900&fit=crop&auto=format&q=75" alt="Дарья Шмидт" loading="lazy"><span class="crew-tag">Пилатес</span><span class="crew-name">Дарья<br>Шмидт</span><span class="crew-meta">Реабилитолог · 6 лет</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. КОЛЛАЖ «24/7» ============
+     Текст стоит на месте, а кадры клуба пролетают мимо с разной скоростью. -->
+<section class="collage" id="collage">
+  <div class="collage-text">
+    <p class="collage-big">24/7</p>
+    <p class="collage-sub">Зал не закрывается даже 1 января. Вход по лицу за 1 секунду.</p>
+  </div>
+  <figure class="cf cf1" data-speed="0.35"><img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=700&h=900&fit=crop&auto=format&q=75" alt="Спортсмен подтягивается в полумраке" loading="lazy"></figure>
+  <figure class="cf cf2" data-speed="0.7"><img src="https://images.unsplash.com/photo-1773289338198-65476cc90fb2?w=800&h=600&fit=crop&auto=format&q=75" alt="Ринг в зале единоборств" loading="lazy"></figure>
+  <figure class="cf cf3" data-speed="0.5"><img src="https://images.unsplash.com/photo-1519315901367-f34ff9154487?w=800&h=600&fit=crop&auto=format&q=75" alt="Пловец на дорожке бассейна" loading="lazy"></figure>
+  <figure class="cf cf4" data-speed="0.9"><img src="https://images.unsplash.com/photo-1434847868581-86e8a2b8e7a3?w=700&h=900&fit=crop&auto=format&q=75" alt="Спортсменка со скрещёнными руками" loading="lazy"></figure>
+  <figure class="cf cf5" data-speed="0.4"><img src="https://images.unsplash.com/photo-1590487988256-9ed24133863e?w=800&h=600&fit=crop&auto=format&q=75" alt="Силовые рамы в чёрно-белом свете" loading="lazy"></figure>
+  <figure class="cf cf6" data-speed="0.75"><img src="https://images.unsplash.com/photo-1747239069226-55382c570116?w=700&h=900&fit=crop&auto=format&q=75" alt="Пилатес на реформере" loading="lazy"></figure>
+</section>
+
+<!-- ============ 7. ЦЕНА ============ -->
+<section class="price-band price-band--photo">
+  <div class="price-bg" aria-hidden="true"><img src="https://images.unsplash.com/photo-1637430308606-86576d8fef3c?w=2000&h=1200&fit=crop&auto=format&q=75" alt="" loading="lazy" data-parallax="0.2"></div>
+  <div class="wrap price-row">
+    <div class="stack-sm">
+      <p class="eyebrow">Безлимит 24/7 при оплате на год</p>
+      <p class="price-big"><b data-count="2600">2 600</b> ₽ <span>в месяц</span></p>
+      <p>Заморозка до 30 дней, если уедете или заболеете.</p>
+    </div>
+    <div class="hero-actions"><a class="btn btn--red" href="abonementy.html">Выбрать абонемент</a><a class="btn ghost" href="kontakty.html#trial">Сначала пробная</a></div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="stack-sm">
+        <a class="logo" href="index.html"><svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#1238C9"/><path d="M4 18h6l3-7 4 13 3-6h10" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/></svg><span>Пульс</span></a>
+        <p style="max-width:36ch;opacity:.75">Фитнес-клуб 24/7 в Самаре: 1 800 м² зала, бассейн 25 м и 64 групповых тренировки в неделю.</p>
+      </div>
+      <div><h4>Разделы</h4><a href="index.html">Клуб</a><a href="raspisanie.html">Расписание</a><a href="trenery.html">Тренеры</a><a href="abonementy.html">Абонементы</a><a href="kontakty.html">Контакты</a></div>
+      <div><h4>Связаться</h4><a href="tel:+78462100000">+7 (846) 210-00-00</a><a href="mailto:hello@puls-demo.ru">hello@puls-demo.ru</a><p style="opacity:.75;padding-top:4px">Самара, Московское шоссе, 87, ТЦ «Восход», 3 этаж<br>Круглосуточно, без выходных</p></div>
+    </div>
+    <div class="footer-note"><span>© <span data-year></span> Пульс. Демо-сайт для портфолио: компания, цены и контакты вымышлены.</span><a href="#top" onclick="window.scrollTo({top:0});return false">Наверх</a></div>
+  </div>
+</footer>
+<a class="btn mobile-cta" href="kontakty.html#trial">Пробная тренировка</a>
+<script src="assets/core.js"></script>
+<script src="assets/lenis.min.js"></script>
+<script src="assets/motion.js"></script>
+</body>
+</html>

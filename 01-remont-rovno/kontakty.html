@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Контакты — Ровно</title>
+<meta name="description" content="Вызов замерщика и контакты компании Ровно в Самаре">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232443E0'/%3E%3Cpath d='M6 20h20' stroke='%23F5C518' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="preconnect" href="https://images.unsplash.com">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="page-kontakty">
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="logo" href="index.html" aria-label="Ровно — на главную"><svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2443E0"/><path d="M7 21h20" stroke="#F5C518" stroke-width="3"/><circle cx="17" cy="21" r="3" fill="#F5C518"/></svg><span>Ровно</span></a>
+    <nav class="site-nav" id="nav" aria-label="Основное меню"><a href="index.html">Главная</a><a href="uslugi.html">Тарифы и цены</a><a href="raboty.html">Наши объекты</a><a href="kontakty.html" aria-current="page">Контакты</a><a class="btn nav-cta" href="kontakty.html#zamer">Вызвать замерщика</a></nav>
+    <a class="header-phone" href="tel:+78462000000">+7 (846) 200-00-00</a>
+    <a class="btn header-cta" href="kontakty.html#zamer">Вызвать замерщика</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню"><span></span></button>
+  </div>
+</header>
+<main>
+
+<section class="page-hero wrap stack">
+  <h1 data-reveal>Контакты</h1>
+  <p class="lead" data-reveal>Замер, смета и 3D-планировка — бесплатно, даже если не будете у нас ремонтировать.</p>
+</section>
+<section class="wrap contact-grid" style="padding-bottom:var(--s3)">
+  <form class="zamer-form stack" data-reveal id="zamer" data-form data-success="<b>Заявка на замер принята.</b> Прораб позвонит в течение 15 минут (Пн–Сб, 9:00–20:00) и предложит 3 варианта времени." novalidate>
+    <h2>Вызвать замерщика</h2>
+    <div class="form-body stack"><div class="field"><label for="f-name">Как к вам обращаться</label><input class="input" type="text" id="f-name" name="name" placeholder="Анна" autocomplete="name" required data-empty="Напишите имя — так замерщик к вам обратится"><span class="field-error" aria-live="polite"></span></div>
+<div class="field"><label for="f-phone">Телефон</label><input class="input" type="tel" id="f-phone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" inputmode="tel" required data-empty="Нужен телефон, чтобы согласовать время"><span class="field-error" aria-live="polite"></span></div>
+<div class="field"><label for="f-when">Когда удобно принять замерщика</label><select class="input" id="f-when" name="when"><option>В ближайшие будни</option><option>В выходные</option><option>Перезвоните, обсудим</option></select><span class="field-error" aria-live="polite"></span></div>
+<div class="field"><label for="f-note">Адрес или район и площадь (необязательно)</label><textarea class="input" id="f-note" name="note" placeholder="Промышленный район, 54 м², новостройка"></textarea><span class="field-error" aria-live="polite"></span></div>
+<div class="field"><label class="check"><input type="checkbox" name="agree" required checked> <span>Согласен на обработку персональных данных для обратного звонка</span></label><span class="field-error" aria-live="polite"></span></div><button class="btn" type="submit" data-loading="Отправляем заявку…">Вызвать замерщика</button></div>
+    <p class="form-status" role="status"></p>
+  </form>
+  <div class="stack">
+    <div class="contact-photo" data-reveal><img src="https://images.unsplash.com/photo-1523413363574-c30aa1c2a516?w=1100&h=690&fit=crop&auto=format&q=72" alt="Замерщик проверяет ровность стены" loading="lazy"><p class="banner-note">Замер — <b>1 час</b>, лазерный сканер и фото каждой стены</p></div>
+    <div class="stack-sm"><h3>Офис и шоурум материалов</h3><p>Самара, ул. Молодогвардейская, 151, офис 4<br>Пн–Сб 9:00–20:00</p></div>
+    <div class="stack-sm"><h3>Телефон</h3><p><a href="tel:+78462000000">+7 (846) 200-00-00</a></p></div>
+    <div class="map" aria-label="Схема проезда">
+      <svg viewBox="0 0 400 260"><rect width="400" height="260" fill="#E3E6E1"/><path d="M0 180 L400 120" stroke="#fff" stroke-width="22"/><path d="M140 0 L190 260" stroke="#fff" stroke-width="16"/><path d="M0 60 L400 40" stroke="#fff" stroke-width="10"/><rect x="230" y="60" width="70" height="40" fill="#D3D7D1"/><rect x="40" y="200" width="80" height="50" fill="#D3D7D1"/><path d="M0 240 Q 200 210 400 250 L400 260 L0 260Z" fill="#9CC3F0"/><circle cx="214" cy="140" r="14" fill="#2443E0"/><circle cx="214" cy="140" r="5" fill="#F5C518"/></svg>
+    </div>
+    <ol class="after-steps">
+      <li><b>Звонок за 15 минут.</b> Договоримся о времени замера.</li>
+      <li><b>Замер за 1 час.</b> Лазерный сканер, фото, пожелания.</li>
+      <li><b>Смета через 24 часа.</b> С ценой каждой позиции и графиком этапов.</li>
+    </ol>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="stack-sm">
+        <a class="logo" href="index.html"><svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2443E0"/><path d="M7 21h20" stroke="#F5C518" stroke-width="3"/><circle cx="17" cy="21" r="3" fill="#F5C518"/></svg><span>Ровно</span></a>
+        <p style="max-width:36ch;opacity:.75">Ремонтируем квартиры в Самаре под ключ: фиксированная смета, этапная оплата и гарантия 3 года на все работы.</p>
+      </div>
+      <div><h4>Разделы</h4><a href="index.html">Главная</a><a href="uslugi.html">Тарифы и цены</a><a href="raboty.html">Наши объекты</a><a href="kontakty.html">Контакты</a></div>
+      <div><h4>Связаться</h4><a href="tel:+78462000000">+7 (846) 200-00-00</a><a href="mailto:zamer@rovno-demo.ru">zamer@rovno-demo.ru</a><p style="opacity:.75;padding-top:4px">Самара, ул. Молодогвардейская, 151, офис 4<br>Пн–Сб 9:00–20:00</p></div>
+    </div>
+    <div class="footer-note"><span>© <span data-year></span> Ровно. Демо-сайт для портфолио: компания, цены и контакты вымышлены.</span><a href="#top" onclick="window.scrollTo({top:0});return false">Наверх</a></div>
+  </div>
+</footer>
+<a class="btn mobile-cta" href="kontakty.html#zamer">Вызвать замерщика</a>
+<script src="assets/core.js"></script>
+<script src="assets/motion.js"></script>
+
+</body>
+</html>

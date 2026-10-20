@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Филиалы и запись — Зелёная волна</title>
+<meta name="description" content="Филиалы автошколы Зелёная волна в Самаре и запись на обучение">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232A2D31'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%231FA35B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/cine.css">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="preconnect" href="https://images.unsplash.com">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="page-kontakty">
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="logo" href="index.html" aria-label="Зелёная волна — на главную"><svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#2A2D31"/><circle cx="12" cy="17" r="5" fill="#4A4E54"/><circle cx="23" cy="17" r="5" fill="#1FA35B"/></svg><span>Зелёная волна</span></a>
+    <nav class="site-nav" id="nav" aria-label="Основное меню"><a href="index.html">Автошкола</a><a href="kursy.html">Курсы и цены</a><a href="test.html">Тест ПДД</a><a href="kontakty.html" aria-current="page">Филиалы</a><a class="btn nav-cta" href="kontakty.html#zapis">Записаться на курс</a></nav>
+    <a class="header-phone" href="tel:+78462400000">+7 (846) 240-00-00</a>
+    <a class="btn header-cta" href="kontakty.html#zapis">Записаться на курс</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню"><span></span></button>
+  </div>
+</header>
+<main>
+
+<section class="page-hero wrap stack">
+  <h1 data-reveal>Филиалы и запись</h1>
+  <p class="lead" data-reveal>Три филиала с классами теории и автодром у Южного моста. Инструктор забирает от любого из них.</p>
+</section>
+<div class="banner wrap"><div class="banner-media"><img data-scale src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?w=2200&h=1100&fit=crop&auto=format&q=75" alt="Автодром и парковка с высоты"><p class="banner-note">Инструктор заберёт <b>от любого филиала</b></p></div></div>
+
+<section class="wrap contact-grid" style="padding-bottom:var(--s3)">
+  <form data-reveal class="zapis stack" id="zapis" data-form data-success="<b>Место в группе за вами.</b> Менеджер позвонит в течение 15 минут и расскажет, какие документы взять на первое занятие." novalidate>
+    <h2>Запись на курс</h2>
+    <div class="form-body stack"><div class="field"><label for="f-name">Имя</label><input class="input" type="text" id="f-name" name="name" placeholder="Как к вам обращаться" autocomplete="name" required data-empty="Напишите имя, чтобы мы знали, как к вам обращаться"><span class="field-error" aria-live="polite"></span></div>
+<div class="field"><label for="f-phone">Телефон</label><input class="input" type="tel" id="f-phone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" inputmode="tel" required data-empty="Укажите телефон — по нему подтвердим запись"><span class="field-error" aria-live="polite"></span></div>
+<div class="field"><label for="f-branch">Удобный филиал</label><select class="input" id="f-branch" name="branch"><option>Кировский — пр. Кирова, 304</option><option>Октябрьский — ул. Ново-Садовая, 160</option><option>Красноглинский — пос. Мехзавод, кв. 15, 9</option><option>Учусь онлайн, филиал не важен</option></select><span class="field-error" aria-live="polite"></span></div>
+<div class="field"><label for="f-cat">Категория</label><select class="input" id="f-cat" name="cat"><option>B — легковой</option><option>A — мотоцикл</option><option>BE — с прицепом</option></select><span class="field-error" aria-live="polite"></span></div>
+<div class="field"><label class="check"><input type="checkbox" name="agree" required checked> <span>Согласен на обработку персональных данных для обратного звонка</span></label><span class="field-error" aria-live="polite"></span></div><button class="btn" type="submit" data-loading="Записываем…">Записаться на курс</button></div>
+    <p class="form-status" role="status"></p>
+  </form>
+  <div class="stack"><div class="ph branch-photo" data-reveal><img src="https://images.unsplash.com/photo-1630406144797-821be1f35d75?w=1100&h=620&fit=crop&auto=format&q=75" alt="Инструктор принимает упражнение на площадке" loading="lazy"><p class="banner-note">Автодром <b>у Южного моста</b></p></div><ul class="branches"><li><h3>Кировский</h3><p>пр. Кирова, 304<br><span class="muted">Метро «Кировская», 4 минуты пешком. Пн–Сб 9:00–20:00</span></p></li><li><h3>Октябрьский</h3><p>ул. Ново-Садовая, 160<br><span class="muted">Остановка «Постников овраг». Пн–Пт 10:00–20:00</span></p></li><li><h3>Красноглинский</h3><p>пос. Мехзавод, квартал 15, 9<br><span class="muted">Рядом автодром и парковка. Пн–Сб 10:00–19:00</span></p></li></ul><p><a href="tel:+78462400000">+7 (846) 240-00-00</a> — единый номер для всех филиалов</p></div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="stack-sm">
+        <a class="logo" href="index.html"><svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#2A2D31"/><circle cx="12" cy="17" r="5" fill="#4A4E54"/><circle cx="23" cy="17" r="5" fill="#1FA35B"/></svg><span>Зелёная волна</span></a>
+        <p style="max-width:36ch;opacity:.75">Автошкола в Самаре: 3 филиала, 26 инструкторов и автодром у Южного моста. 87% учеников сдают в ГИБДД с первой попытки.</p>
+      </div>
+      <div><h4>Разделы</h4><a href="index.html">Автошкола</a><a href="kursy.html">Курсы и цены</a><a href="test.html">Тест ПДД</a><a href="kontakty.html">Филиалы</a></div>
+      <div><h4>Связаться</h4><a href="tel:+78462400000">+7 (846) 240-00-00</a><a href="mailto:uchis@volna-demo.ru">uchis@volna-demo.ru</a><p style="opacity:.75;padding-top:4px">Самара, пр. Кирова, 304, 2 этаж<br>Пн–Сб 9:00–20:00</p></div>
+    </div>
+    <div class="footer-note"><span>© <span data-year></span> Зелёная волна. Демо-сайт для портфолио: компания, цены и контакты вымышлены.</span><a href="#top" onclick="window.scrollTo({top:0});return false">Наверх</a></div>
+  </div>
+</footer>
+<a class="btn mobile-cta" href="kontakty.html#zapis">Записаться на курс</a>
+<script src="assets/core.js"></script>
+<script src="assets/lenis.min.js"></script>
+<script src="assets/cine.js"></script>
+
+</body>
+</html>
